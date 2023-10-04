@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="../assets/vendors/jquery-bar-rating/css-stars.css" />
@@ -88,16 +90,20 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
           <div class="navbar-menu-wrapper d-flex align-items-stretch">
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-chevron-double-left"></span>
             </button>
-          <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item nav-logout d-none d-md-block">
-                <button class="btn btn-sm btn-danger">Logout</button>
-              </li>
-          </ul>
-           </div>
-           </nav>
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+              <a class="navbar-brand brand-logo-mini" href="index.php"><img src="../assets/images/logo-mini.svg" alt="logo" /></a>
+            </div>
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item nav-logout d-none d-md-block">
+                    <button class="btn btn-sm btn-danger">Logout</button>
+                </li>
+            </ul>
+        </div>
+        </nav>
+           
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper pb-0">
