@@ -47,13 +47,13 @@
             <span class="nav-item-head">Navigation</span>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php">
               <i class="mdi mdi-compass-outline menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="patientrecord.html">
+            <a class="nav-link" href="patientrecord.php">
               <i class="mdi mdi-compass-outline menu-icon"></i>
               <span class="menu-title">Patient Record</span>
             </a>
@@ -93,7 +93,7 @@
               <span class="mdi mdi-chevron-double-left"></span>
             </button>
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-              <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../assets/images/logo-mini.svg" alt="logo" /></a>
+              <a class="navbar-brand brand-logo-mini" href="index.php"><img src="../assets/images/logo-mini.svg" alt="logo" /></a>
             </div>
            </div>
            </nav>
