@@ -19,6 +19,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Add your custom CSS and JavaScript below -->
     <style>
         /* Add your custom CSS styles here */
@@ -68,10 +70,10 @@
             </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="patientrecord.php">
-                <i class="mdi mdi-compass-outline menu-icon"></i>
-                <span class="menu-title">Patient Record</span>
-              </a>
+            <a class="nav-link" href="patientrecord.php">
+            <i class="fa fa-heartbeat" style="font-size:24px;"></i>
+              <span class="menu-title" style="margin-left: 10px;">Patient Record</span>
+            </a>
               </li>
           </li>
       </nav>
