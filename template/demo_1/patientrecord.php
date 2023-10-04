@@ -4,15 +4,30 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Plus Admin</title>
+    <title>Patient Record</title>
+    <!-- plugins:css -->
     <!-- plugins:css -->
     <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="../assets/vendors/jquery-bar-rating/css-stars.css" />
-    <link rel="stylesheet" href="../assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="path-to-your-css/bootstrap.min.css">
+    <script src="path-to-your-js/jquery.min.js"></script>
+    <script src="path-to-your-js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add your custom CSS and JavaScript below -->
+    <style>
+        /* Add your custom CSS styles here */
+        .custom-fieldset {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -96,20 +111,102 @@
            </div>
            </nav>
         <!-- partial -->
-        <div class="main-panel">
+               <div class="main-panel">
           <div class="content-wrapper pb-0">
-            <div class="page-header flex-wrap">
-              <div class="header-left">
-                <button class="btn btn-primary mb-2 mb-md-0 me-2"> Create new record</button>
-
-              </div>
-              <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
-                <div class="d-flex align-items-center">
-                  <input type="text" class="form-control border-0" placeholder="Search"/>
-                </div>
-              </div>
+          <div class="page-header flex-wrap">
+        <div class="header-left">
+            <button class="btn btn-primary mb-2 mb-md-0 me-2" data-toggle="modal" data-target="#patientModal">Create new record</button>
+        </div>
+        <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
+            <div class="d-flex align-items-center">
+                <input type="text" class="form-control border-0" placeholder="Search"/>
             </div>
-  
+        </div>
+    </div>
+
+    <!-- Modal for adding patient information -->
+    <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="patientModalLabel">Add Patient Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="custom-fieldset">
+                        <legend><h1><b>Patient Information</b></h1></legend>
+                        <!-- Your patient information form here -->
+                        <div class="nameage">
+                          <label for="firstName">First Name:</label>
+                          <input class="form-control" type="text" id="firstName" name="fname" placeholder="First Name">
+                          </div>
+
+                          <div class="nameage"><br>
+                          <label for="middleName">Middle Name:</label>
+                            <input class="form-control" type="text" id="middleName" name="mname" placeholder="Middle Name">
+                            </div>
+
+                          <div class="nameage"><br>
+                          <label for="lastName">Last Name:</label>
+                            <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
+                            </div>
+                            <div class="nameage"><br>
+                          <label for="lastName">Age:</label>
+                            <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex. 15">
+                            </div>
+                            <div class="nameage">
+                          <label for="lastName">Sex:</label><br>
+                          <input type="radio" name="sex" id="male" value="male" checked>
+                                 <label for="male">Male</label>
+                                    <input type="radio" name="sex" id="female" value="female">
+                                        <label for="female">Female</label>
+                            <div class="nameage">
+                          <label for="lastName">Civil Status:</label>
+                            <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex.Single">
+                            </div>
+                            <div class="nameage"><br>
+                          <label for="lastName">Address:</label>
+                            <input class="form-control" type="text" id="lastName" name="lname" placeholder="Iloilo City">
+                            </div>
+                            <div class="nameage"><br>
+                          <label for="lastName">Data Of Birth:</label><br><Mbr>
+                          <input type="date" id="dateOfBirth" name = "pDOB">
+                            </div>
+
+                        <!-- Rest of your form fields -->
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for handling form submission -->
+    <script>
+        // Function to handle form submission
+        function savePatientInformation() {
+            // Retrieve values from form fields
+            var firstName = $("#firstName").val();
+            var middleName = $("#middleName").val();
+            var lastName = $("#lastName").val();
+            var age = $("#age").val();
+            
+            // You can handle the form data here (e.g., send it to the server)
+            // For demonstration purposes, we'll simply log the values to the console
+            console.log("First Name: " + firstName);
+            console.log("Middle Name: " + middleName);
+            console.log("Last Name: " + lastName);
+            console.log("Age: " + age);
+
+            // Close the modal
+            $("#patientModal").modal("hide");
+        }
+    </script>
               <div class="col-xl-12 stretch-card grid-margin">
                 <div class="card">
                   <div class="card-body pb-0">
