@@ -243,15 +243,15 @@
                         $result = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($result)) { ?>
                           <tr>
-                            <td><?php echo $row['idtblemployee']; ?></td>
-                            <td><?= $row['firstname']; ?></td>
-                            <td><?= $row['lastname']; ?></td>
-                            <td><?= $row['middlename']; ?></td>
-                            <td><?= $row['designation']; ?></td>
-                            <td><?= $row['iddept']; ?></td>
+                            <td><?php echo $row["idtblemployee"]; ?></td>
+                            <td><?= $row["firstname"] ?></td>
+                            <td><?= $row["lastname"] ?></td>
+                            <td><?= $row["middlename"] ?></td>
+                            <td><?= $row["designation"] ?></td>
+                            <td><?= $row["iddept"] ?></td>
                             <td>
                               <a href="edit.php?id=<?php echo $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                              <a href="delete.php?id=<?= $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                              <a href="delete.php?id=<?= $row["idtblemployee"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
                             </td>
                           </tr>
                       <?php }

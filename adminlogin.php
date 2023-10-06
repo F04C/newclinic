@@ -1,11 +1,11 @@
 <?php
 
-require 'dbconn.php';
+require "dbconn.php";
 
-if (isset($_POST['btnSignin'])) {
-    if (isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
-        $usernameInput = $_POST['inputUsername'];
-        $userpassInput = $_POST['inputPassword'];
+if (isset($_POST["btnSignin"])) {
+    if (isset($_POST["inputUsername"]) && isset($_POST["inputPassword"])) {
+        $usernameInput = $_POST["inputUsername"];
+        $userpassInput = $_POST["inputPassword"];
 
         // SQL syntax to retrieve user information, including the role
         $sql = "SELECT username, password, isAdmin, isSec, isDoc
@@ -28,21 +28,21 @@ if (isset($_POST['btnSignin'])) {
 
                         // Create sessions
                         session_start();
-                        $_SESSION['username'] = $record['username'];
-                        $_SESSION['userid'] = $record['iduser'];
+                        $_SESSION["username"] = $record["username"];
+                        $_SESSION["userid"] = $record["iduser"];
 
                         // Store user roles in the session
-                        $_SESSION['isAdmin'] = $record['isAdmin'];
-                        $_SESSION['isSec'] = $record['isSec'];
-                        $_SESSION['isDoc'] = $record['isDoc'];
+                        $_SESSION["isAdmin"] = $record["isAdmin"];
+                        $_SESSION["isSec"] = $record["isSec"];
+                        $_SESSION["isDoc"] = $record["isDoc"];
 
                         // Redirect to the appropriate page based on user role
-                        if ($record['isAdmin'] == 1) {
-                            header('Location: index.php');
-                        } elseif ($record['isDoc'] == 1) {
-                            header('Location: index.php');
-                        } elseif ($record['isSec'] == 1) {
-                            header('Location: index.php');
+                        if ($record["isAdmin"] == 1) {
+                            header("Location: index.php");
+                        } elseif ($record["isDoc"] == 1) {
+                            header("Location: index.php");
+                        } elseif ($record["isSec"] == 1) {
+                            header("Location: index.php");
                         } else {
                             // Handle other roles or scenarios as needed
                             echo "Unknown user role!";
@@ -54,7 +54,7 @@ if (isset($_POST['btnSignin'])) {
                     echo "Query execution error!";
                 }
             } catch (Exception $e) {
-                echo 'Error' . $e;
+                echo "Error" . $e;
             }
         } else {
             echo "Database connection error!";
@@ -63,5 +63,5 @@ if (isset($_POST['btnSignin'])) {
         echo "Username and password are required.";
     }
 } else {
-    header('Location: login.php');
+    header("Location: login.php");
 }
