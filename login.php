@@ -31,12 +31,12 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 
-						<form action="adminlogin.php" class="signin-form">
+						<form action="adminlogin.php" class="signin-form" method="POST">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Username" required>
+								<input type="text" class="form-control" placeholder="Username" name="inputUsername" required>
 							</div>
 							<div class="form-group">
-								<input id="password-field" type="password" class="form-control" placeholder="Password" required>
+								<input id="password-field" type="password" class="form-control" name="inputPassword" placeholder="Password" required>
 								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 							</div>
 							<div class="form-group">
@@ -60,11 +60,6 @@
 			</div>
 		</div>
 	</section>
-
-	<script src="/loginassets/js/jquery.min.js"></script>
-	<script src="/loginassets/js/popper.js"></script>
-	<script src="/loginassets/js/bootstrap.min.js"></script>
-	<script src="/loginassets/js/main.js"></script>
 
 </body>
 
