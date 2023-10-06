@@ -38,7 +38,7 @@ if (isset($_POST["btnSignin"])) {
 
                         // Redirect to the appropriate page based on user role
                         if ($record["isAdmin"] == 1) {
-                            header("Location: index.php");
+                            header("Location: adminindex.php");
                         } elseif ($record["isDoc"] == 1) {
                             header("Location: index.php");
                         } elseif ($record["isSec"] == 1) {

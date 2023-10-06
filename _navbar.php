@@ -95,34 +95,12 @@
       </li>
     </ul>
     <ul class="navbar-nav navbar-nav-right">
-      <li class="nav-item nav-logout d-none d-md-block me-3">
-        <a class="nav-link" href="#">Status</a>
-      </li>
       <li class="nav-item nav-logout d-none d-md-block">
-        <button class="btn btn-sm btn-danger">Trailing</button>
+        <form action="logout.php" method="post">
+          <button type="submit" class="btn btn-sm btn-danger">Logout</button>
+        </form>
       </li>
-      <li class="nav-item nav-profile dropdown d-none d-md-block">
-        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-          <div class="nav-profile-text">English </div>
-        </a>
-        <div class="dropdown-menu center navbar-dropdown" aria-labelledby="profileDropdown">
-          <a class="dropdown-item" href="#">
-            <i class="flag-icon flag-icon-bl me-3"></i> French </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-            <i class="flag-icon flag-icon-cn me-3"></i> Chinese </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-            <i class="flag-icon flag-icon-de me-3"></i> German </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-            <i class="flag-icon flag-icon-ru me-3"></i>Russian </a>
-        </div>
-      </li>
-      <li class="nav-item nav-logout d-none d-lg-block">
-        <a class="nav-link" href="index.html">
-          <i class="mdi mdi-home-circle"></i>
-        </a>
+
       </li>
     </ul>
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
