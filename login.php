@@ -17,8 +17,6 @@
 
 	<link rel="stylesheet" href="loginassets/css/style.css">
 
-	/loginassets/css/style.css
-
 </head>
 
 <body class="img js-fullheight" style="background-image: url(loginassets/images/bg.jpg);">
@@ -33,7 +31,7 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 
-						<form action="#" class="signin-form">
+						<form action="adminlogin.php" class="signin-form">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Username" required>
 							</div>
@@ -42,7 +40,7 @@
 								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 							</div>
 							<div class="form-group">
-								<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+								<button type="submit" class="form-control btn btn-primary submit px-3" name="btnSignin">Sign In</button>
 							</div>
 							<div class="form-group d-md-flex">
 								<div class="w-50">
