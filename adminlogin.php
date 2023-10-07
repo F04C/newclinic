@@ -8,9 +8,17 @@ if (isset($_POST["btnSignin"])) {
         $userpassInput = $_POST["inputPassword"];
 
         // SQL syntax to retrieve user information, including the role
-        $sql = "SELECT username, password, isAdmin, isSec, isDoc
+        /*$sql = "SELECT username, password, isAdmin, isSec, isDoc
         FROM tbluserauth
-        JOIN tbluserroles";
+        JOIN tbluserroles";*/
+        $sql = "SELECT u.username, u.password, r.isAdmin, r.isSec, r.isDoc
+        FROM tbluserauth AS u
+        JOIN tbluserroles AS r ON u.userid = r.roleid
+        WHERE u.username = '" . $usernameInput . "' AND u.password = '" . $userpassInput . "';";
+
+
+
+
 
         // Connect to the database server
         if ($conn) {

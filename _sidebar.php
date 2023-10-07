@@ -12,6 +12,7 @@
         </div>
       </a>
     </li>
+
     <li class="nav-item pt-3">
       <form class="d-flex align-items-center" action="#">
         <div class="input-group">
@@ -27,6 +28,20 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
+    <?php
+    // Check if the user is an admin and not a secretary or doctor
+    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1 && (!isset($_SESSION['isSec']) || $_SESSION['isSec'] != 1) && (!isset($_SESSION['isDoc']) || $_SESSION['isDoc'] != 1)) {
+    ?>
+      <li class="nav-item">
+        <a class="nav-link" href="adduser.php">
+          <i class="mdi mdi-compass-outline menu-icon"></i>
+          <span class="menu-title">Add User</span>
+        </a>
+      </li>
+    <?php
+    }
+    ?>
+
     <li class="nav-item">
       <a class="nav-link" href="patientrecord.php">
         <i class="fa fa-heartbeat" style="font-size:24px;"></i>

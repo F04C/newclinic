@@ -1,3 +1,7 @@
+<?php
+include 'dbconn.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -181,17 +185,33 @@
                     </thead>
                     <tr>
                       <?php
-                      $sql = "SELECT * FROM `tblemployee`";
+                      $sql = "SELECT 
+                      p.fname AS PatientFirstName,
+                      p.mname AS PatientMiddleName,
+                      p.lname AS PatientLastName,
+                      TIMESTAMPDIFF(YEAR, p.dateofbirth, CURDATE()) AS Age,
+                      p.sex AS Sex,
+                      d.fname AS DoctorAppointed,
+                      a.date AS PreviousAppointmentDate
+                  FROM 
+                      tblappointment a
+                  JOIN 
+                      tblpatient p ON a.tblpatient_patientid = p.patientid
+                  JOIN 
+                      tbldoctor d ON a.tbldoctor_doctorid = d.doctorid
+                  ORDER BY 
+                      a.date DESC;";
                       try {
                         $result = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                      <td><?php echo $row["idtblemployee"]; ?></td>
-                      <td><?= $row["firstname"] ?></td>
-                      <td><?= $row["lastname"] ?></td>
-                      <td><?= $row["middlename"] ?></td>
-                      <td><?= $row["designation"] ?></td>
-                      <td><?= $row["iddept"] ?></td>
+                      <td><?php echo $row["PatientFirstName"]; ?></td>
+                      <td><?= $row["PatientMiddleName"] ?></td>
+                      <td><?= $row["PatientLastName"] ?></td>
+                      <td><?= $row["Age"] ?></td>
+                      <td><?= $row["Sex"] ?></td>
+                      <td><?= $row["DoctorAppointed"] ?></td>
+                      <td><?= $row["PreviousAppointmentDate"] ?></td>
                       <td>
                         <a href="edit.php?id=<?php echo $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
                         <a href="delete.php?id=<?= $row["idtblemployee"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
