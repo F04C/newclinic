@@ -173,6 +173,7 @@ require 'dbconn.php';
                                     <table class="table custom-table text-dark">
                                         <thead>
                                             <tr>
+                                                <!-- display column names for users -->
                                                 <th>FirstName</th>
                                                 <th>MiddleName</th>
                                                 <th>LastName</th>
