@@ -186,21 +186,22 @@ include 'dbconn.php';
                     <tr>
                       <?php
                       $sql = "SELECT 
-                      p.fname AS PatientFirstName,
-                      p.mname AS PatientMiddleName,
-                      p.lname AS PatientLastName,
-                      TIMESTAMPDIFF(YEAR, p.dateofbirth, CURDATE()) AS Age,
-                      p.sex AS Sex,
-                      d.fname AS DoctorAppointed,
-                      a.date AS PreviousAppointmentDate
-                  FROM 
-                      tblappointment a
-                  JOIN 
-                      tblpatient p ON a.tblpatient_patientid = p.patientid
-                  JOIN 
-                      tbldoctor d ON a.tbldoctor_doctorid = d.doctorid
-                  ORDER BY 
-                      a.date DESC;";
+                                p.patientid AS PatientID,
+                                p.fname AS PatientFirstName,
+                                p.mname AS PatientMiddleName,
+                                p.lname AS PatientLastName,
+                                TIMESTAMPDIFF(YEAR, p.dateofbirth, CURDATE()) AS Age,
+                                p.sex AS Sex,
+                                d.fname AS DoctorAppointed,
+                                a.date AS PreviousAppointmentDate
+                            FROM 
+                                tblappointment a
+                            JOIN 
+                                tblpatient p ON a.tblpatient_patientid = p.patientid
+                            JOIN 
+                                tbldoctor d ON a.tbldoctor_doctorid = d.doctorid
+                            ORDER BY 
+                                a.date DESC;";
                       try {
                         $result = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -213,8 +214,10 @@ include 'dbconn.php';
                       <td><?= $row["DoctorAppointed"] ?></td>
                       <td><?= $row["PreviousAppointmentDate"] ?></td>
                       <td>
-                        <a href="edit.php?id=<?php echo $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                        <a href="delete.php?id=<?= $row["idtblemployee"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                        <!-- not displaying icon-->
+                        <a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
+
+                        <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
                       </td>
                     </tr>
                 <?php }
