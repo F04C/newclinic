@@ -38,11 +38,18 @@
     }
     ?>
 
-    <li class="nav-item">
-      <a class="nav-link" href="patientrecord.php">
-        <i class="fa fa-heartbeat" style="font-size:24px;"></i>
-        <span class="menu-title" style="margin-left: 10px;">Patient Record</span>
-      </a>
-    </li>
+    <?php
+    if (isset($_SESSION['isSec']) && $_SESSION['isSec'] == 1 && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) && (!isset($_SESSION['isDoc']) || $_SESSION['isDoc'] != 1)) {
+    ?>
+      <li class="nav-item">
+        <a class="nav-link" href="patientrecord.php">
+          <i class="fa fa-heartbeat" style="font-size:24px;"></i>
+          <span class="menu-title" style="margin-left: 10px;">Patient Record</span>
+        </a>
+      </li>
+    <?php
+    }
+    ?>
+
     </li>
 </nav>

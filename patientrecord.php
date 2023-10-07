@@ -42,78 +42,13 @@
 
 <body>
   <div class="container-scroller">
-    <!-- partial:partials/_sidebar.html -->
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
-      <ul class="nav">
-        <li class="nav-item nav-profile border-bottom">
-          <a href="#" class="nav-link flex-column">
-            <div class="nav-profile-image">
-              <img src="assets/images/faces/face1.jpg" alt="profile" />
-              <!--change to offline or busy as needed-->
-            </div>
-            <div class="nav-profile-text d-flex ms-0 mb-3 flex-column">
-              <span class="font-weight-semibold mb-1 mt-2 text-center">Admin</span>
-            </div>
-          </a>
-        </li>
-        <li class="nav-item pt-3">
-          <form class="d-flex align-items-center" action="#">
-            <div class="input-group">
-              <div class="input-group-prepend">
-          </form>
-        </li>
-        <li class="pt-2 pb-1">
-          <span class="nav-item-head">Navigation</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">
-            <i class="mdi mdi-compass-outline menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="patientrecord.php">
-            <i class="fa fa-heartbeat" style="font-size:24px;"></i>
-            <span class="menu-title" style="margin-left: 10px;">Patient Record</span>
-          </a>
-        </li>
-        </li>
-    </nav>
-    <!-- partial -->
+    <!-- partial:partials/_sidebar.php -->
+    <?php include "_sidebar.php"; ?>
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_settings-panel.html -->
-      <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
-      <div id="theme-settings" class="settings-panel">
-        <i class="settings-close mdi mdi-close"></i>
-        <p class="settings-heading">SIDEBAR SKINS</p>
-        <div class="sidebar-bg-options selected" id="sidebar-default-theme">
-          <div class="img-ss rounded-circle bg-light border me-3"></div>Default
-        </div>
-        <div class="sidebar-bg-options" id="sidebar-dark-theme">
-          <div class="img-ss rounded-circle bg-dark border me-3"></div>Dark
-        </div>
-        <p class="settings-heading mt-2">HEADER SKINS</p>
-        <div class="color-tiles mx-0 px-4">
-          <div class="tiles default primary"></div>
-          <div class="tiles success"></div>
-          <div class="tiles warning"></div>
-          <div class="tiles danger"></div>
-          <div class="tiles info"></div>
-          <div class="tiles dark"></div>
-          <div class="tiles light"></div>
-        </div>
-      </div>
-      <!-- partial -->
-      <!-- partial:partials/_navbar.html -->
-      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="navbar-menu-wrapper d-flex align-items-stretch">
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-logout d-none d-md-block">
-              <button class="btn btn-sm btn-danger">Logout</button>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <!-- partial:partials/_settings-panel.php -->
+      <?php include "_settings-panel.php"; ?>
+      <!-- partial:partials/_navbar.php -->
+      <?php include "_navbar.php"; ?>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper pb-0">
