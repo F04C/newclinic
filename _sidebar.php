@@ -1,4 +1,3 @@
-<!-- partial:partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item nav-profile border-bottom">
@@ -22,13 +21,10 @@
     <li class="pt-2 pb-1">
       <span class="nav-item-head">Navigation</span>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="index.php">
-        <i class="mdi mdi-compass-outline menu-icon"></i>
-        <span class="menu-title">Dashboard</span>
-      </a>
-    </li>
     <?php
+
+    session_start();
+
     // Check if the user is an admin and not a secretary or doctor
     if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1 && (!isset($_SESSION['isSec']) || $_SESSION['isSec'] != 1) && (!isset($_SESSION['isDoc']) || $_SESSION['isDoc'] != 1)) {
     ?>
