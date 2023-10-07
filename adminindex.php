@@ -62,6 +62,7 @@ require 'dbconn.php';
                 <div class="content-wrapper pb-0">
                     <div class="page-header flex-wrap">
                         <div class="header-left">
+                            <!--create modal for adding users on the db -->
                             <button class="btn btn-primary mb-2 mb-md-0 me-2" data-toggle="modal" data-target="#patientModal">Create new record</button>
                         </div>
                         <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
