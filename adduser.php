@@ -88,6 +88,8 @@ require 'dbconn.php';
                                         <legend>
                                             <h1><b>Add User</b></h1>
                                         </legend>
+                                        <!--change the class for each or create a new class -->
+                                        <!--doesn't have a nameage class on css/demo_1/style.css-->
                                         <div class="nameage">
                                             <label for="firstName">First Name:</label>
                                             <input class="form-control" type="text" id="firstName" name="fname" placeholder="First Name">
@@ -107,34 +109,34 @@ require 'dbconn.php';
                                             <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex. 09123456789">
                                         </div>
                                         <div class="nameage">
-                                                <div class="nameage"><br>
-                                                    <label for="lastName">User position:</label><br>
-                                                    <input type="radio" name="UserPos" id="sec" value="sec" checked>
-                                                    <label for="female">Secretary</label>
-                                                    <input type="radio" name="UserPos" id="doctor" value="doctor">
-                                                    <label for="male">Doctor</label>
-                                                </div>
-                                                <div class="nameage" id="specializationDiv">
-                                                    <label for="lastName">Specialization:</label>
-                                                    <input class="form-control" type="text" id="specialization" name="lname" placeholder="Ex. Single">
-                                                </div>
-                                                <div class="nameage" id="licenseDiv"><br>
-                                                    <label for="lastName">License Number:</label>
-                                                    <input class="form-control" type="text" id="license" name="lname" placeholder="Iloilo City">
-                                                </div>
                                             <div class="nameage"><br>
-                                            <label for="lastName">User Name:</label>
-                                                    <input class="form-control" type="text" id="UName" name="lname" placeholder="User Name">
-                                        </div>
-                                        <div class="nameage"><br>
-                                                     <label for="pass">Password:</label>
-                                                        <div class="password-input-container">
-                                                        <input class="form-control" type="password" id="pass" name="password" placeholder="Password">
-                                                 <button id="togglePassword" type="button" onclick="togglePasswordVisibility()">
-                                                         <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
-                                                          </button>
-                                                            </div>
-                                                    </div>
+                                                <label for="lastName">User position:</label><br>
+                                                <input type="radio" name="UserPos" id="sec" value="sec" checked>
+                                                <label for="female">Secretary</label>
+                                                <input type="radio" name="UserPos" id="doctor" value="doctor">
+                                                <label for="male">Doctor</label>
+                                            </div>
+                                            <div class="nameage" id="specializationDiv">
+                                                <label for="lastName">Specialization:</label>
+                                                <input class="form-control" type="text" id="specialization" name="lname" placeholder="Ex. Single">
+                                            </div>
+                                            <div class="nameage" id="licenseDiv"><br>
+                                                <label for="lastName">License Number:</label>
+                                                <input class="form-control" type="text" id="license" name="lname" placeholder="Iloilo City">
+                                            </div>
+                                            <div class="nameage"><br>
+                                                <label for="lastName">User Name:</label>
+                                                <input class="form-control" type="text" id="UName" name="lname" placeholder="User Name">
+                                            </div>
+                                            <div class="nameage"><br>
+                                                <label for="pass">Password:</label>
+                                                <div class="password-input-container">
+                                                    <input class="form-control" type="password" id="pass" name="password" placeholder="Password">
+                                                    <button id="togglePassword" type="button" onclick="togglePasswordVisibility()">
+                                                        <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
 
 
 
