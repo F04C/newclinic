@@ -132,11 +132,11 @@ require 'dbconn.php';
                                         </div>
                                         <div class="nameage">
                                                 <div class="nameage"><br>
-                                                    <label for="lastName">User positio:n</label><br>
-                                                    <input type="radio" name="UserPos" id="doctor" value="doctor" checked>
-                                                    <label for="male">Doctor</label>
-                                                    <input type="radio" name="UserPos" id="sec" value="sec">
+                                                    <label for="lastName">User position:</label><br>
+                                                    <input type="radio" name="UserPos" id="sec" value="sec" checked>
                                                     <label for="female">Secretary</label>
+                                                    <input type="radio" name="UserPos" id="doctor" value="doctor">
+                                                    <label for="male">Doctor</label>
                                                 </div>
                                                 <div class="nameage" id="specializationDiv">
                                                     <label for="lastName">Specialization:</label>
@@ -146,7 +146,7 @@ require 'dbconn.php';
                                                     <label for="lastName">License Number:</label>
                                                     <input class="form-control" type="text" id="license" name="lname" placeholder="Iloilo City">
                                                 </div>
-                                            <div class="nameage">
+                                            <div class="nameage"><br>
                                             <label for="lastName">User Name:</label>
                                                     <input class="form-control" type="text" id="UName" name="lname" placeholder="User Name">
                                         </div>
@@ -255,39 +255,39 @@ require 'dbconn.php';
                     <!-- Custom js for this page -->
                     <script src="assets/js/dashboard.js"></script>
                     <script>
-    function togglePasswordVisibility() {
-        var passwordField = document.getElementById("pass");
-        var eyeIcon = document.getElementById("eyeIcon");
+                        function togglePasswordVisibility() {
+                            var passwordField = document.getElementById("pass");
+                            var eyeIcon = document.getElementById("eyeIcon");
 
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            eyeIcon.classList.remove("fa-eye");
-            eyeIcon.classList.add("fa-eye-slash");
-        } else {
-            passwordField.type = "password";
-            eyeIcon.classList.remove("fa-eye-slash");
-            eyeIcon.classList.add("fa-eye");
-        }
-    }
-    var doctorRadio = document.getElementById("doctor");
-    var secRadio = document.getElementById("sec");
-    var specializationDiv = document.getElementById("specializationDiv");
-    var licenseDiv = document.getElementById("licenseDiv");
+                            if (passwordField.type === "password") {
+                                passwordField.type = "text";
+                                eyeIcon.classList.remove("fa-eye");
+                                eyeIcon.classList.add("fa-eye-slash");
+                            } else {
+                                passwordField.type = "password";
+                                eyeIcon.classList.remove("fa-eye-slash");
+                                eyeIcon.classList.add("fa-eye");
+                            }
+                        }
+                        var doctorRadio = document.getElementById("doctor");
+                        var secRadio = document.getElementById("sec");
+                        var specializationDiv = document.getElementById("specializationDiv");
+                        var licenseDiv = document.getElementById("licenseDiv");
 
-    // Initially hide the specialization and license inputs and labels
-    specializationDiv.style.display = "none";
-    licenseDiv.style.display = "none";
+                        // Initially hide the specialization and license inputs and labels
+                        specializationDiv.style.display = "none";
+                        licenseDiv.style.display = "none";
 
-    // Add an event listener to the radio buttons
-    doctorRadio.addEventListener("change", function () {
-        specializationDiv.style.display = "block";
-        licenseDiv.style.display = "block";
-    });
+                        // Add an event listener to the radio buttons
+                        doctorRadio.addEventListener("change", function () {
+                            specializationDiv.style.display = "block";
+                            licenseDiv.style.display = "block";
+                        });
 
-    secRadio.addEventListener("change", function () {
-        specializationDiv.style.display = "none";
-        licenseDiv.style.display = "none";
-    });
+                        secRadio.addEventListener("change", function () {
+                            specializationDiv.style.display = "none";
+                            licenseDiv.style.display = "none";
+                        });
 </script>
                     <!-- End custom js for this page -->
 </body>
