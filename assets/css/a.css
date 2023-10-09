@@ -1,0 +1,24 @@
+        /* Add your custom CSS styles here */
+        .custom-fieldset {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+    .password-input-container {
+        position: relative;
+    }
+
+    .form-control-password {
+        padding-right: 40px; /* Adjust this value as needed to fit the icon */
+    }
+
+    #togglePassword {
+        position: absolute;
+        right: 5px; /* Adjust the button's position as needed */
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }

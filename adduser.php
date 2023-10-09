@@ -25,34 +25,9 @@ require 'dbconn.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <!-- Add your custom CSS and JavaScript below -->
-    <style>
-        /* Add your custom CSS styles here */
-        .custom-fieldset {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-        }
 
-    .password-input-container {
-        position: relative;
-    }
-
-    .form-control-password {
-        padding-right: 40px; /* Adjust this value as needed to fit the icon */
-    }
-
-    #togglePassword {
-        position: absolute;
-        right: 5px; /* Adjust the button's position as needed */
-        top: 50%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    </style>
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="assets/vendors/jquery-bar-rating/css-stars.css" />
@@ -110,7 +85,7 @@ require 'dbconn.php';
                                 <div class="modal-body">
                                     <fieldset class="custom-fieldset">
                                         <legend>
-                                            <h1><b>User Add</b></h1>
+                                            <h1><b>Add User</b></h1>
                                         </legend>
                                         <div class="nameage">
                                             <label for="firstName">First Name:</label>
@@ -150,7 +125,7 @@ require 'dbconn.php';
                                             <label for="lastName">User Name:</label>
                                                     <input class="form-control" type="text" id="UName" name="lname" placeholder="User Name">
                                         </div>
-                                        <div class="nameage">
+                                        <div class="nameage"><br>
                                                      <label for="pass">Password:</label>
                                                         <div class="password-input-container">
                                                         <input class="form-control" type="password" id="pass" name="password" placeholder="Password">
@@ -254,41 +229,8 @@ require 'dbconn.php';
                     <!-- endinject -->
                     <!-- Custom js for this page -->
                     <script src="assets/js/dashboard.js"></script>
-                    <script>
-                        function togglePasswordVisibility() {
-                            var passwordField = document.getElementById("pass");
-                            var eyeIcon = document.getElementById("eyeIcon");
+                    <script src="assets\js\a.js"></script>
 
-                            if (passwordField.type === "password") {
-                                passwordField.type = "text";
-                                eyeIcon.classList.remove("fa-eye");
-                                eyeIcon.classList.add("fa-eye-slash");
-                            } else {
-                                passwordField.type = "password";
-                                eyeIcon.classList.remove("fa-eye-slash");
-                                eyeIcon.classList.add("fa-eye");
-                            }
-                        }
-                        var doctorRadio = document.getElementById("doctor");
-                        var secRadio = document.getElementById("sec");
-                        var specializationDiv = document.getElementById("specializationDiv");
-                        var licenseDiv = document.getElementById("licenseDiv");
-
-                        // Initially hide the specialization and license inputs and labels
-                        specializationDiv.style.display = "none";
-                        licenseDiv.style.display = "none";
-
-                        // Add an event listener to the radio buttons
-                        doctorRadio.addEventListener("change", function () {
-                            specializationDiv.style.display = "block";
-                            licenseDiv.style.display = "block";
-                        });
-
-                        secRadio.addEventListener("change", function () {
-                            specializationDiv.style.display = "none";
-                            licenseDiv.style.display = "none";
-                        });
-</script>
                     <!-- End custom js for this page -->
 </body>
 
