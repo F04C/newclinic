@@ -127,12 +127,12 @@ require 'dbconn.php';
                                             <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
                                         </div>
                                         <div class="nameage"><br>
-                                            <label for="lastName">Phone Number</label>
+                                            <label for="lastName">Phone Number:</label>
                                             <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex. 09123456789">
                                         </div>
                                         <div class="nameage">
-                                                <div class="nameage">
-                                                    <label for="lastName">User position</label><br>
+                                                <div class="nameage"><br>
+                                                    <label for="lastName">User positio:n</label><br>
                                                     <input type="radio" name="UserPos" id="doctor" value="doctor" checked>
                                                     <label for="male">Doctor</label>
                                                     <input type="radio" name="UserPos" id="sec" value="sec">
