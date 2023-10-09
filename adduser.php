@@ -106,27 +106,27 @@ require 'dbconn.php';
                                         </div>
                                         <div class="nameage"><br>
                                             <label for="lastName">Phone Number:</label>
-                                            <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex. 09123456789">
+                                            <input class="form-control" type="text" id="lastName" name="phonenum" placeholder="Ex. 09123456789">
                                         </div>
                                         <div class="nameage">
                                             <div class="nameage"><br>
                                                 <label for="lastName">User position:</label><br>
-                                                <input type="radio" name="UserPos" id="sec" value="sec" checked>
+                                                <input type="radio" name="UserPos" id="sec" name="role-sec" value="sec" checked>
                                                 <label for="female">Secretary</label>
-                                                <input type="radio" name="UserPos" id="doctor" value="doctor">
+                                                <input type="radio" name="UserPos" id="doctor" name="role-doc" value="doctor">
                                                 <label for="male">Doctor</label>
                                             </div>
                                             <div class="nameage" id="specializationDiv">
                                                 <label for="lastName">Specialization:</label>
-                                                <input class="form-control" type="text" id="specialization" name="lname" placeholder="Ex. Single">
+                                                <input class="form-control" type="text" id="specialization" name="specialization" placeholder="Ex. General Medicine">
                                             </div>
                                             <div class="nameage" id="licenseDiv"><br>
                                                 <label for="lastName">License Number:</label>
-                                                <input class="form-control" type="text" id="license" name="lname" placeholder="Iloilo City">
+                                                <input class="form-control" type="text" id="license" name="licno" placeholder="Ex. 123456789">
                                             </div>
                                             <div class="nameage"><br>
                                                 <label for="lastName">User Name:</label>
-                                                <input class="form-control" type="text" id="UName" name="lname" placeholder="User Name">
+                                                <input class="form-control" type="text" id="UName" name="username" placeholder="User Name">
                                             </div>
                                             <div class="nameage"><br>
                                                 <label for="pass">Password:</label>
@@ -202,8 +202,12 @@ require 'dbconn.php';
                                             ?>
                                             <tbody>
                                             </tbody>
-                                            <tfooter>
-                                            </tfooter>
+                                        </tr>
+
+
+                                        <tfooter>
+
+                                        </tfooter>
                                     </table>
                                 </div>
                             </div>
