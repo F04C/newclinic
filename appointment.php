@@ -58,7 +58,7 @@ require 'dbconn.php';
                         </div>
                         <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
                             <div class="d-flex align-items-center">
-                                <input type="text" class="form-control border-0" placeholder="Search"/>
+                                <input type="text" class="form-control border-0" placeholder="Search" />
                             </div>
                         </div>
                     </div>
@@ -138,52 +138,65 @@ require 'dbconn.php';
                     <div class="col-xl-12 stretch-card grid-margin">
                         <div class="card">
                             <div class="card-body pb-0">
-                                <h4 class="card-title mb-0">Users</h4>
+                                <h4 class="card-title mb-0">Patients</h4>
                             </div>
                             <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table custom-table text-dark">
-                    <thead>
-                      <tr>
-                        <th>FirstName</th>
-                        <th>MiddleName</th>
-                        <th>LastName</th>
-                        <th>Age</th>
-                        <th>Sex</th>
-                        <th>Civil Status</th>
-                        <th>Address</th>
-                        <th>Date Of Birth</th>
-                        <th>action</th>
-                      </tr>
-                    </thead>
+                                <div class="table-responsive">
+                                    <table class="table custom-table text-dark">
+                                        <thead style="text-align:center;">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Sex</th>
+                                                <th>Civil Status</th>
+                                                <th>Address</th>
+                                                <th>Doctor Appointed</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
 
-                    <tbody>
-                      <?php
-                      $sql = "SELECT * FROM `tblemployee`";
-                      try {
-                        $result = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) { ?>
-                          <tr>
-                            <td><?php echo $row["idtblemployee"]; ?></td>
-                            <td><?= $row["firstname"] ?></td>
-                            <td><?= $row["lastname"] ?></td>
-                            <td><?= $row["middlename"] ?></td>
-                            <td><?= $row["designation"] ?></td>
-                            <td><?= $row["iddept"] ?></td>
-                            <td>
-                              <a href="edit.php?id=<?php echo $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                              <a href="delete.php?id=<?= $row["idtblemployee"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
-                            </td>
-                          </tr>
-                      <?php }
-                      } catch (Exception $e) {
-                        echo "Error: " . $e->getMessage();
-                      }
-                      ?>
-                                            <tbody>
-                                            </tbody>
-                                            <tfooter>
-                                            </tfooter>
+                                        <tbody>
+                                            <?php
+                                            $sql = "SELECT 
+                                            CONCAT(p.fname, ' ', p.mname, ' ', p.lname) AS PatientFullName,
+                                            p.sex AS Sex,
+                                            p.civilstatus AS CivilStatus,
+                                            p.address AS PAddress,
+                                            CONCAT(d.fname, ' ', d.lname) AS DoctorFullName,
+                                            a.date AS PreviousAppointmentDate
+                                        FROM 
+                                            tblappointment a
+                                        JOIN 
+                                            tblpatient p ON a.tblpatient_patientid = p.patientid
+                                        JOIN 
+                                            tbldoctor d ON a.tbldoctor_doctorid = d.doctorid
+                                        ORDER BY 
+                                            a.date DESC;
+                                        ;
+                                        ";
+                                            try {
+                                                $result = mysqli_query($conn, $sql);
+                                                while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                    <tr>
+                                                        <td><?php echo $row["PatientFullName"]; ?></td>
+                                                        <td><?= $row["Sex"] ?></td>
+                                                        <td><?= $row["CivilStatus"] ?></td>
+                                                        <td><?= $row["PAddress"] ?></td>
+                                                        <td><?= $row["DoctorFullName"] ?></td>
+                                                        <td>
+                                                            <!-- not displaying icon-->
+                                                            <a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
+                                                            <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                                                        </td>
+                                                    </tr>
+                                            <?php }
+                                            } catch (Exception $e) {
+                                                echo "Error: " . $e->getMessage();
+                                            }
+                                            ?>
+                                        <tbody>
+                                        </tbody>
+                                        <tfooter>
+                                        </tfooter>
                                     </table>
                                 </div>
                             </div>
