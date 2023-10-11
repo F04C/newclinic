@@ -180,7 +180,7 @@ include 'dbconn.php';
                         <th>Sex</th>
                         <th>Doctor Appointed</th>
                         <th>Previous Appointment</th>
-                        <th>action</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tr>

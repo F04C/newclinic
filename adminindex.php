@@ -23,7 +23,7 @@ require 'dbconn.php';
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets\css\a.css">
-    
+
     <!-- Add your custom CSS and JavaScript below -->
 
     <!-- endinject -->
@@ -59,7 +59,7 @@ require 'dbconn.php';
                         </div>
                         <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
                             <div class="d-flex align-items-center">
-                                <input type="text" class="form-control border-0" placeholder="Search"/>
+                                <input type="text" class="form-control border-0" placeholder="Search" />
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@ require 'dbconn.php';
                                                 <th>Sex</th>
                                                 <th>Doctor Appointed</th>
                                                 <th>Previous Appointment</th>
-                                                <th>action</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tr>
