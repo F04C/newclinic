@@ -80,6 +80,8 @@ require 'dbconn.php';
 
 
                                 <!-- Your patient information form here -->
+                                <!--add address field for doctor and sec-->
+
                                 <div class="modal-body">
                                     <fieldset class="custom-fieldset">
                                         <legend>

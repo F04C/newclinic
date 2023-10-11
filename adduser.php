@@ -184,14 +184,15 @@ require 'dbconn.php';
                                         <thead>
                                             <tr>
                                                 <!-- display column names for users -->
-                                                <th>FirstName</th>
-                                                <th>MiddleName</th>
-                                                <th>LastName</th>
-                                                <th>Age</th>
-                                                <th>Sex</th>
-                                                <th>Doctor Appointed</th>
-                                                <th>Previous Appointment</th>
-                                                <th>action</th>
+                                                <th>First Name</th>
+                                                <th>Middle Name</th>
+                                                <th>Last Name</th>
+                                                <th>Phone Number</th>
+                                                <th>Address</th>
+                                                <th>User Role</th>
+                                                <th>Username</th>
+                                                <th>Password</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tr>
