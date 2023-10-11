@@ -183,7 +183,7 @@ include 'dbconn.php';
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tr>
+                    <tbody>
                       <?php
                       $sql = "SELECT 
                                 p.patientid AS PatientID,
@@ -205,30 +205,28 @@ include 'dbconn.php';
                       try {
                         $result = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($result)) { ?>
-                    <tr>
-                      <td><?php echo $row["PatientFirstName"]; ?></td>
-                      <td><?= $row["PatientMiddleName"] ?></td>
-                      <td><?= $row["PatientLastName"] ?></td>
-                      <td><?= $row["Age"] ?></td>
-                      <td><?= $row["Sex"] ?></td>
-                      <td><?= $row["DoctorAppointed"] ?></td>
-                      <td><?= $row["PreviousAppointmentDate"] ?></td>
-                      <td>
-                        <!-- not displaying icon-->
-                        <a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-
-                        <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
-                      </td>
-                    </tr>
-                <?php }
+                          <tr>
+                            <td><?php echo $row["PatientFirstName"]; ?></td>
+                            <td><?= $row["PatientMiddleName"] ?></td>
+                            <td><?= $row["PatientLastName"] ?></td>
+                            <td><?= $row["Age"] ?></td>
+                            <td><?= $row["Sex"] ?></td>
+                            <td><?= $row["DoctorAppointed"] ?></td>
+                            <td><?= $row["PreviousAppointmentDate"] ?></td>
+                            <td>
+                              <!-- not displaying icon-->
+                              <a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
+                              <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                            </td>
+                          </tr>
+                      <?php }
                       } catch (Exception $e) {
                         echo "Error: " . $e->getMessage();
                       }
-                ?>
-                <tbody>
-                </tbody>
-                <tfooter>
-                </tfooter>
+                      ?>
+                    </tbody>
+                    <tfooter>
+                    </tfooter>
                   </table>
                 </div>
               </div>
