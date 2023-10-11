@@ -31,7 +31,7 @@
 
       <li class="nav-item">
       <a class="nav-link" href="appointment.php">
-          <i class="fa fa-heartbeat" style="font-size:24px;"></i>
+          <i class="fa fa-stethoscope" style="font-size:24px;"></i>
           <span class="menu-title" style="margin-left: 10px;">Appointments Today</span>
         </a>
         <a class="nav-link" href="patientrecord.php">
@@ -55,10 +55,10 @@
     <?php
     if (isset($_SESSION['isSec']) && $_SESSION['isSec'] == 1 && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) && (!isset($_SESSION['isDoc']) || $_SESSION['isDoc'] != 1)) {
     ?>
-      </li>
-      <a class="nav-link" href="patientrecord.php">
-          <i class="fa fa-heartbeat" style="font-size:24px;"></i>
-          <span class="menu-title" style="margin-left: 10px;">Today's appointments</span>
+     <li class="nav-item">
+      <a class="nav-link" href="appointment.php">
+          <i class="fa fa-stethoscope" style="font-size:24px;"></i>
+          <span class="menu-title" style="margin-left: 10px;">Appointments Today</span>
         </a>
       <li class="nav-item">
         <a class="nav-link" href="patientrecord.php">
