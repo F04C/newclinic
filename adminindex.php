@@ -81,6 +81,7 @@ require 'dbconn.php';
 
                                 <!-- Your patient information form here -->
                                 <!--add address field for doctor and sec-->
+                                <!--add confirm password field and check whether the passwords are both correct-->
 
                                 <div class="modal-body">
                                     <fieldset class="custom-fieldset">

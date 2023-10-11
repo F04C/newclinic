@@ -48,9 +48,9 @@ if (isset($_POST["btnSignin"])) {
                         if ($record["isAdmin"] == 1) {
                             header("Location: adminindex.php");
                         } elseif ($record["isDoc"] == 1) {
-                            header("Location: index.php");
+                            header("Location: doctorindex.php");
                         } elseif ($record["isSec"] == 1) {
-                            header("Location: index.php");
+                            header("Location: secindex.php");
                         } else {
                             // Handle other roles or scenarios as needed
                             echo "Unknown user role!";

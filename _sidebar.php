@@ -21,19 +21,15 @@
     <li class="pt-2 pb-1">
       <span class="nav-item-head">Navigation</span>
     </li>
+
+    <!-- for secreatry-->
     <?php
-
     session_start();
-
     // Check if the user is an admin and not a secretary or doctor
     if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1 && (!isset($_SESSION['isSec']) || $_SESSION['isSec'] != 1) && (!isset($_SESSION['isDoc']) || $_SESSION['isDoc'] != 1)) {
     ?>
 
       <li class="nav-item">
-      <a class="nav-link" href="appointment.php">
-          <i class="fa fa-stethoscope" style="font-size:24px;"></i>
-          <span class="menu-title" style="margin-left: 10px;">Appointments Today</span>
-        </a>
         <a class="nav-link" href="patientrecord.php">
           <i class="fa fa-heartbeat" style="font-size:24px;"></i>
           <span class="menu-title" style="margin-left: 10px;">Patient Record</span>
@@ -41,22 +37,21 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="adduser.php">
-        <i class="	fa fa-user-circle-o" style="font-size:24px;"></i>
+          <i class="	fa fa-user-circle-o" style="font-size:24px;"></i>
           <span class="menu-title " style="margin-left: 10px;">Add User</span>
         </a>
       </li>
-      
+
     <?php
     }
     ?>
 
-    
-
+    <!-- for secretary-->
     <?php
     if (isset($_SESSION['isSec']) && $_SESSION['isSec'] == 1 && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) && (!isset($_SESSION['isDoc']) || $_SESSION['isDoc'] != 1)) {
     ?>
-     <li class="nav-item">
-      <a class="nav-link" href="appointment.php">
+      <li class="nav-item">
+        <a class="nav-link" href="appointment.php">
           <i class="fa fa-stethoscope" style="font-size:24px;"></i>
           <span class="menu-title" style="margin-left: 10px;">Appointments Today</span>
         </a>
@@ -69,6 +64,18 @@
     <?php
     }
     ?>
+    <!-- for doctor-->
+    <?php
+    if (isset($_SESSION['isDoc']) && $_SESSION['isDoc'] == 1) {
+    ?>
+      <li class="nav-item">
+        <a class="nav-link" href="Medicine.php">
+          <i class="fa fa-stethoscope" style="font-size:24px;"></i>
+          <span class="menu-title" style="margin-left: 10px;">Sike</span>
+        </a>
+      <?php
+    }
+      ?>
 
-    </li>
+      </li>
 </nav>
