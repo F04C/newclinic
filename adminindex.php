@@ -186,10 +186,23 @@ require 'dbconn.php';
                                             </tr>
                                         </thead>
                                         <tr>
-
-
                                             <?php //display the rows of users here
-                                            $sql = "";
+                                            $sql = "SELECT d.doctorid, d.fname, d.mname, d.lname, d.specialization, d.licensenum, d.phonenum, d.address
+                                            FROM tbldoctor d
+                                            WHERE d.doctorid IN (
+                                                SELECT doctorIDFK
+                                                FROM tbluserroles
+                                                WHERE isDoc = 1
+                                            )
+                                            UNION
+                                            
+                                            SELECT s.userid, s.fname, s.mname, s.lname, NULL, NULL, s.phonenum, s.address
+                                            FROM tblsec s
+                                            WHERE s.userid IN (
+                                                SELECT secIDFK
+                                                FROM tbluserroles
+                                                WHERE isSec = 1
+                                            );";
                                             ?>
                                             <tbody>
                                             </tbody>
