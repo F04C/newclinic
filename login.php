@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Login 10</title>
+	<title>Login</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -10,7 +10,14 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 	<link rel="stylesheet" href="loginassets/css/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="loginassets\js\1.js"></script>
+
+
+
 
 </head>
 
@@ -31,9 +38,9 @@
 								<input type="text" class="form-control" placeholder="Username" name="inputUsername" required>
 							</div>
 							<div class="form-group">
-								<input id="password-field" type="password" class="form-control" name="inputPassword" placeholder="Password" required>
-								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-							</div>
+									<input id="password-field" type="password" class="form-control" name="inputPassword" placeholder="Password" required>
+									<span toggle="#password-field" class="far fa-eye field-icon toggle-password"></span>
+								</div>
 							<div class="form-group">
 								<button type="submit" class="form-control btn btn-primary submit px-3" name="btnSignin">Sign In</button>
 							</div>

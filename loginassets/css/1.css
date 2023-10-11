@@ -1,0 +1,13 @@
+.password-container {
+    position: relative;
+}
+#password-field {
+    padding-right: 30px; /* Leave space for the icon */
+}
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

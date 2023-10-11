@@ -16,24 +16,15 @@ require 'dbconn.php';
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="path-to-your-css/bootstrap.min.css">
-    <script src="path-to-your-js/jquery.min.js"></script>
-    <script src="path-to-your-js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets\css\a.css">
     <!-- Add your custom CSS and JavaScript below -->
-    <style>
-        /* Add your custom CSS styles here */
-        .custom-fieldset {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-        }
-    </style>
+
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="assets/vendors/jquery-bar-rating/css-stars.css" />
@@ -67,7 +58,7 @@ require 'dbconn.php';
                         </div>
                         <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
                             <div class="d-flex align-items-center">
-                                <input type="text" class="form-control border-0" placeholder="Search" />
+                                <input type="text" class="form-control border-0" placeholder="Search"/>
                             </div>
                         </div>
                     </div>
@@ -143,26 +134,6 @@ require 'dbconn.php';
                     </div>
 
                     <!-- JavaScript for handling form submission -->
-                    <script>
-                        // Function to handle form submission
-                        function savePatientInformation() {
-                            // Retrieve values from form fields
-                            var firstName = $("#firstName").val();
-                            var middleName = $("#middleName").val();
-                            var lastName = $("#lastName").val();
-                            var age = $("#age").val();
-
-                            // You can handle the form data here (e.g., send it to the server)
-                            // For demonstration purposes, we'll simply log the values to the console
-                            console.log("First Name: " + firstName);
-                            console.log("Middle Name: " + middleName);
-                            console.log("Last Name: " + lastName);
-                            console.log("Age: " + age);
-
-                            // Close the modal
-                            $("#patientModal").modal("hide");
-                        }
-                    </script>
 
                     <div class="col-xl-12 stretch-card grid-margin">
                         <div class="card">
@@ -223,6 +194,7 @@ require 'dbconn.php';
                     <!-- endinject -->
                     <!-- Custom js for this page -->
                     <script src="assets/js/dashboard.js"></script>
+                    <script src="assets\js\b.js"></script>
                     <!-- End custom js for this page -->
 </body>
 
