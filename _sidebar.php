@@ -41,8 +41,8 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="adduser.php">
-          <i class="mdi mdi-compass-outline menu-icon"></i>
-          <span class="menu-title">Add User</span>
+        <i class="	fa fa-user-circle-o" style="font-size:24px;"></i>
+          <span class="menu-title " style="margin-left: 10px;">Add User</span>
         </a>
       </li>
       
