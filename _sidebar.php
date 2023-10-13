@@ -29,12 +29,13 @@
     if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1 && (!isset($_SESSION['isSec']) || $_SESSION['isSec'] != 1) && (!isset($_SESSION['isDoc']) || $_SESSION['isDoc'] != 1)) {
     ?>
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link" href="patientrecord.php">
           <i class="fa fa-heartbeat" style="font-size:24px;"></i>
           <span class="menu-title" style="margin-left: 10px;">Patient Record</span>
         </a>
       </li>
+    -->
       <li class="nav-item">
         <a class="nav-link" href="adduser.php">
           <i class="	fa fa-user-circle-o" style="font-size:24px;"></i>
@@ -66,16 +67,17 @@
     ?>
     <!-- for doctor-->
     <?php
-    if (isset($_SESSION['isDoc']) && $_SESSION['isDoc'] == 1) {
+    if (isset($_SESSION['isDoc']) && $_SESSION['isDoc'] == 1 && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1)) {
     ?>
       <li class="nav-item">
-        <a class="nav-link" href="Medicine.php">
-          <i class="fa fa-stethoscope" style="font-size:24px;"></i>
-          <span class="menu-title" style="margin-left: 10px;">Sike</span>
+        <a class="nav-link" href="patientrecord.php">
+          <i class="fa fa-heartbeat" style="font-size:24px;"></i>
+          <span class="menu-title" style="margin-left: 10px;">Patient Records</span>
         </a>
-      <?php
-    }
-      ?>
-
       </li>
+    <?php
+    }
+    ?>
+
+    </li>
 </nav>
