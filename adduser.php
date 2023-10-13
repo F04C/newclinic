@@ -195,15 +195,60 @@ require 'dbconn.php';
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tr>
-
-
-                                            <?php //display the rows of users here
-                                            $sql = "";
+                                        <tbody>
+                                            <?php //add query for the username of each user
+                                            $sql = "SELECT d.doctorid, 
+                                            d.fname as FirstName,
+                                            d.mname as MiddleName,
+                                            d.lname as LastName,
+                                            d.specialization as Specialization,
+                                            d.licensenum as LicenseNum,
+                                            d.phonenum as PhoneNum,
+                                            d.address as DAddress,
+                                            CASE
+                                                WHEN u.isAdmin = 1 THEN 'Admin'
+                                                WHEN u.isDoc = 1 THEN 'Doc'
+                                                WHEN u.isSec = 1 THEN 'Sec'
+                                                ELSE 'Unknown'
+                                            END as UserRole
+                                        FROM tbldoctor d
+                                        LEFT JOIN tbluserroles u ON d.doctorid = u.doctorIDFK
+                                        WHERE u.isDoc = 1
+                                        UNION
+                                        SELECT s.userid, s.fname, s.mname, s.lname, NULL, NULL, s.phonenum, s.address,
+                                            CASE
+                                                WHEN u.isAdmin = 1 THEN 'Admin'
+                                                WHEN u.isDoc = 1 THEN 'Doc'
+                                                WHEN u.isSec = 1 THEN 'Sec'
+                                                ELSE 'Unknown'
+                                            END as UserRole
+                                        FROM tblsec s
+                                        LEFT JOIN tbluserroles u ON s.userid = u.secIDFK
+                                        WHERE u.isSec = 1;
+                                        ";
+                                            try {
+                                                $result = mysqli_query($conn, $sql);
+                                                while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                    <tr>
+                                                        <td><?php echo $row["FirstName"]; ?></td>
+                                                        <td><?= $row["MiddleName"] ?></td>
+                                                        <td><?= $row["LastName"] ?></td>
+                                                        <td><?= $row["PhoneNum"] ?></td>
+                                                        <td><?= $row["DAddress"] ?></td>
+                                                        <td><?= $row["UserRole"] ?></td>
+                                                        <td><?= $row["DAddress"] ?></td>
+                                                        <td>
+                                                            <!-- not displaying icon-->
+                                                            <<a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
+                                                                <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                                                        </td>
+                                                    </tr>
+                                            <?php }
+                                            } catch (Exception $e) {
+                                                echo "Error: " . $e->getMessage();
+                                            }
                                             ?>
-                                            <tbody>
-                                            </tbody>
-                                        </tr>
+                                        </tbody>
 
 
                                         <tfooter>

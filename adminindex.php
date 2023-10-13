@@ -160,10 +160,9 @@ require 'dbconn.php';
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tr>
-                                            <tbody>
-                                                <?php //display the rows of users here
-                                                $sql = "SELECT d.doctorid, 
+                                        <tbody>
+                                            <?php //display the rows of users here
+                                            $sql = "SELECT d.doctorid, 
                                                 d.fname as FirstName,
                                                 d.mname as MiddleName,
                                                 d.lname as LastName,
@@ -186,31 +185,31 @@ require 'dbconn.php';
                                                 FROM tbluserroles
                                                 WHERE isSec = 1
                                             );";
-                                                try {
-                                                    $result = mysqli_query($conn, $sql);
-                                                    while ($row = mysqli_fetch_assoc($result)) { ?>
-                                                        <tr>
-                                                            <td><?php echo $row["FirstName"]; ?></td>
-                                                            <td><?= $row["MiddleName"] ?></td>
-                                                            <td><?= $row["LastName"] ?></td>
-                                                            <td><?= $row["Specialization"] ?></td>
-                                                            <td><?= $row["LicenseNum"] ?></td>
-                                                            <td><?= $row["PhoneNum"] ?></td>
-                                                            <td><?= $row["DAddress"] ?></td>
-                                                            <td>
-                                                                <!-- not displaying icon-->
-                                                                <<a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                                                                    <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                <?php }
-                                                } catch (Exception $e) {
-                                                    echo "Error: " . $e->getMessage();
-                                                }
-                                                ?>
-                                            </tbody>
-                                            <tfooter>
-                                            </tfooter>
+                                            try {
+                                                $result = mysqli_query($conn, $sql);
+                                                while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                    <tr>
+                                                        <td><?php echo $row["FirstName"]; ?></td>
+                                                        <td><?= $row["MiddleName"] ?></td>
+                                                        <td><?= $row["LastName"] ?></td>
+                                                        <td><?= $row["Specialization"] ?></td>
+                                                        <td><?= $row["LicenseNum"] ?></td>
+                                                        <td><?= $row["PhoneNum"] ?></td>
+                                                        <td><?= $row["DAddress"] ?></td>
+                                                        <td>
+                                                            <!-- not displaying icon-->
+                                                            <<a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
+                                                                <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                                                        </td>
+                                                    </tr>
+                                            <?php }
+                                            } catch (Exception $e) {
+                                                echo "Error: " . $e->getMessage();
+                                            }
+                                            ?>
+                                        </tbody>
+                                        <tfooter>
+                                        </tfooter>
                                     </table>
                                 </div>
                             </div>
