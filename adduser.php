@@ -197,7 +197,7 @@ require 'dbconn.php';
                                         </thead>
                                         <tbody>
                                             <?php //add query for the username of each user
-                                            $sql = "SELECT d.doctorid, 
+                                            $sql = "SELECT d.doctorid as DoctorID, 
                                             d.fname as FirstName,
                                             d.mname as MiddleName,
                                             d.lname as LastName,
@@ -238,9 +238,9 @@ require 'dbconn.php';
                                                         <td><?= $row["UserRole"] ?></td>
                                                         <td><?= $row["DAddress"] ?></td>
                                                         <td>
-                                                            <!-- not displaying icon-->
-                                                            <<a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                                                                <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                                                            <!-- displaying icons correctly -->
+                                                            <a href="edit.php?id=<?php echo $row["DoctorID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
+                                                            <a href="delete.php?id=<?= $row["DoctorID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
                                                         </td>
                                                     </tr>
                                             <?php }
