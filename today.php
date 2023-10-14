@@ -1,7 +1,7 @@
 <?php
-require 'dbconn.php';
-
+include 'dbconn.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,15 +16,24 @@ require 'dbconn.php';
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="path-to-your-css/bootstrap.min.css">
+    <script src="path-to-your-js/jquery.min.js"></script>
+    <script src="path-to-your-js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets\css\a.css">
     <!-- Add your custom CSS and JavaScript below -->
-
+    <style>
+        /* Add your custom CSS styles here */
+        .custom-fieldset {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="assets/vendors/jquery-bar-rating/css-stars.css" />
@@ -52,138 +61,75 @@ require 'dbconn.php';
             <div class="main-panel">
                 <div class="content-wrapper pb-0">
                     <div class="page-header flex-wrap">
-                        <div class="header-left">
-                            <!--create modal for adding users on the db -->
-                            <button class="btn btn-primary mb-2 mb-md-0 me-2" data-toggle="modal" data-target="#patientModal">Create new record</button>
-                        </div>
                         <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
                             <div class="d-flex align-items-center">
-                                <input type="text" class="form-control border-0" placeholder="Search"/>
+                                <input type="text" class="form-control border-0" placeholder="Search" />
                             </div>
                         </div>
                     </div>
-
-
-
-
-                    <!-- Modal for adding patient information -->
-                    <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="patientModalLabel">Add Patient Information</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-
-
-                                <!-- Your patient information form here -->
-                                <div class="modal-body">
-                                    <fieldset class="custom-fieldset">
-                                        <legend>
-                                            <h1><b>Patient Information</b></h1>
-                                        </legend>
-                                        <div class="nameage">
-                                            <label for="firstName">First Name:</label>
-                                            <input class="form-control" type="text" id="firstName" name="fname" placeholder="First Name">
-                                        </div>
-
-                                        <div class="nameage"><br>
-                                            <label for="middleName">Middle Name:</label>
-                                            <input class="form-control" type="text" id="middleName" name="mname" placeholder="Middle Name">
-                                        </div>
-
-                                        <div class="nameage"><br>
-                                            <label for="lastName">Last Name:</label>
-                                            <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
-                                        </div>
-                                        <div class="nameage"><br>
-                                            <label for="lastName">Age:</label>
-                                            <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex. 15">
-                                        </div>
-                                        <div class="nameage">
-                                            <label for="lastName">Sex:</label><br>
-                                            <input type="radio" name="sex" id="male" value="male" checked>
-                                            <label for="male">Male</label>
-                                            <input type="radio" name="sex" id="female" value="female">
-                                            <label for="female">Female</label>
-                                            <div class="nameage">
-                                                <label for="lastName">Civil Status:</label>
-                                                <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex.Single">
-                                            </div>
-                                            <div class="nameage"><br>
-                                                <label for="lastName">Address:</label>
-                                                <input class="form-control" type="text" id="lastName" name="lname" placeholder="Iloilo City">
-                                            </div>
-                                            <div class="nameage"><br>
-                                                <label for="lastName">Data Of Birth:</label><br>
-                                                <Mbr>
-                                                    <input type="date" id="dateOfBirth" name="pDOB">
-                                            </div>
-
-                                            <!-- Rest of your form fields -->
-                                    </fieldset>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- JavaScript for handling form submission -->
-
                     <div class="col-xl-12 stretch-card grid-margin">
                         <div class="card">
                             <div class="card-body pb-0">
-                                <h4 class="card-title mb-0">Users</h4>
+                                <h4 class="card-title mb-0">Patients</h4>
                             </div>
+                            <br>
                             <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table custom-table text-dark">
-                    <thead>
-                      <tr>
-                        <th>FirstName</th>
-                        <th>MiddleName</th>
-                        <th>LastName</th>
-                        <th>Age</th>
-                        <th>Sex</th>
-                        <th>Civil Status</th>
-                        <th>Address</th>
-                        <th>Date Of Birth</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      <?php
-                      $sql = "SELECT * FROM `tblemployee`";
-                      try {
-                        $result = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) { ?>
-                          <tr>
-                            <td><?php echo $row["idtblemployee"]; ?></td>
-                            <td><?= $row["firstname"] ?></td>
-                            <td><?= $row["lastname"] ?></td>
-                            <td><?= $row["middlename"] ?></td>
-                            <td><?= $row["designation"] ?></td>
-                            <td><?= $row["iddept"] ?></td>
-                            <td>
-                              <a href="edit.php?id=<?php echo $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                              <a href="delete.php?id=<?= $row["idtblemployee"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
-                            </td>
-                          </tr>
-                      <?php }
-                      } catch (Exception $e) {
-                        echo "Error: " . $e->getMessage();
-                      }
-                      ?>
-                                            <tbody>
-                                            </tbody>
-                                            <tfooter>
-                                            </tfooter>
+                                <div class="table-responsive">
+                                    <table class="table custom-table text-dark">
+                                        <thead>
+                                            <tr>
+                                                <th>FirstName</th>
+                                                <th>MiddleName</th>
+                                                <th>LastName</th>
+                                                <th>Age</th>
+                                                <th>Sex</th>
+                                                <th>Previous Appointment</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $sql = "SELECT 
+                                p.patientid AS PatientID,
+                                p.fname AS PatientFirstName,
+                                p.mname AS PatientMiddleName,
+                                p.lname AS PatientLastName,
+                                TIMESTAMPDIFF(YEAR, p.dateofbirth, CURDATE()) AS Age,
+                                p.sex AS Sex,
+                                d.fname AS DoctorAppointed,
+                                a.date AS PreviousAppointmentDate
+                            FROM 
+                                tblappointment a
+                            JOIN 
+                                tblpatient p ON a.tblpatient_patientid = p.patientid
+                            JOIN 
+                                tbldoctor d ON a.tbldoctor_doctorid = d.doctorid
+                            ORDER BY 
+                                a.date DESC;";
+                                            try {
+                                                $result = mysqli_query($conn, $sql);
+                                                while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                    <tr>
+                                                        <td><?php echo $row["PatientFirstName"]; ?></td>
+                                                        <td><?= $row["PatientMiddleName"] ?></td>
+                                                        <td><?= $row["PatientLastName"] ?></td>
+                                                        <td><?= $row["Age"] ?></td>
+                                                        <td><?= $row["Sex"] ?></td>
+                                                        <td><?= $row["PreviousAppointmentDate"] ?></td>
+                                                        <td>
+                                                            <!-- not displaying icon-->
+                                                            <a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
+                                                            <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                                                        </td>
+                                                    </tr>
+                                            <?php }
+                                            } catch (Exception $e) {
+                                                echo "Error: " . $e->getMessage();
+                                            }
+                                            ?>
+                                        </tbody>
+                                        <tfooter>
+                                        </tfooter>
                                     </table>
                                 </div>
                             </div>
@@ -212,7 +158,6 @@ require 'dbconn.php';
                     <!-- endinject -->
                     <!-- Custom js for this page -->
                     <script src="assets/js/dashboard.js"></script>
-                    <script src="assets\js\b.js"></script>
                     <!-- End custom js for this page -->
 </body>
 
