@@ -239,8 +239,8 @@ require 'dbconn.php';
                                                         <td><?= $row["DAddress"] ?></td>
                                                         <td>
                                                             <!-- displaying icons correctly -->
-                                                            <a href="edit.php?id=<?php echo $row["DoctorID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                                                            <a href="delete.php?id=<?= $row["DoctorID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                                                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                                                         </td>
                                                     </tr>
                                             <?php }
