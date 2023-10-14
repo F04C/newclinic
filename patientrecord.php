@@ -153,7 +153,6 @@ require 'dbconn.php';
                         <th>Civil Status</th>
                         <th>Address</th>
                         <th>Date Of Birth</th>
-                        <th>Action</th>
                       </tr>
                     </thead>
 
