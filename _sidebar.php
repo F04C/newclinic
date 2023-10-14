@@ -49,7 +49,7 @@
     if (isset($_SESSION['isSec']) && $_SESSION['isSec'] == 1 && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) && (!isset($_SESSION['isDoc']) || $_SESSION['isDoc'] != 1)) {
     ?>
       <li class="nav-item">
-        <a class="nav-link" href="appointment.php">
+        <a class="nav-link" href="secindex.php">
           <i class="fa fa-stethoscope" style="font-size:24px;"></i>
           <span class="menu-title" style="margin-left: 10px;">Appointments Today</span>
         </a>
