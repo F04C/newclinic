@@ -214,11 +214,11 @@ include 'dbconn.php';
                             <td><?= $row["DoctorAppointed"] ?></td>
                             <td><?= $row["PreviousAppointmentDate"] ?></td>
                             <td>
-                              <!-- not displaying icon-->
-                              <a href="edit.php?id=<?php echo $row["PatientID"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                              <a href="delete.php?id=<?= $row["PatientID"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
-                            </td>
-                          </tr>
+                <!-- Display "Update" and "Delete" buttons -->
+                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+            </td>
+        </tr>
                       <?php }
                       } catch (Exception $e) {
                         echo "Error: " . $e->getMessage();
