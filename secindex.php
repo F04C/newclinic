@@ -214,11 +214,11 @@ include 'dbconn.php';
                             <td><?= $row["DoctorAppointed"] ?></td>
                             <td><?= $row["PreviousAppointmentDate"] ?></td>
                             <td>
-                <!-- Display "Update" and "Delete" buttons -->
-                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-            </td>
-        </tr>
+                              <!-- Display "Update" and "Delete" buttons -->
+                              <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                              <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                            </td>
+                          </tr>
                       <?php }
                       } catch (Exception $e) {
                         echo "Error: " . $e->getMessage();
@@ -237,13 +237,6 @@ include 'dbconn.php';
           <script src="assets/vendors/js/vendor.bundle.base.js"></script>
           <!-- endinject -->
           <!-- Plugin js for this page -->
-          <script src="assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
-          <script src="assets/vendors/chart.js/Chart.min.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.resize.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.categories.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.fillbetween.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.stack.js"></script>
           <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
           <!-- End plugin js for this page -->
           <!-- inject:js -->
