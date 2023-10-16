@@ -225,8 +225,6 @@ include 'dbconn.php';
                       }
                       ?>
                     </tbody>
-                    <tfooter>
-                    </tfooter>
                   </table>
                 </div>
               </div>
