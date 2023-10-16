@@ -23,7 +23,7 @@
 
                         <div class="nameage"><br>
                             <label for="middleName">Middle Name:</label>
-                            <input class="form-control" type="text" id="middleName" name "mname" placeholder="Middle Name">
+                            <input class="form-control" type="text" id="middleName" name="mname" placeholder="Middle Name">
                         </div>
 
                         <div class="nameage"><br>
