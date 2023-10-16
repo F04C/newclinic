@@ -173,9 +173,9 @@ include 'dbconn.php';
                   <table class="table custom-table text-dark">
                     <thead>
                       <tr>
-                        <th>FirstName</th>
-                        <th>MiddleName</th>
-                        <th>LastName</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
                         <th>Age</th>
                         <th>Sex</th>
                         <th>Doctor Appointed</th>

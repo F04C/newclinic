@@ -48,7 +48,7 @@ if (isset($_POST["btnSignin"])) {
                         if ($record["isAdmin"] == 1) {
                             header("Location: adduser.php");
                         } elseif ($record["isDoc"] == 1) {
-                            header("Location: today.php");
+                            header("Location: docappointment.php");
                         } elseif ($record["isSec"] == 1) {
                             header("Location: secindex.php");
                         } else {
