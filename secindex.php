@@ -16,7 +16,6 @@ include 'dbconn.php';
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="path-to-your-css/bootstrap.min.css">
   <script src="path-to-your-js/jquery.min.js"></script>
   <script src="path-to-your-js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -36,7 +35,6 @@ include 'dbconn.php';
   </style>
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="assets/vendors/jquery-bar-rating/css-stars.css" />
   <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
   <!-- End plugin css for this page -->
   <!-- inject:css -->
@@ -70,180 +68,14 @@ include 'dbconn.php';
               </div>
             </div>
           </div>
-
-
-
-
-          <!-- Modal for adding patient information -->
-          <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="patientModalLabel">Add Patient Information</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-
-
-                <!-- Your patient information form here -->
-                <div class="modal-body">
-                  <fieldset class="custom-fieldset">
-                    <legend>
-                      <h1><b>Patient Information</b></h1>
-                    </legend>
-                    <div class="nameage">
-                      <label for="firstName">First Name:</label>
-                      <input class="form-control" type="text" id="firstName" name="fname" placeholder="First Name">
-                    </div>
-
-                    <div class="nameage"><br>
-                      <label for="middleName">Middle Name:</label>
-                      <input class="form-control" type="text" id="middleName" name="mname" placeholder="Middle Name">
-                    </div>
-
-                    <div class="nameage"><br>
-                      <label for="lastName">Last Name:</label>
-                      <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
-                    </div>
-                    <div class="nameage"><br>
-                      <label for="lastName">Age:</label>
-                      <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex. 15">
-                    </div>
-                    <div class="nameage">
-                      <label for="lastName">Sex:</label><br>
-                      <input type="radio" name="sex" id="male" value="male" checked>
-                      <label for="male">Male</label>
-                      <input type="radio" name="sex" id="female" value="female">
-                      <label for="female">Female</label>
-                      <div class="nameage">
-                        <label for="lastName">Civil Status:</label>
-                        <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex.Single">
-                      </div>
-                      <div class="nameage"><br>
-                        <label for="lastName">Address:</label>
-                        <input class="form-control" type="text" id="lastName" name="lname" placeholder="Iloilo City">
-                      </div>
-                      <div class="nameage"><br>
-                        <label for="lastName">Data Of Birth:</label><br>
-                        <Mbr>
-                          <input type="date" id="dateOfBirth" name="pDOB">
-                      </div>
-
-                      <!-- Rest of your form fields -->
-                  </fieldset>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- JavaScript for handling form submission -->
-          <script>
-            // Function to handle form submission
-            function savePatientInformation() {
-              // Retrieve values from form fields
-              var firstName = $("#firstName").val();
-              var middleName = $("#middleName").val();
-              var lastName = $("#lastName").val();
-              var age = $("#age").val();
-
-              // You can handle the form data here (e.g., send it to the server)
-              // For demonstration purposes, we'll simply log the values to the console
-              console.log("First Name: " + firstName);
-              console.log("Middle Name: " + middleName);
-              console.log("Last Name: " + lastName);
-              console.log("Age: " + age);
-
-              // Close the modal
-              $("#patientModal").modal("hide");
-            }
-          </script>
-
-          <div class="col-xl-12 stretch-card grid-margin">
-            <div class="card">
-              <div class="card-body pb-0">
-                <h4 class="card-title mb-0">Patients</h4>
-              </div>
-              <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table custom-table text-dark">
-                    <thead>
-                      <tr>
-                        <th>FirstName</th>
-                        <th>MiddleName</th>
-                        <th>LastName</th>
-                        <th>Age</th>
-                        <th>Sex</th>
-                        <th>Doctor Appointed</th>
-                        <th>Previous Appointment</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      $sql = "SELECT 
-                                p.patientid AS PatientID,
-                                p.fname AS PatientFirstName,
-                                p.mname AS PatientMiddleName,
-                                p.lname AS PatientLastName,
-                                TIMESTAMPDIFF(YEAR, p.dateofbirth, CURDATE()) AS Age,
-                                p.sex AS Sex,
-                                d.fname AS DoctorAppointed,
-                                a.date AS PreviousAppointmentDate
-                            FROM 
-                                tblappointment a
-                            JOIN 
-                                tblpatient p ON a.tblpatient_patientid = p.patientid
-                            JOIN 
-                                tbldoctor d ON a.tbldoctor_doctorid = d.doctorid
-                            ORDER BY 
-                                a.date DESC;";
-                      try {
-                        $result = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) { ?>
-                          <tr>
-                            <td><?php echo $row["PatientFirstName"]; ?></td>
-                            <td><?= $row["PatientMiddleName"] ?></td>
-                            <td><?= $row["PatientLastName"] ?></td>
-                            <td><?= $row["Age"] ?></td>
-                            <td><?= $row["Sex"] ?></td>
-                            <td><?= $row["DoctorAppointed"] ?></td>
-                            <td><?= $row["PreviousAppointmentDate"] ?></td>
-                            <td>
-                <!-- Display "Update" and "Delete" buttons -->
-                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-            </td>
-        </tr>
-                      <?php }
-                      } catch (Exception $e) {
-                        echo "Error: " . $e->getMessage();
-                      }
-                      ?>
-                    </tbody>
-                    <tfooter>
-                    </tfooter>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php
+          include 'secappointment.php'
+          ?>
 
           <!-- plugins:js -->
           <script src="assets/vendors/js/vendor.bundle.base.js"></script>
           <!-- endinject -->
           <!-- Plugin js for this page -->
-          <script src="assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
-          <script src="assets/vendors/chart.js/Chart.min.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.resize.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.categories.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.fillbetween.js"></script>
-          <script src="assets/vendors/flot/jquery.flot.stack.js"></script>
           <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
           <!-- End plugin js for this page -->
           <!-- inject:js -->

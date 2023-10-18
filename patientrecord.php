@@ -58,7 +58,7 @@ require 'dbconn.php';
                         </div>
                         <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
                             <div class="d-flex align-items-center">
-                                <input type="text" class="form-control border-0" placeholder="Search"/>
+                                <input type="text" class="form-control border-0" placeholder="Search" />
                             </div>
                         </div>
                     </div>
@@ -141,48 +141,48 @@ require 'dbconn.php';
                                 <h4 class="card-title mb-0">Users</h4>
                             </div>
                             <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table custom-table text-dark">
-                    <thead>
-                      <tr>
-                        <th>FirstName</th>
-                        <th>MiddleName</th>
-                        <th>LastName</th>
-                        <th>Age</th>
-                        <th>Sex</th>
-                        <th>Civil Status</th>
-                        <th>Address</th>
-                        <th>Date Of Birth</th>
-                      </tr>
-                    </thead>
+                                <div class="table-responsive">
+                                    <table class="table custom-table text-dark">
+                                        <thead>
+                                            <tr>
+                                                <th>FirstName</th>
+                                                <th>MiddleName</th>
+                                                <th>LastName</th>
+                                                <th>Age</th>
+                                                <th>Sex</th>
+                                                <th>Civil Status</th>
+                                                <th>Address</th>
+                                                <th>Date Of Birth</th>
+                                            </tr>
+                                        </thead>
 
-                    <tbody>
-                      <?php
-                      $sql = "SELECT * FROM `tblemployee`";
-                      try {
-                        $result = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) { ?>
-                          <tr>
-                            <td><?php echo $row["idtblemployee"]; ?></td>
-                            <td><?= $row["firstname"] ?></td>
-                            <td><?= $row["lastname"] ?></td>
-                            <td><?= $row["middlename"] ?></td>
-                            <td><?= $row["designation"] ?></td>
-                            <td><?= $row["iddept"] ?></td>
-                            <td>
-                              <a href="edit.php?id=<?php echo $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                              <a href="delete.php?id=<?= $row["idtblemployee"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
-                            </td>
-                          </tr>
-                      <?php }
-                      } catch (Exception $e) {
-                        echo "Error: " . $e->getMessage();
-                      }
-                      ?>
-                                            <tbody>
-                                            </tbody>
-                                            <tfooter>
-                                            </tfooter>
+                                        <tbody>
+                                            <?php
+                                            $sql = "SELECT * FROM `tblemployee`";
+                                            try {
+                                                $result = mysqli_query($conn, $sql);
+                                                while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                    <tr>
+                                                        <td><?php echo $row["idtblemployee"]; ?></td>
+                                                        <td><?= $row["firstname"] ?></td>
+                                                        <td><?= $row["lastname"] ?></td>
+                                                        <td><?= $row["middlename"] ?></td>
+                                                        <td><?= $row["designation"] ?></td>
+                                                        <td><?= $row["iddept"] ?></td>
+                                                        <td>
+                                                            <a href="edit.php?id=<?php echo $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
+                                                            <a href="delete.php?id=<?= $row["idtblemployee"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                                                        </td>
+                                                    </tr>
+                                            <?php }
+                                            } catch (Exception $e) {
+                                                echo "Error: " . $e->getMessage();
+                                            }
+                                            ?>
+                                        <tbody>
+                                        </tbody>
+                                        <tfooter>
+                                        </tfooter>
                                     </table>
                                 </div>
                             </div>
