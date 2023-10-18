@@ -136,6 +136,7 @@ require 'dbconn.php';
                                                         <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
                                                     </button>
                                                 </div>
+                                                <!--add confirm password -->
                                             </div>
 
 
