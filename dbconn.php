@@ -1,5 +1,4 @@
 <?php
-require 'auth.php';
 $servername = "localhost";
 $username = "root";
 $password = "12345678";

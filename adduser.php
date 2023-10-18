@@ -1,7 +1,3 @@
-<?php
-require 'auth.php';
-?>
-
 <!-- Modal for adding patient information -->
 <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -51,7 +47,7 @@ require 'auth.php';
                         </div>
                         <div class="nameage"><br>
                             <label for="address">Address:</label>
-                            <input class="form-control" type="text" id="address" name="uaddress" placeholder="Iloilo City">
+                            <input class="form-control" type="text" id="address" name="address" placeholder="Iloilo City">
                         </div>
                         <div class="nameage"><br>
                             <label for="dateOfBirth">Date Of Birth:</label><br>

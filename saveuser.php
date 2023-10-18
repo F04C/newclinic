@@ -4,8 +4,6 @@
 
 <?php
 require 'dbconn.php';
-require 'auth.php';
-
 session_start();
 if (isset($_SESSION['secid'])) {
     $secid = $_SESSION['secid'];
@@ -18,7 +16,7 @@ if (isset($_SESSION['secid'])) {
         $age = $_POST["age"];
         $sex = $_POST["sex"];
         $civilStatus = $_POST["civilStatus"];
-        $uaddress = $_POST["uaddress"];
+        $address = $_POST["address"];
         $dateOfBirth = $_POST["pDOB"];
 
         // Check if the patient already exists in tblpatient
@@ -28,7 +26,7 @@ if (isset($_SESSION['secid'])) {
 
         if (mysqli_num_rows($result) == 0) {
             // No matching patient found, insert a new patient
-            $insertPatientQuery = "INSERT INTO tblpatient (fname, mname, lname, patientage, sex, civilstatus, address, dateofbirth, tblsec_userid) VALUES ('$firstName', '$middleName', '$lastName', '$age', '$sex', '$civilStatus', '$uaddress', '$dateOfBirth', '$secid')";
+            $insertPatientQuery = "INSERT INTO tblpatient (fname, mname, lname, patientage, sex, civilstatus, address, dateofbirth, tblsec_userid) VALUES ('$firstName', '$middleName', '$lastName', '$age', '$sex', '$civilStatus', '$address', '$dateOfBirth', '$secid')";
 
             if (mysqli_query($conn, $insertPatientQuery)) {
                 echo "New patient added to tblpatient.";
