@@ -69,9 +69,6 @@ include 'dbconn.php';
             </div>
           </div>
           <?php
-          include 'adduser.php';
-          ?>
-          <?php
           include 'secappointment.php'
           ?>
 
