@@ -14,10 +14,10 @@ if (!isset($_SESSION['username'])) {
       <a href="#" class="nav-link flex-column">
         <div class="nav-profile-image">
           <img src="assets/images/faces/face1.jpg" alt="profile" />
-          <!--change to offline or busy as needed-->
+          <!-- Change to offline or busy as needed -->
         </div>
         <div class="nav-profile-text d-flex ms-0 mb-3 flex-column">
-        <span class="font-weight-semibold mb-1 mt-2 text-center">
+          <span class="font-weight-semibold mb-1 mt-2 text-center">
             <?php echo $_SESSION['username']; ?> <!-- Display the username from the session -->
           </span>
         </div>
@@ -28,24 +28,30 @@ if (!isset($_SESSION['username'])) {
       <form class="d-flex align-items-center" action="#">
         <div class="input-group">
           <div class="input-group-prepend">
+        </div>
       </form>
     </li>
     <li class="pt-2 pb-1">
       <span class="nav-item-head">Navigation</span>
     </li>
 
-    <!-- for secreatry-->
+    <!-- for secretary -->
     <?php
-    session_start();
-    // Check if the user is an admin and not a secretary or doctor
+    // Check user role and display corresponding menu items
     if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1 && (!isset($_SESSION['isSec']) || $_SESSION['isSec'] != 1) && (!isset($_SESSION['isDoc']) || $_SESSION['isDoc'] != 1)) {
     ?>
+
+      <li class="nav-item">
+
+
+
       <li class="nav-item">
         <a class="nav-link" href="adminindex.php">
-          <i class="fa fa-user-circle-o" style="font-size:24px;"></i>
-          <span class="menu-title" style="margin-left: 10px;">Add User</span>
+          <i class="	fa fa-user-circle-o" style="font-size:24px;"></i>
+          <span class="menu-title " style="margin-left: 10px;">Add User</span>
         </a>
       </li>
+
     <?php
     }
     ?>
@@ -75,7 +81,7 @@ if (!isset($_SESSION['username'])) {
     if (isset($_SESSION['isDoc']) && $_SESSION['isDoc'] == 1 && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1)) {
     ?>
       <li class="nav-item">
-        <a class="nav-link" href="docappointment.php">
+        <a class="nav-link" href="today.php">
           <i class="fa fa-stethoscope" style="font-size:24px;"></i>
           <span class="menu-title" style="margin-left: 10px;">Your Appointments Today</span>
         </a>
