@@ -1,3 +1,13 @@
+<?php
+session_start(); // Start the session at the beginning
+
+// Check if the user is not logged in, and redirect to the login page if not authenticated.
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php"); // Redirect to your login page
+    exit();
+}
+?>
+
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item nav-profile border-bottom">
@@ -7,7 +17,9 @@
           <!--change to offline or busy as needed-->
         </div>
         <div class="nav-profile-text d-flex ms-0 mb-3 flex-column">
-          <span class="font-weight-semibold mb-1 mt-2 text-center">Admin</span>
+        <span class="font-weight-semibold mb-1 mt-2 text-center">
+            <?php echo $_SESSION['username']; ?> <!-- Display the username from the session -->
+          </span>
         </div>
       </a>
     </li>
