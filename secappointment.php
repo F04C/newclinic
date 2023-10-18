@@ -1,3 +1,7 @@
+<?php
+require 'auth.php';
+?>
+
 <div class="col-xl-12 stretch-card grid-margin">
     <div class="card">
         <div class="card-body pb-0">

@@ -1,3 +1,7 @@
+<?php
+require 'auth.php';
+?>
+
 <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
 <div id="theme-settings" class="settings-panel">
   <i class="settings-close mdi mdi-close"></i>

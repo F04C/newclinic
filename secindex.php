@@ -1,5 +1,6 @@
 <?php
 include 'dbconn.php';
+require 'auth.php';
 ?>
 
 <!DOCTYPE html>

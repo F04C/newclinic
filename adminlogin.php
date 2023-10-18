@@ -1,7 +1,6 @@
 <?php
-
 require "dbconn.php";
-
+require 'auth.php';
 if (isset($_POST["btnSignin"])) {
     if (isset($_POST["inputUsername"]) && isset($_POST["inputPassword"])) {
         $usernameInput = $_POST["inputUsername"];
