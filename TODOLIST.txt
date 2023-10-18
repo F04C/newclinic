@@ -1,0 +1,31 @@
+navbar- remove unnecessary informations (damo wala labot nga bagay bagay)
+
+_settings-panel - ok
+
+_sidebar - href to the specified index (adminindex if admin, doctorindex if doc, and secindex if sec) (sa profile pic pagclick)
+
+adminindex - add confirm password, show modal same as adding user but blank in edituser.php. (need confirm password nga textbox)
+	   -display username on rows (kulang sql query)
+
+adminlogin - apply password hashing and mysqli_prepare
+
+dbconn - ok
+
+deletepatient - show alert confirmation to remove the patient from the appointment (pagclick delete btn, maalert if iremove man gid sa appointment)
+
+docappointment - edit the action form (only delete button) if appointment is done (indi na need mag edit sang patient info and doc, madelete na lang sya (remove) sang patient info sa appointment)
+
+editpatient - display modal for editing patient's information (need ko modal same sa add user nga form kg mga textboxes)
+
+login - change h5 class. show only if there is no user found in the db (js ni ata if wala makita nga user, kadto ka sa sa line nga no user found, mapop up lang ang "contact admin" else wala may idisplay sa dalom sang login btn)
+
+logout - ok
+
+patientrecord - sql query to get all patients record (kwa sang tanan nga rows sa tblpatient kag idisplay)
+
+savepatient - check the code (wala ko kabalo kng saveuser/savepatient purpose sini. check ko pa later)
+
+secappointment - modal in creating new record is not showing check commit history (check ang commit history sining php ngaa nadula ang pag pop up sng modal sa create new record nga btn)
+
+IREMOVE LANG OR EDIT KUNG ANO NA NATAPOS. INDI PAG DELETE NING FILE
+
