@@ -38,9 +38,9 @@
 								<input type="text" class="form-control" placeholder="Username" name="inputUsername" required>
 							</div>
 							<div class="form-group">
-									<input id="password-field" type="password" class="form-control" name="inputPassword" placeholder="Password" required>
-									<span toggle="#password-field" class="far fa-eye field-icon toggle-password"></span>
-								</div>
+								<input id="password-field" type="password" class="form-control" name="inputPassword" placeholder="Password" required>
+								<span toggle="#password-field" class="far fa-eye field-icon toggle-password"></span>
+							</div>
 							<div class="form-group">
 								<button type="submit" class="form-control btn btn-primary submit px-3" name="btnSignin">Sign In</button>
 							</div>

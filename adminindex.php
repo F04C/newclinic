@@ -16,6 +16,9 @@ require 'dbconn.php';
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="path-to-your-css/bootstrap.min.css">
+    <script src="path-to-your-js/jquery.min.js"></script>
+    <script src="path-to-your-js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -23,6 +26,7 @@ require 'dbconn.php';
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets\css\a.css">
+
     <!-- Add your custom CSS and JavaScript below -->
 
     <!-- endinject -->
@@ -54,7 +58,7 @@ require 'dbconn.php';
                     <div class="page-header flex-wrap">
                         <div class="header-left">
                             <!--create modal for adding users on the db -->
-                            <button class="btn btn-primary mb-2 mb-md-0 me-2" data-toggle="modal" data-target="#patientModal">Create new record</button>
+                            <button class="btn btn-primary mb-2 mb-md-0 me-2" data-toggle="modal" data-target="#patientModal">Create New User</button>
                         </div>
                         <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
                             <div class="d-flex align-items-center">
@@ -71,7 +75,7 @@ require 'dbconn.php';
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="patientModalLabel">Add Patient Information</h5>
+                                    <h5 class="modal-title" id="patientModalLabel"></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -82,8 +86,10 @@ require 'dbconn.php';
                                 <div class="modal-body">
                                     <fieldset class="custom-fieldset">
                                         <legend>
-                                            <h1><b>Patient Information</b></h1>
+                                            <h1><b>Add User</b></h1>
                                         </legend>
+                                        <!--change the class for each or create a new class -->
+                                        <!--doesn't have a nameage class on css/demo_1/style.css-->
                                         <div class="nameage">
                                             <label for="firstName">First Name:</label>
                                             <input class="form-control" type="text" id="firstName" name="fname" placeholder="First Name">
@@ -99,28 +105,40 @@ require 'dbconn.php';
                                             <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
                                         </div>
                                         <div class="nameage"><br>
-                                            <label for="lastName">Age:</label>
-                                            <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex. 15">
+                                            <label for="lastName">Phone Number:</label>
+                                            <input class="form-control" type="text" id="lastName" name="phonenum" placeholder="Ex. 09123456789">
                                         </div>
                                         <div class="nameage">
-                                            <label for="lastName">Sex:</label><br>
-                                            <input type="radio" name="sex" id="male" value="male" checked>
-                                            <label for="male">Male</label>
-                                            <input type="radio" name="sex" id="female" value="female">
-                                            <label for="female">Female</label>
-                                            <div class="nameage">
-                                                <label for="lastName">Civil Status:</label>
-                                                <input class="form-control" type="text" id="lastName" name="lname" placeholder="Ex.Single">
+                                            <div class="nameage"><br>
+                                                <label for="lastName">User position:</label><br>
+                                                <input type="radio" name="UserPos" id="sec" name="role-sec" value="sec" checked>
+                                                <label for="female">Secretary</label>
+                                                <input type="radio" name="UserPos" id="doctor" name="role-doc" value="doctor">
+                                                <label for="male">Doctor</label>
+                                            </div>
+                                            <div class="nameage" id="specializationDiv">
+                                                <label for="lastName">Specialization:</label>
+                                                <input class="form-control" type="text" id="specialization" name="specialization" placeholder="Ex. General Medicine">
+                                            </div>
+                                            <div class="nameage" id="licenseDiv"><br>
+                                                <label for="lastName">License Number:</label>
+                                                <input class="form-control" type="text" id="license" name="licno" placeholder="Ex. 123456789">
                                             </div>
                                             <div class="nameage"><br>
-                                                <label for="lastName">Address:</label>
-                                                <input class="form-control" type="text" id="lastName" name="lname" placeholder="Iloilo City">
+                                                <label for="lastName">User Name:</label>
+                                                <input class="form-control" type="text" id="UName" name="username" placeholder="User Name">
                                             </div>
                                             <div class="nameage"><br>
-                                                <label for="lastName">Data Of Birth:</label><br>
-                                                <Mbr>
-                                                    <input type="date" id="dateOfBirth" name="pDOB">
+                                                <label for="pass">Password:</label>
+                                                <div class="password-input-container">
+                                                    <input class="form-control" type="password" id="pass" name="password" placeholder="Password">
+                                                    <button id="togglePassword" type="button" onclick="togglePasswordVisibility()">
+                                                        <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
                                             </div>
+
+
 
                                             <!-- Rest of your form fields -->
                                     </fieldset>
@@ -134,6 +152,26 @@ require 'dbconn.php';
                     </div>
 
                     <!-- JavaScript for handling form submission -->
+                    <script>
+                        // Function to handle form submission
+                        function savePatientInformation() {
+                            // Retrieve values from form fields
+                            var firstName = $("#firstName").val();
+                            var middleName = $("#middleName").val();
+                            var lastName = $("#lastName").val();
+                            var age = $("#age").val();
+
+                            // You can handle the form data here (e.g., send it to the server)
+                            // For demonstration purposes, we'll simply log the values to the console
+                            console.log("First Name: " + firstName);
+                            console.log("Middle Name: " + middleName);
+                            console.log("Last Name: " + lastName);
+                            console.log("Age: " + age);
+
+                            // Close the modal
+                            $("#patientModal").modal("hide");
+                        }
+                    </script>
 
                     <div class="col-xl-12 stretch-card grid-margin">
                         <div class="card">
@@ -145,33 +183,64 @@ require 'dbconn.php';
                                     <table class="table custom-table text-dark">
                                         <thead>
                                             <tr>
-                                                <th>FirstName</th>
-                                                <th>MiddleName</th>
-                                                <th>LastName</th>
-                                                <th>Age</th>
-                                                <th>Sex</th>
-                                                <th>Civil Status</th>
+                                                <!-- display column names for users -->
+                                                <th>First Name</th>
+                                                <th>Middle Name</th>
+                                                <th>Last Name</th>
+                                                <th>Phone Number</th>
                                                 <th>Address</th>
-                                                <th>Date Of Birth</th>
+                                                <th>User Role</th>
+                                                <th>Username</th>
+                                                <th>Password</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
-
                                         <tbody>
-                                            <?php
-                                            $sql = "SELECT * FROM `tblemployee`";
+                                            <?php //add query for the username of each user
+                                            $sql = "SELECT d.doctorid as DoctorID, 
+                                            d.fname as FirstName,
+                                            d.mname as MiddleName,
+                                            d.lname as LastName,
+                                            d.specialization as Specialization,
+                                            d.licensenum as LicenseNum,
+                                            d.phonenum as PhoneNum,
+                                            d.address as DAddress,
+                                            CASE
+                                                WHEN u.isAdmin = 1 THEN 'Admin'
+                                                WHEN u.isDoc = 1 THEN 'Doc'
+                                                WHEN u.isSec = 1 THEN 'Sec'
+                                                ELSE 'Unknown'
+                                            END as UserRole
+                                        FROM tbldoctor d
+                                        LEFT JOIN tbluserroles u ON d.doctorid = u.doctorIDFK
+                                        WHERE u.isDoc = 1
+                                        UNION
+                                        SELECT s.userid, s.fname, s.mname, s.lname, NULL, NULL, s.phonenum, s.address,
+                                            CASE
+                                                WHEN u.isAdmin = 1 THEN 'Admin'
+                                                WHEN u.isDoc = 1 THEN 'Doc'
+                                                WHEN u.isSec = 1 THEN 'Sec'
+                                                ELSE 'Unknown'
+                                            END as UserRole
+                                        FROM tblsec s
+                                        LEFT JOIN tbluserroles u ON s.userid = u.secIDFK
+                                        WHERE u.isSec = 1;
+                                        ";
                                             try {
                                                 $result = mysqli_query($conn, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) { ?>
                                                     <tr>
-                                                        <td><?php echo $row["idtblemployee"]; ?></td>
-                                                        <td><?= $row["firstname"] ?></td>
-                                                        <td><?= $row["lastname"] ?></td>
-                                                        <td><?= $row["middlename"] ?></td>
-                                                        <td><?= $row["designation"] ?></td>
-                                                        <td><?= $row["iddept"] ?></td>
+                                                        <td><?php echo $row["FirstName"]; ?></td>
+                                                        <td><?= $row["MiddleName"] ?></td>
+                                                        <td><?= $row["LastName"] ?></td>
+                                                        <td><?= $row["PhoneNum"] ?></td>
+                                                        <td><?= $row["DAddress"] ?></td>
+                                                        <td><?= $row["UserRole"] ?></td>
+                                                        <td><?= $row["DAddress"] ?></td>
                                                         <td>
-                                                            <a href="edit.php?id=<?php echo $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                                                            <a href="delete.php?id=<?= $row["idtblemployee"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                                                            <!-- displaying icons correctly -->
+                                                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                                                         </td>
                                                     </tr>
                                             <?php }
@@ -179,9 +248,11 @@ require 'dbconn.php';
                                                 echo "Error: " . $e->getMessage();
                                             }
                                             ?>
-                                        <tbody>
                                         </tbody>
+
+
                                         <tfooter>
+
                                         </tfooter>
                                     </table>
                                 </div>
@@ -211,7 +282,8 @@ require 'dbconn.php';
                     <!-- endinject -->
                     <!-- Custom js for this page -->
                     <script src="assets/js/dashboard.js"></script>
-                    <script src="assets\js\b.js"></script>
+                    <script src="assets\js\a.js"></script>
+
                     <!-- End custom js for this page -->
 </body>
 
