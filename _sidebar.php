@@ -3,8 +3,8 @@ session_start(); // Start the session at the beginning
 
 // Check if the user is not logged in, and redirect to the login page if not authenticated.
 if (!isset($_SESSION['username'])) {
-    header("Location: login.php"); // Redirect to your login page
-    exit();
+  header("Location: login.php"); // Redirect to your login page
+  exit();
 }
 ?>
 
@@ -28,7 +28,7 @@ if (!isset($_SESSION['username'])) {
       <form class="d-flex align-items-center" action="#">
         <div class="input-group">
           <div class="input-group-prepend">
-        </div>
+          </div>
       </form>
     </li>
     <li class="pt-2 pb-1">
@@ -81,7 +81,7 @@ if (!isset($_SESSION['username'])) {
     if (isset($_SESSION['isDoc']) && $_SESSION['isDoc'] == 1 && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) && (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1)) {
     ?>
       <li class="nav-item">
-        <a class="nav-link" href="today.php">
+        <a class="nav-link" href="docappointment.php">
           <i class="fa fa-stethoscope" style="font-size:24px;"></i>
           <span class="menu-title" style="margin-left: 10px;">Your Appointments Today</span>
         </a>
