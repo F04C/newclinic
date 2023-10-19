@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item nav-profile border-bottom">
-      <a href="#" class="nav-link flex-column">
+      <a href="<?php echo getProfileLink($_SESSION); ?>" class="nav-link flex-column">
         <div class="nav-profile-image">
           <img src="assets/images/faces/face1.jpg" alt="profile" />
           <!-- Change to offline or busy as needed -->
@@ -34,7 +34,18 @@ if (!isset($_SESSION['username'])) {
     <li class="pt-2 pb-1">
       <span class="nav-item-head">Navigation</span>
     </li>
-
+                  <?php
+              // Function to determine the profile link based on the user's role
+              function getProfileLink($session) {
+                if (isset($session['isAdmin']) && $session['isAdmin'] == 1) {
+                  return "adminindex.php"; // Admin profile link
+                } elseif (isset($session['isSec']) && $session['isSec'] == 1) {
+                  return "secindex.php"; // Secretary profile link
+                } elseif (isset($session['isDoc']) && $session['isDoc'] == 1) {
+                  return "docappointment.php"; // Doctor profile link
+                }
+              }
+              ?>
     <!-- for secretary -->
     <?php
     // Check user role and display corresponding menu items
