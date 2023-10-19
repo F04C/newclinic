@@ -17,7 +17,7 @@ docappointment - edit the action form (only delete button) if appointment is don
 
 editpatient - display modal for editing patient's information (need ko modal same sa add user nga form kg mga textboxes)
 
-login - change h5 class. show only if there is no user found in the db (js ni ata if wala makita nga user, kadto ka sa sa line nga no user found, mapop up lang ang "contact admin" else wala may idisplay sa dalom sang login btn)
+login - change h5 class. show only if there is no user found in the db (js ni ata if wala makita nga user, kadto ka sa sa line nga no user found, mapop up lang ang "contact admin" else wala may idisplay sa dalom sang login btn) = OK
 
 logout - ok
 
