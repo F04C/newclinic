@@ -21,7 +21,7 @@ adminindex - add confirm password, show modal same as adding user but blank in e
 
 
 
-deletepatient - show alert confirmation to remove the patient from the appointment (pagclick delete btn, maalert if iremove man gid sa appointment) = ok
+deletepatient - show alert confirmation to remove the patient from the appointment (pagclick delete btn, maalert if iremove man gid sa appointment)
 
 editpatient - display modal for editing patient's information (need ko modal same sa add user nga form kg mga textboxes) 
 
