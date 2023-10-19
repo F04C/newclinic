@@ -1,7 +1,5 @@
 <?php
-require 'dbconn.php';
-
-?>
+require "dbconn.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +75,7 @@ require 'dbconn.php';
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <?php include 'adminfieldset.php'; ?>
+                                <?php include "adminfieldset.php"; ?>
                                 <div>
                                 </div>
                                 <div class="modal-footer">
@@ -108,13 +106,13 @@ require 'dbconn.php';
                                                 <th>Address</th>
                                                 <th>User Role</th>
                                                 <th>Username</th>
-                                                <th>Password</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php //add query for the username of each user
-                                            $sql = "SELECT d.doctorid as DoctorID, 
+                                            <?php
+                                            $sql = "SELECT
+                                            d.doctorid as DoctorID,
                                             d.fname as FirstName,
                                             d.mname as MiddleName,
                                             d.lname as LastName,
@@ -122,27 +120,30 @@ require 'dbconn.php';
                                             d.licensenum as LicenseNum,
                                             d.phonenum as PhoneNum,
                                             d.address as DAddress,
-                                            CASE
-                                                WHEN u.isAdmin = 1 THEN 'Admin'
-                                                WHEN u.isDoc = 1 THEN 'Doc'
-                                                WHEN u.isSec = 1 THEN 'Sec'
-                                                ELSE 'Unknown'
-                                            END as UserRole
+                                            'Doc' as UserRole,  -- Set the role to 'Doc' for doctors
+                                            ua.username as Username  -- Retrieve username for doctors
                                         FROM tbldoctor d
-                                        LEFT JOIN tbluserroles u ON d.doctorid = u.doctorIDFK
-                                        WHERE u.isDoc = 1
+                                        JOIN tbluserroles ur ON d.doctorid = ur.doctorIDFK
+                                        JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+                                        WHERE ur.isDoc = 1
                                         UNION
-                                        SELECT s.userid, s.fname, s.mname, s.lname, NULL, NULL, s.phonenum, s.address,
-                                            CASE
-                                                WHEN u.isAdmin = 1 THEN 'Admin'
-                                                WHEN u.isDoc = 1 THEN 'Doc'
-                                                WHEN u.isSec = 1 THEN 'Sec'
-                                                ELSE 'Unknown'
-                                            END as UserRole
+                                        SELECT
+                                            s.userid,
+                                            s.fname,
+                                            s.mname,
+                                            s.lname,
+                                            NULL,
+                                            NULL,
+                                            s.phonenum,
+                                            s.address,
+                                            'Sec' as UserRole,  -- Set the role to 'Sec' for secretaries
+                                            ua.username as Username  -- Retrieve username for secretaries
                                         FROM tblsec s
-                                        LEFT JOIN tbluserroles u ON s.userid = u.secIDFK
-                                        WHERE u.isSec = 1;
-                                        ";
+                                        JOIN tbluserroles ur ON s.userid = ur.secIDFK
+                                        JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+                                        WHERE ur.isSec = 1;                                        
+                                        
+        ";
                                             try {
                                                 $result = mysqli_query($conn, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -153,7 +154,7 @@ require 'dbconn.php';
                                                         <td><?= $row["PhoneNum"] ?></td>
                                                         <td><?= $row["DAddress"] ?></td>
                                                         <td><?= $row["UserRole"] ?></td>
-                                                        <td><?= $row["DAddress"] ?></td>
+                                                        <td><?= $row["Username"] ?></td>
                                                         <td>
                                                             <!-- displaying icons correctly -->
                                                             <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
