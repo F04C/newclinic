@@ -138,7 +138,7 @@ require 'dbconn.php';
                     <div class="col-xl-12 stretch-card grid-margin">
                         <div class="card">
                             <div class="card-body pb-0">
-                                <h4 class="card-title mb-0">Users</h4>
+                                <h4 class="card-title mb-0">patients</h4>
                             </div>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
@@ -153,6 +153,7 @@ require 'dbconn.php';
                                                 <th>Civil Status</th>
                                                 <th>Address</th>
                                                 <th>Date Of Birth</th>
+                                                <th>action</th>
                                             </tr>
                                         </thead>
 
