@@ -12,6 +12,9 @@ logout - ok
 
 patientrecord - ok
 
+
+secappointment - modal in creating new record is not showing check commit history (check ang commit history sining php ngaa nadula ang pag pop up sng modal sa create new record nga btn) = ok
+
 docappointment - edit the action form (only delete button) if appointment is done (indi na need mag edit sang patient info and doc, madelete na lang sya (remove) sang patient info sa appointment)
 
 adminindex - add confirm password, show modal same as adding user but blank in edituser.php. (need confirm password nga textbox) = OK 
@@ -27,7 +30,6 @@ editpatient - display modal for editing patient's information (need ko modal sam
 
 savepatient - check the code (wala ko kabalo kng saveuser/savepatient purpose sini. check ko pa later)
 
-secappointment - modal in creating new record is not showing check commit history (check ang commit history sining php ngaa nadula ang pag pop up sng modal sa create new record nga btn) = ok
 
 IREMOVE LANG OR EDIT KUNG ANO NA NATAPOS. INDI PAG DELETE NING FILE
 

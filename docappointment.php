@@ -118,10 +118,27 @@ include 'dbconn.php';
                                                         <td><?= $row["PreviousAppointmentDate"] ?></td>
                                                         <td>
                                                             <!-- not displaying icon-->
-                                                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" onclick="confirmAction()"><i class="fa fa-check"></i></button>
+                                                            <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" onclick="confirmDelete()"><i class="fa fa-times"></i></button>
+
                                                         </td>
                                                     </tr>
+                                                    <script>
+                                                        function confirmAction() {
+                                                                if (confirm("Is is done?")) {
+                                                                    alert("Done!");
+                                                                }
+                                                            }
+                                                                    function confirmDelete() {
+                                                                        var result = confirm("Are you sure you want to delete?");
+                                                                        if (result) {
+                                                                            // User clicked "OK" (Yes)
+                                                                            alert("Cancelled");
+                                                                        } else {
+                                                                            // User clicked "Cancel" (No), do nothing
+                                                                        }
+                                                                    }
+                                                        </script>
                                             <?php }
                                             } catch (Exception $e) {
                                                 echo "Error: " . $e->getMessage();
