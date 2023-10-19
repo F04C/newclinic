@@ -119,7 +119,7 @@ require 'dbconn.php';
                                             <div class="nameage"><br>
                                                 <label for="lastName">Data Of Birth:</label><br>
                                                 <br>
-                                                    <input type="date" id="dateOfBirth" name="pDOB">
+                                                <input type="date" id="dateOfBirth" name="pDOB">
                                             </div>
 
                                             <!-- Rest of your form fields -->
@@ -158,20 +158,22 @@ require 'dbconn.php';
 
                                         <tbody>
                                             <?php
-                                            $sql = "SELECT * FROM `tblemployee`";
+                                            $sql = "SELECT * FROM `tblpatient`"; // Update the table name to tblpatient
                                             try {
                                                 $result = mysqli_query($conn, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) { ?>
                                                     <tr>
-                                                        <td><?php echo $row["idtblemployee"]; ?></td>
-                                                        <td><?= $row["firstname"] ?></td>
-                                                        <td><?= $row["lastname"] ?></td>
-                                                        <td><?= $row["middlename"] ?></td>
-                                                        <td><?= $row["designation"] ?></td>
-                                                        <td><?= $row["iddept"] ?></td>
+                                                        <td><?= $row["fname"] ?></td>
+                                                        <td><?= $row["mname"] ?></td>
+                                                        <td><?= $row["lname"] ?></td>
+                                                        <td><?= $row["patientage"] ?></td>
+                                                        <td><?= $row["sex"] ?></td>
+                                                        <td><?= $row["civilstatus"] ?></td>
+                                                        <td><?= $row["address"] ?></td>
+                                                        <td><?= $row["dateofbirth"] ?></td>
                                                         <td>
-                                                            <a href="edit.php?id=<?php echo $row["idtblemployee"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
-                                                            <a href="delete.php?id=<?= $row["idtblemployee"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
+                                                            <a href="edit.php?id=<?php echo $row["patientid"]; ?>" class="link-dark"><i class="fas fa-pen fs-5 me-3"></i></a>
+                                                            <a href="delete.php?id=<?= $row["patientid"] ?>" class="link-dark"><i class="fas fa-trash fs-5"></i></a>
                                                         </td>
                                                     </tr>
                                             <?php }
@@ -179,6 +181,7 @@ require 'dbconn.php';
                                                 echo "Error: " . $e->getMessage();
                                             }
                                             ?>
+
                                         <tbody>
                                         </tbody>
                                         <tfooter>

@@ -21,7 +21,7 @@ deletepatient - show alert confirmation to remove the patient from the appointme
 
 editpatient - display modal for editing patient's information (need ko modal same sa add user nga form kg mga textboxes)
 
-patientrecord - sql query to get all patients record (kwa sang tanan nga rows sa tblpatient kag idisplay)
+patientrecord - displayed the patientrecord. (icons of edit and delete not working)
 
 savepatient - check the code (wala ko kabalo kng saveuser/savepatient purpose sini. check ko pa later)
 
