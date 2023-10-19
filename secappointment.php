@@ -1,4 +1,3 @@
-
 <div class="main-panel">
         <div class="content-wrapper pb-0">
           <div class="page-header flex-wrap">
@@ -129,16 +128,16 @@
                                     <td><?= $row["PreviousAppointmentDate"] ?></td>
                                     <td>
                                         <!-- Use a single form to wrap both buttons and style them side by side -->
-                                        <form action="editpatient.php" method="POST" style="display: inline-block;">
-                                            <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEdit" value="edit" data-toggle="tooltip" data-placement="top" title="Edit">
+
+                                        <button class="btn btn-success btn-sm rounded-0" type="button" onclick="console.log('Edit button clicked'); openPatientInfoModal(<?=$row['PatientID']?>)">
                                                 <i class="fa fa-edit"></i>
                                             </button>
-                                        </form>
-                                        <form action="deletepatient.php" method="POST" style="display: inline-block;">
+
+
                                             <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDelete" value="delete" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="fa fa-trash"></i>
                                             </button>
-                                        </form>
+
                                     </td>
                                 </tr>
                         <?php }
@@ -148,6 +147,36 @@
                         ?>
                     </tbody>
                 </table>
+                <script>
+                    function openPatientInfoModal(patientID) {
+    // Find the row in the table that corresponds to the patient
+    const row = document.querySelector(`tr[data-patient-id="${patientID}"]`);
+    if (row) {
+        // Get the patient information from the row
+        const firstName = row.querySelector('.patient-firstname').textContent;
+        const middleName = row.querySelector('.patient-middlename').textContent;
+        const lastName = row.querySelector('.patient-lastname').textContent;
+        const age = row.querySelector('.patient-age').textContent;
+        const sex = row.querySelector('.patient-sex').textContent;
+        const doctorAppointed = row.querySelector('.patient-doctor').textContent;
+        const previousAppointment = row.querySelector('.patient-previous-appointment').textContent;
+
+        // Populate the modal with the patient information
+        document.querySelector('#firstName').value = firstName;
+        document.querySelector('#middleName').value = middleName;
+        document.querySelector('#lastName').value = lastName;
+        document.querySelector('#age').value = age;
+        document.querySelector(`#sex_${sex}`).checked = true;
+        document.querySelector('#civilStatus').value = '';  // Set civil status if available
+        document.querySelector('#address').value = '';  // Set address if available
+        document.querySelector('#dateOfBirth').value = '';  // Set date of birth if available
+
+        // Open the modal
+        $('#patientModal').modal('show');
+    }
+
+}
+</script>
             </div>
         </div>
     </div>
