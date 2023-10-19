@@ -51,9 +51,9 @@
                                     <td>
                                         <!-- Use a single form to wrap both buttons and style them side by side -->
                                         <form action="editpatient.php" method="POST" style="display: inline-block;">
-                                        <button class="btn btn-success btn-sm rounded-0" data-toggle="modal" data-target="#editModal<?= $row["PatientID"] ?>" data-toggle="tooltip" data-placement="top" title="Edit">
-                                            <i class="fa fa-edit"></i>
-                                        </button>
+                                            <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEdit" value="edit" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
                                         </form>
                                         <form action="deletepatient.php" method="POST" style="display: inline-block;">
                                             <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDelete" value="delete" data-toggle="tooltip" data-placement="top" title="Delete">
@@ -75,4 +75,4 @@
             </div>
         </div>
     </div>
-</div> 
+</div>

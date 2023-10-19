@@ -118,7 +118,7 @@ require 'dbconn.php';
                                             </div>
                                             <div class="nameage"><br>
                                                 <label for="lastName">Data Of Birth:</label><br>
-                                                <Mbr>
+                                                <br>
                                                     <input type="date" id="dateOfBirth" name="pDOB">
                                             </div>
 

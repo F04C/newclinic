@@ -8,11 +8,11 @@
     </div>
     <ul class="navbar-nav">
       <li class="nav-item dropdown">
-        <a class="nav-link" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+         <!-- <a class="nav-link" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="mdi mdi-email-outline"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-left navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-          <h6 class="p-3 mb-0 font-weight-semibold">Messages</h6>
+        <h6 class="p-3 mb-0 font-weight-semibold">Messages</h6>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
@@ -93,7 +93,7 @@
           <h6 class="p-3 font-13 mb-0 text-primary text-center">View all notifications</h6>
         </div>
       </li>
-    </ul>
+    </ul> -->
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-logout d-none d-md-block">
         <form action="logout.php" method="post">
