@@ -10,6 +10,8 @@ login - change h5 class. show only if there is no user found in the db (js ni at
 
 logout - ok
 
+patientrecord - ok
+
 docappointment - edit the action form (only delete button) if appointment is done (indi na need mag edit sang patient info and doc, madelete na lang sya (remove) sang patient info sa appointment)
 
 adminindex - add confirm password, show modal same as adding user but blank in edituser.php. (need confirm password nga textbox)
@@ -21,7 +23,7 @@ deletepatient - show alert confirmation to remove the patient from the appointme
 
 editpatient - display modal for editing patient's information (need ko modal same sa add user nga form kg mga textboxes)
 
-patientrecord - ok
+
 
 savepatient - check the code (wala ko kabalo kng saveuser/savepatient purpose sini. check ko pa later)
 
