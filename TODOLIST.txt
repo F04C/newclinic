@@ -2,7 +2,7 @@ navbar- remove unnecessary informations (damo wala labot nga bagay bagay)
 
 _settings-panel - ok
 
-_sidebar - href to the specified index (adminindex if admin, doctorindex if doc, and secindex if sec) (sa profile pic pagclick)
+_sidebar - href to the specified index (adminindex if admin, doctorindex if doc, and secindex if sec) (sa profile pic pagclick - done) = ok
 
 adminindex - add confirm password, show modal same as adding user but blank in edituser.php. (need confirm password nga textbox)
 	   -display username on rows (kulang sql query)
