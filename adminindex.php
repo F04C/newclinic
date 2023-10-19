@@ -145,8 +145,15 @@ require "dbconn.php"; ?>
                                         
         ";
                                             try {
-                                                $result = mysqli_query($conn, $sql);
-                                                while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                $result = mysqli_query(
+                                                    $conn,
+                                                    $sql
+                                                );
+                                                while (
+                                                    $row = mysqli_fetch_assoc(
+                                                        $result
+                                                    )
+                                                ) { ?>
                                                     <tr>
                                                         <td><?php echo $row["FirstName"]; ?></td>
                                                         <td><?= $row["MiddleName"] ?></td>
@@ -163,7 +170,8 @@ require "dbconn.php"; ?>
                                                     </tr>
                                             <?php }
                                             } catch (Exception $e) {
-                                                echo "Error: " . $e->getMessage();
+                                                echo "Error: " .
+                                                    $e->getMessage();
                                             }
                                             ?>
                                         </tbody>
