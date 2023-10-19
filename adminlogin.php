@@ -34,10 +34,7 @@ if (isset($_POST["btnSignin"])) {
                             header("Location: docappointment.php");
                         } elseif ($record["isSec"] == 1) {
                             header("Location: secindex.php");
-                        } else {
-                            // Handle other roles or scenarios as needed
-                            // Redirect with a query parameter indicating user not found
-                            header("Location: login.php?userNotFound=1");
+
                         }
                     } else {
                         // No user found
