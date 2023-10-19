@@ -50,6 +50,11 @@
                     <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
                 </button>
             </div>
+            <div class="nameage"><br>
+            <label for="confirmPass">Confirm Password:</label>
+                <div class="password-input-container">
+                    <input class="form-control" type="password" id="confirmPass" name="confirmPassword" placeholder="Confirm Password">
+                </div>
             <!-- Add confirm password -->
         </div>
 

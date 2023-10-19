@@ -14,7 +14,7 @@ patientrecord - ok
 
 docappointment - edit the action form (only delete button) if appointment is done (indi na need mag edit sang patient info and doc, madelete na lang sya (remove) sang patient info sa appointment)
 
-adminindex - add confirm password, show modal same as adding user but blank in edituser.php. (need confirm password nga textbox)
+adminindex - add confirm password, show modal same as adding user but blank in edituser.php. (need confirm password nga textbox) = OK 
 	   -display username on rows (kulang sql query)
 
 adminlogin - apply password hashing and mysqli_prepare
