@@ -9,7 +9,7 @@
     <ul class="navbar-nav">
 
 
-    </ul> 
+    </ul>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-logout d-none d-md-block">
         <form action="logout.php" method="post">

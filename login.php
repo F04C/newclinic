@@ -55,10 +55,10 @@
 								</div>
 							</div>
 						</form>
-						<h5 id="contactAdminMsg" class="mb-4 text-center <?php echo isset($_GET["userNotFound"]) ? '' : 'd-none'; ?>" style = color:#ffff>Contact administrator if you don't have an account.</h5>
+						<h5 id="contactAdminMsg" class="mb-4 text-center <?php echo isset($_GET["userNotFound"]) ? '' : 'd-none'; ?>" style=color:#ffff>Contact administrator if you don't have an account.</h5>
+					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
 </body>

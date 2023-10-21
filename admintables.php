@@ -22,36 +22,36 @@
                     <tbody>
                         <?php
                         $sql = "SELECT
-                        d.doctorid as userid,
-                        d.fname as FirstName,
-                        d.mname as MiddleName,
-                        d.lname as LastName,
-                        d.specialization as Specialization,
-                        d.licensenum as LicenseNum,
-                        d.phonenum as PhoneNum,
-                        d.address as DAddress,
-                        'Doc' as UserRole,
-                        ua.username as Username
-                    FROM tbldoctor d
-                    JOIN tbluserroles ur ON d.doctorid = ur.doctorIDFK
-                    JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
-                    WHERE ur.isDoc = 1 AND d.isDeleted = 0
-                    UNION
-                    SELECT
-                        s.userid,
-                        s.fname,
-                        s.mname,
-                        s.lname,
-                        NULL,
-                        NULL,
-                        s.phonenum,
-                        s.address,
-                        'Sec' as UserRole,
-                        ua.username as Username
-                    FROM tblsec s
-                    LEFT JOIN tbluserroles ur ON s.userid = ur.secIDFK
-                    LEFT JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
-                    WHERE ur.isSec = 1 AND s.isDeleted = 0;";
+                                            d.doctorid as DoctorID,
+                                            d.fname as FirstName,
+                                            d.mname as MiddleName,
+                                            d.lname as LastName,
+                                            d.specialization as Specialization,
+                                            d.licensenum as LicenseNum,
+                                            d.phonenum as PhoneNum,
+                                            d.address as DAddress,
+                                            'Doc' as UserRole,  -- Set the role to 'Doc' for doctors
+                                            ua.username as Username  -- Retrieve username for doctors
+                                        FROM tbldoctor d
+                                        JOIN tbluserroles ur ON d.doctorid = ur.doctorIDFK
+                                        JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+                                        WHERE ur.isDoc = 1
+                                        UNION
+                                        SELECT
+                                            s.userid,
+                                            s.fname,
+                                            s.mname,
+                                            s.lname,
+                                            NULL,
+                                            NULL,
+                                            s.phonenum,
+                                            s.address,
+                                            'Sec' as UserRole,  -- Set the role to 'Sec' for secretaries
+                                            ua.username as Username  -- Retrieve username for secretaries
+                                        FROM tblsec s
+                                        LEFT JOIN tbluserroles ur ON s.userid = ur.secIDFK
+                                        LEFT JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+                                        WHERE ur.isSec = 1;";
                         try {
                             $result = mysqli_query(
                                 $conn,
@@ -63,8 +63,7 @@
                                 )
                             ) { ?>
                                 <tr>
-                                    <td><?= $row["userid"] ?></td>
-                                    <td><?= $row["FirstName"] ?></td>
+                                    <td><?php echo $row["FirstName"]; ?></td>
                                     <td><?= $row["MiddleName"] ?></td>
                                     <td><?= $row["LastName"] ?></td>
                                     <td><?= $row["PhoneNum"] ?></td>
@@ -80,7 +79,7 @@
                                         </form>
 
                                         <!-- Delete User Form -->
-                                        <form action="deleteuser.php?id=<?= $row["userid"]; ?>" method="POST" style="display: inline;">
+                                        <form action="deleteuser.php" method="POST" style="display: inline;">
                                             <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeleteUser" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="fa fa-trash"></i>
                                             </button>

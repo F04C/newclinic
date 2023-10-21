@@ -56,4 +56,3 @@ if (isset($_POST["btnSignin"])) {
 } else {
     header("Location: login.php");
 }
-?>
