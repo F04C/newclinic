@@ -86,12 +86,7 @@ if (!isset($_SESSION['isAdmin'])) {
                                 <?php include "adminfieldset.php"; ?>
                                 <div>
                                 </div>
-                                <div class="modal-footer">
-                                    <form action="saveuser.php" method="POST">
-                                        <button type="submit" class="btn btn-primary" name="btnSaveUser">Save</button>
-                                    </form>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
+
 
                             </div>
                         </div>

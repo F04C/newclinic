@@ -1,6 +1,8 @@
 <?php
-include "db_conn.php";
+include "dbconn.php";
 session_start();
+var_dump($_POST);
+/*
 if (!isset($_SESSION['username'])) {
     header('Location: login.php');
 }
@@ -141,4 +143,4 @@ if (isset($_POST["submit"])) {
 
 </body>
 
-</html>
+</html>*/
