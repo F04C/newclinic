@@ -1,5 +1,13 @@
 <?php
-require "dbconn.php"; ?>
+require "dbconn.php";
+
+session_start();
+if (!isset($_SESSION['isAdmin'])) {
+    header('Location: login.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,9 +87,12 @@ require "dbconn.php"; ?>
                                 <div>
                                 </div>
                                 <div class="modal-footer">
+                                    <form action="saveuser.php" method="POST">
+                                        <button type="submit" class="btn btn-primary" name="btnSaveUser">Save</button>
+                                    </form>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save</button>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -163,9 +174,19 @@ require "dbconn.php"; ?>
                                                         <td><?= $row["UserRole"] ?></td>
                                                         <td><?= $row["Username"] ?></td>
                                                         <td>
-                                                            <!-- displaying icons correctly -->
-                                                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                                            <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                            <!-- Edit User Form -->
+                                                            <form action="edituser.php" method="POST" style="display: inline;">
+                                                                <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEditUser" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                    <i class="fa fa-edit"></i>
+                                                                </button>
+                                                            </form>
+
+                                                            <!-- Delete User Form -->
+                                                            <form action="deleteuser.php" method="POST" style="display: inline;">
+                                                                <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeleteUser" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                             <?php }

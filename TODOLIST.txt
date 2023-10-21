@@ -23,12 +23,23 @@ adminindex - add confirm password, show modal same as adding user but blank in e
 
 deletepatient - show alert confirmation to remove the patient from the appointment (pagclick delete btn, maalert if iremove man gid sa appointment)
 
-editpatient - display modal for editing patient's information (need ko modal same sa add user nga form kg mga textboxes) 
+editpatient - check ni, iedit ni ang design ya nga daw modal tsura na pag display.
+no need nga magpopulate gamit ang js. sa php ko na ipopulate.
 
 adminlogin - apply password hashing and mysqli_prepare
 
 savepatient - check the code (wala ko kabalo kng saveuser/savepatient purpose sini. check ko pa later)
 
 
+edituser - need modal for editing user accounts
+
+adminfieldset - line 54 butangi man toggle ang confirmpassword
+
+
+check adminfieldset line 6, 27
+
+
 IREMOVE LANG OR EDIT KUNG ANO NA NATAPOS. INDI PAG DELETE NING FILE
+
+
 

@@ -10,7 +10,7 @@
     </div>
 
     <div class="nameage"><br>
-        <label for = "middleName">Middle Name:</label>
+        <label for="middleName">Middle Name:</label>
         <input class="form-control" type="text" id="middleName" name="mname" placeholder="Middle Name">
     </div>
 
@@ -24,7 +24,8 @@
     </div>
     <div class="nameage">
         <div class="nameage"><br>
-            <label for="lastName">User position:</label><br>
+            <!-- add a space after secretary (between sec and doc radio buttons)-->
+            <label for="lastName">User Position:</label><br>
             <input type="radio" name="UserPos" id="sec" name="role-sec" value="sec" checked>
             <label for="female">Secretary</label>
             <input type="radio" name="UserPos" id="doctor" name="role-doc" value="doctor">
@@ -51,13 +52,13 @@
                 </button>
             </div>
             <div class="nameage"><br>
-            <label for="confirmPass">Confirm Password:</label>
+                <label for="confirmPass">Confirm Password:</label>
                 <div class="password-input-container">
                     <input class="form-control" type="password" id="confirmPass" name="confirmPassword" placeholder="Confirm Password">
                 </div>
-            <!-- Add confirm password -->
-        </div>
+                <!-- Add confirm password -->
+            </div>
 
-        <!-- Rest of your form fields -->
-    </fieldset>
-    <script src="assets\js\a.js"></script>
+            <!-- Rest of your form fields -->
+</fieldset>
+<script src="assets\js\a.js"></script>
