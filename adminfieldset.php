@@ -87,8 +87,5 @@
     </fieldset>
 </form>
 
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</div>
 
 <script src="assets/js/a.js"></script>
