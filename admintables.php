@@ -22,36 +22,36 @@
                     <tbody>
                         <?php
                         $sql = "SELECT
-                                            d.doctorid as DoctorID,
-                                            d.fname as FirstName,
-                                            d.mname as MiddleName,
-                                            d.lname as LastName,
-                                            d.specialization as Specialization,
-                                            d.licensenum as LicenseNum,
-                                            d.phonenum as PhoneNum,
-                                            d.address as DAddress,
-                                            'Doc' as UserRole,  -- Set the role to 'Doc' for doctors
-                                            ua.username as Username  -- Retrieve username for doctors
-                                        FROM tbldoctor d
-                                        JOIN tbluserroles ur ON d.doctorid = ur.doctorIDFK
-                                        JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
-                                        WHERE ur.isDoc = 1
-                                        UNION
-                                        SELECT
-                                            s.userid,
-                                            s.fname,
-                                            s.mname,
-                                            s.lname,
-                                            NULL,
-                                            NULL,
-                                            s.phonenum,
-                                            s.address,
-                                            'Sec' as UserRole,  -- Set the role to 'Sec' for secretaries
-                                            ua.username as Username  -- Retrieve username for secretaries
-                                        FROM tblsec s
-                                        LEFT JOIN tbluserroles ur ON s.userid = ur.secIDFK
-                                        LEFT JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
-                                        WHERE ur.isSec = 1;";
+                        d.doctorid as DoctorID,
+                        d.fname as FirstName,
+                        d.mname as MiddleName,
+                        d.lname as LastName,
+                        d.specialization as Specialization,
+                        d.licensenum as LicenseNum,
+                        d.phonenum as PhoneNum,
+                        d.address as DAddress,
+                        'Doc' as UserRole,
+                        ua.username as Username
+                    FROM tbldoctor d
+                    JOIN tbluserroles ur ON d.doctorid = ur.doctorIDFK
+                    JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+                    WHERE ur.isDoc = 1 AND d.isDeleted = 0
+                    UNION
+                    SELECT
+                        s.userid,
+                        s.fname,
+                        s.mname,
+                        s.lname,
+                        NULL,
+                        NULL,
+                        s.phonenum,
+                        s.address,
+                        'Sec' as UserRole,
+                        ua.username as Username
+                    FROM tblsec s
+                    LEFT JOIN tbluserroles ur ON s.userid = ur.secIDFK
+                    LEFT JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+                    WHERE ur.isSec = 1 AND s.isDeleted = 0;";
                         try {
                             $result = mysqli_query(
                                 $conn,
