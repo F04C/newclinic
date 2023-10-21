@@ -24,6 +24,12 @@
 
         <div>
             <br>
+            <label for="phoneNum">Address:</label>
+            <input class="form-control" type="text" id="Address" name="address" placeholder="Address">
+        </div>
+
+        <div>
+            <br>
             <label for="phoneNum">Phone Number:</label>
             <input class="form-control" type="text" id="phoneNum" name="phonenum" placeholder="Ex. 09123456789">
         </div>
@@ -32,9 +38,9 @@
             <br>
             <label for="userPos">User Position:</label>
             <br>
-            <input type="radio" name="UserPos" id="sec" value="sec" checked>
+            <input type="radio" name="UserPos" id="sec" value="isSec" checked>
             <label for="sec">Secretary</label>
-            <input type="radio" name="UserPos" id="doctor" value="doctor">
+            <input type="radio" name="UserPos" id="doctor" value="isDoc">
             <label for="doctor">Doctor</label>
         </div>
 
