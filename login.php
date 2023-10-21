@@ -32,7 +32,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-						<form action="adminlogin.php" class="signin-form" method="POST" onsubmit="return checkUserExists();">
+						<form action="adminlogin.php" class="signin-form" method="POST">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Username" name="inputUsername" required>
 							</div>
@@ -55,10 +55,10 @@
 								</div>
 							</div>
 						</form>
-						<h5 id="contactAdminMsg" class="mb-4 text-center <?php echo isset($_GET["userNotFound"]) ? '' : 'd-none'; ?>" style = color:#ffff>Contact administrator if you don't have an account.</h5>
+						<h5 id="contactAdminMsg" class="mb-4 text-center <?php echo isset($_GET["userNotFound"]) ? '' : 'd-none'; ?>" style=color:#ffff>Contact administrator if you don't have an account.</h5>
+					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
 </body>
