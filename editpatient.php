@@ -23,16 +23,15 @@
     <style>
         /* Custom styles for the centered and smaller fieldset */
         .custom-fieldset {
-            max-width: 500px;
-            /* Set the maximum width */
-            margin: 0 auto;
-            /* Center the fieldset horizontally */
-            font-size: 14px;
-            /* Adjust font size as needed */
+            max-width: 500px; /* Set the maximum width */
+            margin: 0 auto; /* Center the fieldset horizontally */
+            font-size: 14px; /* Adjust font size as needed */
         }
+
     </style>
     <!-- endinject -->
     <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/jquery-bar-rating/css-stars.css" />
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
     <!-- End plugin css for this page -->
     <!-- inject:css -->
@@ -61,7 +60,7 @@
 
             <div class="nameage"><br>
                 <label for="lastName">Last Name:</label>
-                <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
+                <input class="form-control" type="text" id="lastName" name = "lname" placeholder="Last Name">
             </div>
             <div class="nameage"><br>
                 <label for="age">Age:</label>
@@ -89,19 +88,22 @@
         </div>
     </fieldset>
     <div class="modal-footer">
-        <form action="updatepatient.php" method="POST">
-            <button type="submit" class="btn btn-primary" name="btnUpdatePatient">Update</button>
-        </form>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
     </div>
-
-
 
     <!-- plugins:js -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
+    <script src="assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
     <script src="assets/vendors/font-awesome/css/font-awesome.min.css"></script>
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.resize.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.categories.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.fillbetween.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.stack.js"></script>
     <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->

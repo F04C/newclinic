@@ -1,4 +1,6 @@
 <?php
+session_start(); // Start the session at the beginning
+
 // Check if the user is not logged in, and redirect to the login page if not authenticated.
 if (!isset($_SESSION['username'])) {
   header("Location: login.php"); // Redirect to your login page
@@ -32,19 +34,18 @@ if (!isset($_SESSION['username'])) {
     <li class="pt-2 pb-1">
       <span class="nav-item-head">Navigation</span>
     </li>
-    <?php
-    // Function to determine the profile link based on the user's role
-    function getProfileLink($session)
-    {
-      if (isset($session['isAdmin']) && $session['isAdmin'] == 1) {
-        return "adminindex.php"; // Admin profile link
-      } elseif (isset($session['isSec']) && $session['isSec'] == 1) {
-        return "secindex.php"; // Secretary profile link
-      } elseif (isset($session['isDoc']) && $session['isDoc'] == 1) {
-        return "docappointment.php"; // Doctor profile link
-      }
-    }
-    ?>
+                  <?php
+              // Function to determine the profile link based on the user's role
+              function getProfileLink($session) {
+                if (isset($session['isAdmin']) && $session['isAdmin'] == 1) {
+                  return "adminindex.php"; // Admin profile link
+                } elseif (isset($session['isSec']) && $session['isSec'] == 1) {
+                  return "secindex.php"; // Secretary profile link
+                } elseif (isset($session['isDoc']) && $session['isDoc'] == 1) {
+                  return "docappointment.php"; // Doctor profile link
+                }
+              }
+              ?>
     <!-- for secretary -->
     <?php
     // Check user role and display corresponding menu items
