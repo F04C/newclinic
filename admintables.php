@@ -33,7 +33,7 @@
                                             'Doc' as UserRole,  -- Set the role to 'Doc' for doctors
                                             ua.username as Username  -- Retrieve username for doctors
                                         FROM tbldoctor d
-                                        JOIN tbluserroles ur ON d.doctorid = ur.doctorIDFK
+                                        JOIN tbluserroles ur ON d.doctorid = ur.doctorid
                                         JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
                                         WHERE ur.isDoc = 1
                                         UNION
@@ -49,7 +49,7 @@
                                             'Sec' as UserRole,  -- Set the role to 'Sec' for secretaries
                                             ua.username as Username  -- Retrieve username for secretaries
                                         FROM tblsec s
-                                        LEFT JOIN tbluserroles ur ON s.userid = ur.secIDFK
+                                        LEFT JOIN tbluserroles ur ON s.userid = ur.secid
                                         LEFT JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
                                         WHERE ur.isSec = 1;";
                         try {
