@@ -22,7 +22,7 @@
                     <tbody>
                         <?php
                         $sql = "SELECT
-                        d.doctorid as DoctorID,
+                        d.doctorid as userid,
                         d.fname as FirstName,
                         d.mname as MiddleName,
                         d.lname as LastName,
@@ -63,7 +63,8 @@
                                 )
                             ) { ?>
                                 <tr>
-                                    <td><?php echo $row["FirstName"]; ?></td>
+                                    <td><?= $row["userid"] ?></td>
+                                    <td><?= $row["FirstName"] ?></td>
                                     <td><?= $row["MiddleName"] ?></td>
                                     <td><?= $row["LastName"] ?></td>
                                     <td><?= $row["PhoneNum"] ?></td>
@@ -79,7 +80,7 @@
                                         </form>
 
                                         <!-- Delete User Form -->
-                                        <form action="deleteuser.php" method="POST" style="display: inline;">
+                                        <form action="deleteuser.php?id=<?= $row["userid"]; ?>" method="POST" style="display: inline;">
                                             <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeleteUser" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="fa fa-trash"></i>
                                             </button>

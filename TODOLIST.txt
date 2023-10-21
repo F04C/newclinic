@@ -38,6 +38,9 @@ adminfieldset - line 54 butangi man toggle ang confirmpassword
 
 check adminfieldset line 6, 27
 
+change database, combine tblsec and doc
+to simplify the sql queries and get the userid of both doc and sec
+
 
 IREMOVE LANG OR EDIT KUNG ANO NA NATAPOS. INDI PAG DELETE NING FILE
 
