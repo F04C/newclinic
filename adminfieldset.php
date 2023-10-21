@@ -4,27 +4,32 @@
             <h1><b>Add User</b></h1>
         </legend>
 
-        <div class="nameage">
+        <div>
+            <br>
             <label for="firstName">First Name:</label>
             <input class="form-control" type="text" id="firstName" name="fname" placeholder="First Name">
         </div>
 
-        <div class="nameage">
+        <div>
+            <br>
             <label for="middleName">Middle Name:</label>
             <input class="form-control" type="text" id="middleName" name="mname" placeholder="Middle Name">
         </div>
 
-        <div class="nameage">
+        <div>
+            <br>
             <label for="lastName">Last Name:</label>
             <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
         </div>
 
-        <div class="nameage">
+        <div>
+            <br>
             <label for="phoneNum">Phone Number:</label>
             <input class="form-control" type="text" id="phoneNum" name="phonenum" placeholder="Ex. 09123456789">
         </div>
 
-        <div class="nameage">
+        <div>
+            <br>
             <label for="userPos">User Position:</label>
             <br>
             <input type="radio" name="UserPos" id="sec" value="sec" checked>
@@ -33,22 +38,26 @@
             <label for="doctor">Doctor</label>
         </div>
 
-        <div class="nameage" id="specializationDiv">
+        <div id="specializationDiv">
+            <br>
             <label for="specialization">Specialization:</label>
             <input class="form-control" type="text" id="specialization" name="specialization" placeholder="Ex. General Medicine">
         </div>
 
-        <div class="nameage" id="licenseDiv">
+        <div id="licenseDiv">
+            <br>
             <label for="licno">License Number:</label>
             <input class="form-control" type="text" id="licno" name="licno" placeholder="Ex. 123456789">
         </div>
 
-        <div class="nameage">
+        <div>
+            <br>
             <label for="username">User Name:</label>
             <input class="form-control" type="text" id="username" name="username" placeholder="User Name">
         </div>
 
-        <div class="nameage">
+        <div>
+            <br>
             <label for="userPass">Password:</label>
             <div class="password-input-container">
                 <input class="form-control" type="password" id="userPass" name="userPass" placeholder="Password">
@@ -58,7 +67,8 @@
             </div>
         </div>
 
-        <div class="nameage">
+        <div>
+            <br>
             <label for="confirmUserPass">Confirm Password:</label>
             <div class="password-input-container">
                 <input class="form-control" type="password" id="confirmUserPass" name="confirmUserPass" placeholder="Confirm Password">
