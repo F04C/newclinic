@@ -117,27 +117,15 @@ include 'dbconn.php';
                                                         <td><?= $row["Sex"] ?></td>
                                                         <td><?= $row["PreviousAppointmentDate"] ?></td>
                                                         <td>
-                                                        <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" onclick="confirmAction(this)">
+                                                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" name="btnDone" onclick="confirmAction(this)">
                                                                 <i class="fa fa-check"></i>
                                                             </button>
-                                                            <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" onclick="confirmDelete(this)">
-                                                                <i class="fa fa-times"></i>
-                                                            </button>
-                                                        </td>
                                                     </tr>
                                                     <script>
                                                         function confirmAction(button) {
                                                             if (confirm("Is it done?")) {
                                                                 // Display "Done" and hide the buttons
                                                                 displayMessageAndHideButtons(button, "Done");
-                                                            }
-                                                        }
-
-                                                        function confirmDelete(button) {
-                                                            var result = confirm("Are you sure you want to delete?");
-                                                            if (result) {
-                                                                // Display "Cancelled" and hide the buttons
-                                                                displayMessageAndHideButtons(button, "Cancelled");
                                                             }
                                                         }
 

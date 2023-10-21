@@ -35,7 +35,7 @@ if (isset($_POST["btnSaveUser"])) {
                 $secIDFK = mysqli_insert_id($conn);
 
                 // Insert a row into tbluserroles
-                $sql2 = "INSERT INTO tbluserroles (isSec, secid) VALUES (1, $secIDFK)";
+                $sql2 = "INSERT INTO tbluserroles (isSec, secIDFK) VALUES (1, $secIDFK)";
                 $result2 = mysqli_query($conn, $sql2);
 
 
