@@ -1,43 +1,63 @@
-<!-- use the session of secid for adding the patient -->
-
-
-
 <?php
-require 'dbconn.php';
+require_once "dbconn.php";
 session_start();
-if (isset($_SESSION['secid'])) {
-    $secid = $_SESSION['secid'];
+
+//used to check whether there is a POST
+//var_dump($_POST);
+
+//check if the session is an admin
+if (!isset($_SESSION['isSec'])) {
+    header('Location: login.php');
+}
+
+if (isset($_POST["btnSaveUser"])) {
+    $pw1 = $_POST['userPass'];
+    $pw2 = $_POST['confirmUserPass'];
+
+    if ($pw1 == $pw2) {
+        $fname = $_POST['fname'];
+        $mname = $_POST['mname'];
+        $lname = $_POST['lname'];
+        $address = $_POST['address'];
+        $phonenum = $_POST['phonenum'];
+        $userpos = $_POST['UserPos'];
+        $username = $_POST['username'];
+        $password = $_POST['userPass'];
+
+        if ($userpos == 'isSec') {
+            // Insert data into tblsec
+            $sql = "INSERT INTO tblsec (fname, mname, lname, phonenum, address) 
+                    VALUES ('$fname', '$mname', '$lname', '$phonenum', '$address')";
+            $result = mysqli_query($conn, $sql);
+
+            if ($result) {
+                // Get the userid of the last inserted row in tblsec
+                $secIDFK = mysqli_insert_id($conn);
+
+                // Insert a row into tbluserroles
+                $sql2 = "INSERT INTO tbluserroles (isSec, secIDFK) VALUES (1, $secIDFK)";
+                $result2 = mysqli_query($conn, $sql2);
 
 
-    if (isset($_POST["btnSave"])) {
-        $firstName = $_POST["fname"];
-        $middleName = $_POST["mname"];
-        $lastName = $_POST["lname"];
-        $age = $_POST["age"];
-        $sex = $_POST["sex"];
-        $civilStatus = $_POST["civilStatus"];
-        $address = $_POST["address"];
-        $dateOfBirth = $_POST["pDOB"];
+                // ok na dri ang sql statement need na lang 
+                if ($result2) {
+                    $tbluserroleroleid = mysqli_insert_id($conn);
+                    // Insert user authentication data into tbluserauth
+                    $sql1 = "INSERT INTO tbluserauth (username, password, tbluserroles_roleid) 
+                            VALUES ('$username', '$password', $tbluserroleroleid)";
+                    $result1 = mysqli_query($conn, $sql1);
 
-        // Check if the patient already exists in tblpatient
-        $checkPatientQuery = "SELECT * FROM tblpatient WHERE fname = '$firstName' AND lname = '$lastName' AND dateofbirth = '$dateOfBirth'";
-
-        $result = mysqli_query($conn, $checkPatientQuery);
-
-        if (mysqli_num_rows($result) == 0) {
-            // No matching patient found, insert a new patient
-            $insertPatientQuery = "INSERT INTO tblpatient (fname, mname, lname, patientage, sex, civilstatus, address, dateofbirth, tblsec_userid) VALUES ('$firstName', '$middleName', '$lastName', '$age', '$sex', '$civilStatus', '$address', '$dateOfBirth', '$secid')";
-
-            if (mysqli_query($conn, $insertPatientQuery)) {
-                echo "New patient added to tblpatient.";
+                    if ($result1) {
+                        header("Location: adminindex.php?msg=New record created successfully");
+                    } else {
+                        echo "Failed to insert user authentication data: " . mysqli_error($conn);
+                    }
+                } else {
+                    echo "Failed to insert user role data: " . mysqli_error($conn);
+                }
             } else {
-                echo "Error: " . mysqli_error($conn);
+                echo "Failed to insert secretary data: " . mysqli_error($conn);
             }
-        } else {
-            echo "Patient already exists in tblpatient.";
         }
     }
-} else {
-    // Handle the case where 'secid' is not set, e.g., show an error message or redirect to a login page
-    echo "Session variable 'secid' not found. Please log in.";
 }

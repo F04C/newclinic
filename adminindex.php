@@ -81,7 +81,7 @@ if (!isset($_SESSION["isAdmin"])) {
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="patientModalLabel"></h5>
+                                    <h5 class="modal-title" id="userModalLabel"></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
