@@ -1,6 +1,6 @@
-                    function togglePasswordVisibility() {
-                            var passwordField = document.getElementById("pass");
-                            var eyeIcon = document.getElementById("eyeIcon");
+                        function togglePasswordVisibility(inputId, iconId) {
+                            var passwordField = document.getElementById(inputId);
+                            var eyeIcon = document.getElementById(iconId);
 
                             if (passwordField.type === "password") {
                                 passwordField.type = "text";
@@ -12,7 +12,13 @@
                                 eyeIcon.classList.add("fa-eye");
                             }
                         }
-                        var doctorRadio = document.getElementById("doctor");
+
+                        function toggleConfPasswordVisibility() {
+                            togglePasswordVisibility('confirmUserPass', 'eyeIconConfirm');
+                        }
+
+                        
+                        doctorRadio = document.getElementById("doctor");
                         var secRadio = document.getElementById("sec");
                         var specializationDiv = document.getElementById("specializationDiv");
                         var licenseDiv = document.getElementById("licenseDiv");

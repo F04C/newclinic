@@ -22,6 +22,7 @@
     <!-- Add your custom CSS and JavaScript below -->
     <style>
         /* Custom styles for the centered and smaller fieldset */
+        
         .custom-fieldset {
             max-width: 500px;
             /* Set the maximum width */
@@ -29,7 +30,31 @@
             /* Center the fieldset horizontally */
             font-size: 14px;
             /* Adjust font size as needed */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background-color: white;
         }
+        .modal-footer-edit {
+    display: flex;
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center;     /* Center items vertically */
+    padding: 0.3rem 10px 0.3rem 0; /* Adjust padding for top, right, and bottom */
+    border-top: 1px solid #e4e9f0;
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    border-bottom-left-radius: calc(0.3rem - 1px);
+    position: relative;
+    max-width: 500px;
+    /* Set the maximum width */
+    margin: 0 auto;
+    /* Center the fieldset horizontally */
+    font-size: 14px;
+    /* Adjust font size as needed */
+}
+
+.update-button {
+    margin-left: 320px; /* Adjust the space between the "Update" button and "Close" button */
+}
+
+
     </style>
     <!-- endinject -->
     <!-- Plugin css for this page -->
@@ -41,7 +66,7 @@
     <link rel="stylesheet" href="assets/css/demo_1/style.css" />
 </head>
 
-<body>
+<body style = "background-color: whitesmoke">
 
     <!-- Fieldset for patient information form -->
     <fieldset class="custom-fieldset">
@@ -88,12 +113,15 @@
             </div>
         </div>
     </fieldset>
-    <div class="modal-footer">
+    <div class="modal-footer-edit">
+    <div class="update-button">
         <form action="updatepatient.php" method="POST">
             <button type="submit" class="btn btn-primary" name="btnUpdatePatient">Update</button>
         </form>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     </div>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+
 
 
 
