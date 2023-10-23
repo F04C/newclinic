@@ -30,14 +30,7 @@ if (!isset($_SESSION["isSec"])) {
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Add your custom CSS and JavaScript below -->
-  <style>
-    /* Add your custom CSS styles here */
-    .custom-fieldset {
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 5px;
-    }
-  </style>
+
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
@@ -48,6 +41,17 @@ if (!isset($_SESSION["isSec"])) {
   <link rel="stylesheet" href="assets/css/demo_1/style.css" />
   <!-- End layout styles -->
   <link rel="shortcut icon" href="assets/images/favicon.png" />
+  <style>
+        /* Custom styles for the centered and smaller fieldset */
+        .custom-fieldset {
+            max-width: 500px;
+            /* Set the maximum width */
+            margin: 0 auto;
+            /* Center the fieldset horizontally */
+            font-size: 14px;
+            /* Adjust font size as needed */
+        }
+    </style>
 </head>
 
 <body>
@@ -59,6 +63,7 @@ if (!isset($_SESSION["isSec"])) {
       <?php include "_settings-panel.php"; ?>
       <!-- partial:partials/_navbar.php -->
       <?php include "_navbar.php"; ?>
+      
 
 
       <?php
