@@ -1,6 +1,12 @@
 <?php
-include 'dbconn.php';
+require_once 'dbconn.php';
+
+session_start();
+if (!isset($_SESSION["isDoc"])) {
+    header("Location: login.php");
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
