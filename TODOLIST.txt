@@ -15,32 +15,47 @@ secappointment - modal in creating new record is not showing check commit histor
 
 
 
+
+
+====global====
 _navbar- ok
 _settings-panel - ok
 _sidebar - ok
+adminlogin - apply password hashing and mysqli_prepare
+dbconn - ok
+login - ok
+logout - ok
+
+
+
+
+====for admin====
 adminfieldset - ok
 adminindex - ok
-adminlogin - ok
 admintables - ok
-dbconn - ok
-deletepatient - show alert confirmation to remove the patient from the appointment (pagclick delete btn, maalert if iremove man gid sa appointment)
 deleteuser - ned na lang confirmation kung idelete mn gd
-docappointment - remove search bar?, bring back the delete button, 3 buttons in action. 1 for edit, 2 for done, 3 for delete
 edituser - ok
-logout - ok
-patientrecord - ok
+saveuser - ok
 updateuser-ok
 
 
-
-
-editpatient - check ni, iedit ni ang design ya nga daw modal tsura na pag display. =ok 
+====for doc and sec ====
+deletepatient - show alert confirmation to remove the patient from the appointment (pagclick delete btn, maalert if iremove man gid sa appointment), need code to remove from the queue
+editpatient - check ni, iedit ni ang design ya nga daw modal tsura na pag display.
 no need nga magpopulate gamit ang js. sa php ko na ipopulate.
+patientrecord - ok
 
-adminlogin - apply password hashing and mysqli_prepare
 
-savepatient - check the code (wala ko kabalo kng saveuser/savepatient purpose sini. check ko pa later)
+====for doctor====
+docappointment - remove search bar?, bring back the delete button, 3 buttons in action. 1 for edit, 2 for done, 3 for delete
+done - js for is it done, also php to remove the patient from the queue, use this to update the data of the patient like the data of the appointment to be used for "previous appointment"
 
+
+====for sec====
+savepatient - not working for save btncheckthis
+secappointment - ok
+secfieldset - delete button, check deletepatient todo
+sectables - put the form for 
 
 
 IREMOVE LANG OR EDIT KUNG ANO NA NATAPOS. INDI PAG DELETE NING FILE
