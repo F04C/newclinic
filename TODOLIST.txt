@@ -25,7 +25,7 @@ admintables - ok
 dbconn - ok
 deletepatient - show alert confirmation to remove the patient from the appointment (pagclick delete btn, maalert if iremove man gid sa appointment)
 deleteuser - ned na lang confirmation kung idelete mn gd
-docappointment - edit the action form (only delete button) if appointment is done (indi na need mag edit sang patient info and doc, madelete na lang sya (remove) sang patient info sa appointment) =ok
+docappointment - remove search bar?, bring back the delete button, 3 buttons in action. 1 for edit, 2 for done, 3 for delete
 edituser - ok
 logout - ok
 patientrecord - ok
