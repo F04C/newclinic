@@ -1,22 +1,3 @@
-
-
-
-
-
-
-
-login - change h5 class. show only if there is no user found in the db (js ni ata if wala makita nga user, kadto ka sa sa line nga no user found, mapop up lang ang "contact admin" else wala may idisplay sa dalom sang login btn) = OK
-
-
-
-
-
-secappointment - modal in creating new record is not showing check commit history (check ang commit history sining php ngaa nadula ang pag pop up sng modal sa create new record nga btn) = ok
-
-
-
-
-
 ====global====
 _navbar- ok
 _settings-panel - ok
@@ -44,6 +25,7 @@ deletepatient - show alert confirmation to remove the patient from the appointme
 editpatient - check ni, iedit ni ang design ya nga daw modal tsura na pag display.
 no need nga magpopulate gamit ang js. sa php ko na ipopulate.
 patientrecord - ok
+updatepatient - on-going, still no code
 
 
 ====for doctor====
@@ -55,7 +37,7 @@ done - js for is it done, also php to remove the patient from the queue, use thi
 savepatient - not working for save btncheckthis
 secappointment - ok
 secfieldset - delete button, check deletepatient todo
-sectables - put the form for 
+sectables - ok
 
 
 IREMOVE LANG OR EDIT KUNG ANO NA NATAPOS. INDI PAG DELETE NING FILE
