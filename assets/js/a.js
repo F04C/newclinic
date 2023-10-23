@@ -25,7 +25,7 @@
                                 eyeIcon.classList.remove("fa-eye-slash");
                                 eyeIcon.classList.add("fa-eye");
                             }
-                        }r doctorRadio = document.getElementById("doctor");
+                        }doctorRadio = document.getElementById("doctor");
                         var secRadio = document.getElementById("sec");
                         var specializationDiv = document.getElementById("specializationDiv");
                         var licenseDiv = document.getElementById("licenseDiv");
