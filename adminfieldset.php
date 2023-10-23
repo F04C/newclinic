@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <form action="saveuser.php" method="POST">
     <fieldset class="custom-fieldset">
         <legend>
@@ -79,7 +80,7 @@
     <label for="confirmUserPass">Confirm Password:</label>
     <div class="password-input-container">
         <input class="form-control" type="password" id="confirmUserPass" name="confirmUserPass" placeholder="Confirm Password">
-        <button id="togglePassword" type="button" onclick="toggleConfirmPasswordVisibility('confirmUserPass', 'eyeIconConfirm')">
+        <button id="togglePassword" type="button" onclick="toggleConfPasswordVisibility('confirmUserPass', 'eyeIconConfirm')">
             <i id="eyeIconConfirm" class="fa fa-eye" aria-hidden="true"></i>
         </button>
     </div>
