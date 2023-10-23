@@ -38,7 +38,7 @@ adminfieldset - line 54 butangi man toggle ang confirmpassword
 
 check adminfieldset line 6, 27
 
-edituser - need sng design same sa adminfieldset kng diin ko pwede mabutangan data (nd pag gamiti js)
+edituser - ok na code for edit user. gapopulate na ang mga fields, need na lang design nga daw modal sya.
 
 IREMOVE LANG OR EDIT KUNG ANO NA NATAPOS. INDI PAG DELETE NING FILE
 
