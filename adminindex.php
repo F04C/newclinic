@@ -75,7 +75,7 @@ if (!isset($_SESSION["isAdmin"])) {
                     <?php
                     if (isset($_GET['msg']) && !empty($_GET['msg'])) {
                         // Display the success message
-                        echo '<div class="msg">' . htmlspecialchars($_GET['msg']) . '</div>';
+                        echo '<div class="msg">' . $_GET['msg'] . '</div>';
                     } ?>
                     <br>
 
