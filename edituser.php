@@ -70,7 +70,8 @@ if (isset($_GET["ID"])) {
             <legend>
                 <h1><b>Edit User</b></h1>
             </legend>
-
+            <input type="hidden" name="userID" value="<?= $userID ?>">
+            <input type="hidden" name="userRole" value="<?= $userRole ?>">
             <div>
                 <br>
                 <label for="firstName">First Name:</label>
