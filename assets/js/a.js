@@ -12,7 +12,20 @@
                                 eyeIcon.classList.add("fa-eye");
                             }
                         }
-                        var doctorRadio = document.getElementById("doctor");
+                   function toggleConfirmPasswordVisibility() {
+                            var passwordField = document.getElementById("pass");
+                            var eyeIcon = document.getElementById("eyeIcon");
+
+                            if (passwordField.type === "password") {
+                                passwordField.type = "text";
+                                eyeIcon.classList.remove("fa-eye");
+                                eyeIcon.classList.add("fa-eye-slash");
+                            } else {
+                                passwordField.type = "password";
+                                eyeIcon.classList.remove("fa-eye-slash");
+                                eyeIcon.classList.add("fa-eye");
+                            }
+                        }r doctorRadio = document.getElementById("doctor");
                         var secRadio = document.getElementById("sec");
                         var specializationDiv = document.getElementById("specializationDiv");
                         var licenseDiv = document.getElementById("licenseDiv");
