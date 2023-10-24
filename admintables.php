@@ -22,37 +22,37 @@
                     <tbody>
                         <?php
                         $sql = "SELECT
-                            d.doctorid as ID,
-                            d.fname as FirstName,
-                            d.mname as MiddleName,
-                            d.lname as LastName,
-                            d.specialization as Specialization,
-                            d.licensenum as LicenseNum,
-                            d.phonenum as PhoneNum,
-                            d.address as DAddress,
-                            'Doc' as UserRole,  -- Set the role to 'Doc' for doctors
-                            ua.username as Username  -- Retrieve username for doctors
-                        FROM tbldoctor d
-                        JOIN tbluserroles ur ON d.doctorid = ur.doctorIDFK
-                        JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
-                        WHERE d.isDeleted = 0
-                        UNION ALL
-                        SELECT
-                            s.userid as ID,
-                            s.fname as FirstName,
-                            s.mname as MiddleName,
-                            s.lname as LastName,
-                            NULL,
-                            NULL,
-                            s.phonenum as PhoneNum,
-                            s.address as DAddress,
-                            'Sec' as UserRole,  -- Set the role to 'Sec' for secretaries
-                            ua.username as Username  -- Retrieve username for secretaries
-                        FROM tblsec s
-                        LEFT JOIN tbluserroles ur ON s.userid = ur.secIDFK
-                        LEFT JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
-                        WHERE s.isDeleted = 0;
-                        ";
+        d.doctorid as ID,
+        d.fname as FirstName,
+        d.mname as MiddleName,
+        d.lname as LastName,
+        d.specialization as Specialization,
+        d.licensenum as LicenseNum,
+        d.phonenum as PhoneNum,
+        d.address as DAddress,
+        'Doc' as UserRole,  -- Set the role to 'Doc' for doctors
+        ua.username as Username  -- Retrieve username for doctors
+    FROM tbldoctor d
+    JOIN tbluserroles ur ON d.doctorid = ur.doctorIDFK
+    JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+    WHERE d.isDeleted = 0
+    UNION ALL
+    SELECT
+        s.userid as ID,
+        s.fname as FirstName,
+        s.mname as MiddleName,
+        s.lname as LastName,
+        NULL,
+        NULL,
+        s.phonenum as PhoneNum,
+        s.address as DAddress,
+        'Sec' as UserRole,  -- Set the role to 'Sec' for secretaries
+        ua.username as Username  -- Retrieve username for secretaries
+    FROM tblsec s
+    LEFT JOIN tbluserroles ur ON s.userid = ur.secIDFK
+    LEFT JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+    WHERE s.isDeleted = 0;
+    ";
                         try {
                             $result = mysqli_query(
                                 $conn,
@@ -74,21 +74,21 @@
                                     <td><?= $row["Username"] ?></td>
                                     <td>
                                         <form action="edituser.php" method="GET" style="display: inline;">
-                                            <input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
+                                            <input type="hidden" name="ID" value="<?= $row["ID"]; ?>"> <!-- Pass the user ID here -->
+                                            <input type="hidden" name="UserRole" value="<?= $row["UserRole"]; ?>"> <!-- Pass the user role here -->
                                             <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEditUser" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                         </form>
 
+
                                         <form action="deleteuser.php" method="POST" style="display: inline;">
-                                            <input type="hidden" name="ID" value="<?php echo $row["ID"]; ?>">
-                                            <input type="hidden" name="UserRole" value="<?php echo $row["UserRole"]; ?>">
+                                            <input type="hidden" name="ID" value="<?= $row["ID"]; ?>"> <!-- Pass the correct user ID here -->
+                                            <input type="hidden" name="UserRole" value="<?= $row["UserRole"]; ?>">
                                             <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeleteUser" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </form>
-
-
                                     </td>
                                 </tr>
                         <?php }

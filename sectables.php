@@ -58,6 +58,7 @@
 
                                         <!-- Delete Patient Form -->
                                         <form action="deletepatient.php" method="POST" style="display: inline;">
+                                            <input type="hidden" name="patientID" value="<?php echo $row["PatientID"]; ?>">
                                             <button class="btn btn-danger btn-sm rounded-0" type="button" name="btnDeletePatient" value="delete" data-toggle="tooltip" data-placement="top" title="Delete" onclick="confirmDelete()">
                                                 <i class="fa fa-trash"></i>
                                             </button>

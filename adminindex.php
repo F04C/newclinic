@@ -72,8 +72,11 @@ if (!isset($_SESSION["isAdmin"])) {
                             </div>
                         </div>
                     </div>
-                    <div class="msg">Placeholder for message if it was saved successfully</div>
-
+                    <?php
+                    if (isset($_GET['msg']) && !empty($_GET['msg'])) {
+                        // Display the success message
+                        echo '<div class="msg">' . $_GET['msg'] . '</div>';
+                    } ?>
                     <br>
 
                     <!-- Modal for adding patient information -->

@@ -1,6 +1,12 @@
 <?php
 require 'dbconn.php';
 
+session_start();
+if (!isset($_SESSION["isDoc"]) || !isset($_SESSION["isSec"])) {
+    header("Location: login.php");
+    exit; // Make sure to exit after a header redirect
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

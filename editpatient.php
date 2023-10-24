@@ -1,148 +1,91 @@
+<?php
+require "dbconn.php";
+
+if (isset($_POST["patientID"])) {
+    $patientID = $_POST["patientID"];
+
+    // Construct the SQL query to fetch patient data based on patientID
+    $sql = "SELECT * FROM tblpatient WHERE patientid = $patientID";
+
+    // Execute the query
+    $result = mysqli_query($conn, $sql);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        // Populate form fields with retrieved data
+        $patientFirstName = $row["fname"];
+        $patientMiddleName = $row["mname"];
+        $patientLastName = $row["lname"];
+        $patientAge = $row["patientage"];
+        $patientSex = $row["sex"];
+        $patientCivilStatus = $row["civilstatus"];
+        $patientAddress = $row["address"];
+        $patientDateOfBirth = $row["dateofbirth"];
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Dashboard</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets\css\a.css">
-    <!-- Add your custom CSS and JavaScript below -->
-    <style>
-        /* Custom styles for the centered and smaller fieldset */
-        
-        .custom-fieldset {
-            max-width: 500px;
-            /* Set the maximum width */
-            margin: 0 auto;
-            /* Center the fieldset horizontally */
-            font-size: 14px;
-            /* Adjust font size as needed */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            background-color: white;
-        }
-        .modal-footer-edit {
-    display: flex;
-    justify-content: space-between; /* Align items horizontally */
-    align-items: center;     /* Center items vertically */
-    padding: 0.3rem 10px 0.3rem 0; /* Adjust padding for top, right, and bottom */
-    border-top: 1px solid #e4e9f0;
-    border-bottom-right-radius: calc(0.3rem - 1px);
-    border-bottom-left-radius: calc(0.3rem - 1px);
-    position: relative;
-    max-width: 500px;
-    /* Set the maximum width */
-    margin: 0 auto;
-    /* Center the fieldset horizontally */
-    font-size: 14px;
-    /* Adjust font size as needed */
-}
-
-.update-button {
-    margin-left: 320px; /* Adjust the space between the "Update" button and "Close" button */
-}
-
-
-    </style>
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="assets/css/demo_1/style.css" />
+    <!-- Your head content here -->
 </head>
 
-<body style = "background-color: whitesmoke">
+<body>
+    <form action="updatepatient.php" method="POST">
+        <fieldset class="custom-fieldset">
+            <legend>
+                <h1><b>Patient Information</b></h1>
+            </legend>
+            <input type="hidden" name="patientID" value="<?= $patientID ?>">
 
-    <!-- Fieldset for patient information form -->
-    <fieldset class="custom-fieldset">
-        <legend>
-            <h1><b>Patient Information</b></h1>
-        </legend>
-        <div class="modal-body">
-            <div class="nameage">
-                <label for="firstName">First Name:</label>
-                <input class="form-control" type="text" id="firstName" name="fname" placeholder="First Name">
-            </div>
+            <div class="modal-body">
+                <div class="nameage">
+                    <label for="firstName">First Name:</label>
+                    <input class="form-control" type="text" id="firstName" name="fname" value="<?= $patientFirstName ?>">
+                </div>
 
-            <div class="nameage"><br>
-                <label for="middleName">Middle Name:</label>
-                <input class="form-control" type="text" id="middleName" name="mname" placeholder="Middle Name">
-            </div>
+                <div class="nameage"><br>
+                    <label for="middleName">Middle Name:</label>
+                    <input class="form-control" type="text" id="middleName" name="mname" value="<?= $patientMiddleName ?>">
+                </div>
 
-            <div class="nameage"><br>
-                <label for="lastName">Last Name:</label>
-                <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
+                <div class="nameage"><br>
+                    <label for="lastName">Last Name:</label>
+                    <input class="form-control" type="text" id="lastName" name="lname" value="<?= $patientLastName ?>">
+                </div>
+                <div class="nameage"><br>
+                    <label for="age">Age:</label>
+                    <input class="form-control" type="text" id="age" name="age" value="<?= $patientAge ?>">
+                </div>
+                <div class="nameage">
+                    <label for="sex">Sex:</label><br>
+                    <input type="radio" name="sex" id="male" value="male" <?= ($patientSex === 'male') ? 'checked' : '' ?>>
+                    <label for="male">Male</label>
+                    <input type="radio" name="sex" id="female" value="female" <?= ($patientSex === 'female') ? 'checked' : '' ?>>
+                    <label for="female">Female</label>
+                </div>
+                <div class="nameage">
+                    <label for="civilStatus">Civil Status:</label>
+                    <input class="form-control" type="text" id="civilStatus" name="civilStatus" value="<?= $patientCivilStatus ?>">
+                </div>
+                <div class="nameage"><br>
+                    <label for="address">Address:</label>
+                    <input class="form-control" type="text" id="address" name="address" value="<?= $patientAddress ?>">
+                </div>
+                <div class="nameage"><br>
+                    <label for="dateOfBirth">Date Of Birth:</label><br>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" value="<?= $patientDateOfBirth ?>">
+                </div>
             </div>
-            <div class="nameage"><br>
-                <label for="age">Age:</label>
-                <input class="form-control" type="text" id="age" name="age" placeholder="Ex. 15">
-            </div>
-            <div class="nameage">
-                <label for="sex">Sex:</label><br>
-                <input type="radio" name="sex" id="male" value="male" checked>
-                <label for="male">Male</label>
-                <input type="radio" name="sex" id="female" value="female">
-                <label for="female">Female</label>
-            </div>
-            <div class="nameage">
-                <label for="civilStatus">Civil Status:</label>
-                <input class="form-control" type="text" id="civilStatus" name="civilStatus" placeholder="Ex. Single">
-            </div>
-            <div class="nameage"><br>
-                <label for="address">Address:</label>
-                <input class="form-control" type="text" id="address" name="address" placeholder="Iloilo City">
-            </div>
-            <div class="nameage"><br>
-                <label for="dateOfBirth">Date Of Birth:</label><br>
-                <input type="date" id="dateOfBirth" name="dateOfBirth">
+        </fieldset>
+        <div class="modal-footer-edit">
+            <div class="update-button">
+                <button type="submit" class="btn btn-primary" name="btnUpdatePatient">Update</button>
             </div>
         </div>
-    </fieldset>
-    <div class="modal-footer-edit">
-    <div class="update-button">
-        <form action="updatepatient.php" method="POST">
-            <button type="submit" class="btn btn-primary" name="btnUpdatePatient">Update</button>
-        </form>
-    </div>
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</div>
-
-
-
-
-    <!-- plugins:js -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="assets/vendors/font-awesome/css/font-awesome.min.css"></script>
-    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
-    <script src="assets\js\b.js"></script>
-    <!-- End custom js for this page -->
+    </form>
 </body>
 
 </html>
