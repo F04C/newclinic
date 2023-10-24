@@ -31,7 +31,7 @@ savepatient - check the code (wala ko kabalo kng saveuser/savepatient purpose si
 
 edituser - need modal for editing user accounts
 
-adminfieldset - line 54 butangi man toggle ang confirmpassword
+adminfieldset - line 54 butangi man toggle ang confirmpassword = ok
 
 
 check adminfieldset line 6, 27 = ok
