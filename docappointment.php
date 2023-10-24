@@ -79,7 +79,7 @@ if (!isset($_SESSION["isDoc"])) {
                             <div class="card-body pb-0">
                                 <h4 class="card-title mb-0">Patients</h4>
                             </div>
-                            <br>
+
                             <div class="card-body p-0">
                                 <div class="table-responsive">
                                     <table class="table custom-table text-dark">
@@ -124,34 +124,19 @@ if (!isset($_SESSION["isDoc"])) {
                                                         <td><?= $row["Sex"] ?></td>
                                                         <td><?= $row["PreviousAppointmentDate"] ?></td>
                                                         <td>
-                                                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" name="btnDone" onclick="confirmAction(this)">
-                                                                <i class="fa fa-check"></i>
+                                                        <form action="docfinding.php" method="POST" style="display: inline;">
+                                                                <input type="hidden" name="patientid" value=""> <!-- Pass the user ID here -->
+                                                                <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnCheck" data-toggle="tooltip" data-placement="top" title="Done">
+                                                                    <i class="fa fa-check"></i>
+                                                                </button>                                            
+                                                            </form>
+
+                                                            <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnWrong" data-toggle="tooltip" data-placement="top" title="Wrong">
+                                                                <i class="fa fa-times"></i>
                                                             </button>
+
                                                     </tr>
-                                                    <script>
-                                                        function confirmAction(button) {
-                                                            if (confirm("Is it done?")) {
-                                                                // Display "Done" and hide the buttons
-                                                                displayMessageAndHideButtons(button, "Done");
-                                                            }
-                                                        }
-
-                                                        function displayMessageAndHideButtons(button, message) {
-                                                            // Create a text node with the specified message
-                                                            const text = document.createTextNode(message);
-
-                                                            // Find the parent <td> element
-                                                            const td = button.parentElement;
-
-                                                            // Remove the buttons
-                                                            while (td.firstChild) {
-                                                                td.removeChild(td.firstChild);
-                                                            }
-
-                                                            // Append the message text to the <td>
-                                                            td.appendChild(text);
-                                                        }
-                                                    </script>
+            
                                             <?php }
                                             } catch (Exception $e) {
                                                 echo "Error: " . $e->getMessage();
