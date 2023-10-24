@@ -69,9 +69,13 @@ if (!isset($_SESSION["isDoc"]) || !isset($_SESSION["isSec"])) {
                         </div>
                     </div>
 
+                    <?php
+                    if (isset($_GET['msg']) && !empty($_GET['msg'])) {
+                        // Display the success message
+                        echo '<div class="msg">' . $_GET['msg'] . '</div>';
+                    } ?>
 
-
-
+                    <br>
                     <!-- Modal for adding patient information -->
                     <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -179,13 +183,17 @@ if (!isset($_SESSION["isDoc"]) || !isset($_SESSION["isSec"])) {
                                                         <td><?= $row["address"] ?></td>
                                                         <td><?= $row["dateofbirth"] ?></td>
                                                         <td>
-                                                            <form action="editpatient.php" method="POST" style="display: inline-block;">
-                                                                <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEdit" value="edit" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <form action="editpatient.php" method="POST" style="display: inline;">
+                                                                <input type="hidden" name="patientid" value="<?= $row["patientid"]; ?>"> <!-- Pass the user ID here -->
+                                                                <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEditPatient" data-toggle="tooltip" data-placement="top" title="Edit">
                                                                     <i class="fa fa-edit"></i>
                                                                 </button>
                                                             </form>
-                                                            <form action="deletepatient.php" method="POST" style="display: inline-block;">
-                                                                <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDelete" value="delete" data-toggle="tooltip" data-placement="top" title="Delete">
+
+
+                                                            <form action="deletepatient.php" method="POST" style="display: inline;">
+                                                                <input type="hidden" name="ID" value="<?= $row["patientid"]; ?>"> <!-- Pass the correct user ID here -->
+                                                                <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeleteUser" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button>
                                                             </form>

@@ -1,8 +1,8 @@
 <?php
 require "dbconn.php";
 
-if (isset($_POST["patientID"])) {
-    $patientID = $_POST["patientID"];
+if (isset($_POST["patientid"])) {
+    $patientID = $_POST["patientid"];
 
     // Construct the SQL query to fetch patient data based on patientID
     $sql = "SELECT * FROM tblpatient WHERE patientid = $patientID";
@@ -41,40 +41,40 @@ if (isset($_POST["patientID"])) {
             <input type="hidden" name="patientID" value="<?= $patientID ?>">
 
             <div class="modal-body">
-                <div class="nameage">
+                <div class>
                     <label for="firstName">First Name:</label>
                     <input class="form-control" type="text" id="firstName" name="fname" value="<?= $patientFirstName ?>">
                 </div>
 
-                <div class="nameage"><br>
+                <div class><br>
                     <label for="middleName">Middle Name:</label>
                     <input class="form-control" type="text" id="middleName" name="mname" value="<?= $patientMiddleName ?>">
                 </div>
 
-                <div class="nameage"><br>
+                <div class><br>
                     <label for="lastName">Last Name:</label>
                     <input class="form-control" type="text" id="lastName" name="lname" value="<?= $patientLastName ?>">
                 </div>
-                <div class="nameage"><br>
+                <div class><br>
                     <label for="age">Age:</label>
                     <input class="form-control" type="text" id="age" name="age" value="<?= $patientAge ?>">
                 </div>
-                <div class="nameage">
+                <div class>
                     <label for="sex">Sex:</label><br>
                     <input type="radio" name="sex" id="male" value="male" <?= ($patientSex === 'male') ? 'checked' : '' ?>>
                     <label for="male">Male</label>
                     <input type="radio" name="sex" id="female" value="female" <?= ($patientSex === 'female') ? 'checked' : '' ?>>
                     <label for="female">Female</label>
                 </div>
-                <div class="nameage">
+                <div class>
                     <label for="civilStatus">Civil Status:</label>
                     <input class="form-control" type="text" id="civilStatus" name="civilStatus" value="<?= $patientCivilStatus ?>">
                 </div>
-                <div class="nameage"><br>
+                <div class><br>
                     <label for="address">Address:</label>
                     <input class="form-control" type="text" id="address" name="address" value="<?= $patientAddress ?>">
                 </div>
-                <div class="nameage"><br>
+                <div class><br>
                     <label for="dateOfBirth">Date Of Birth:</label><br>
                     <input type="date" id="dateOfBirth" name="dateOfBirth" value="<?= $patientDateOfBirth ?>">
                 </div>

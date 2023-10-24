@@ -58,7 +58,7 @@ if (!isset($_SESSION['username'])) {
       <li class="nav-item">
         <a class="nav-link" href="adminindex.php">
           <i class="	fa fa-user-circle-o" style="font-size:24px;"></i>
-          <span class="menu-title " style="margin-left: 10px;">Add User</span>
+          <span class="menu-title " style="margin-left: 10px;">Users</span>
         </a>
       </li>
 

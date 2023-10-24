@@ -40,6 +40,13 @@ secfieldset - delete button, check deletepatient todo
 sectables - ok
 
 
+add clinictime for tbldoctor 
+medical history for tblpatients
+secretary can search for the availability of the doctor, different doctor, same time
+
+display the unavailability of the doctor and when will he/she be available (date)
+display medical history of the patient in patient record
+
 IREMOVE LANG OR EDIT KUNG ANO NA NATAPOS. INDI PAG DELETE NING FILE
 
 
