@@ -73,14 +73,13 @@
                                     <td><?= $row["UserRole"] ?></td>
                                     <td><?= $row["Username"] ?></td>
                                     <td>
-                                        <form action="edituser.php" method="GET" style="display: inline;">
+                                    <form action="edituser.php" method="GET" style="display: inline;">
                                             <input type="hidden" name="ID" value="<?= $row["ID"]; ?>"> <!-- Pass the user ID here -->
                                             <input type="hidden" name="UserRole" value="<?= $row["UserRole"]; ?>"> <!-- Pass the user role here -->
-                                            <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEditUser" data-toggle="tooltip" data-placement="top" title="Edit">
+                                            <button class="btn btn-success btn-sm rounded-0 open-user-modal" data-placement="top" title="Edit">
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                         </form>
-
 
                                         <form action="deleteuser.php" method="POST" style="display: inline;">
                                             <input type="hidden" name="ID" value="<?= $row["ID"]; ?>"> <!-- Pass the correct user ID here -->
