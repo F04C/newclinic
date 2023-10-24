@@ -82,12 +82,20 @@
                                         </form>
 
                                         <form action="deleteuser.php" method="POST" style="display: inline;">
-                                            <input type="hidden" name="ID" value="<?= $row["ID"]; ?>"> <!-- Pass the correct user ID here -->
-                                            <input type="hidden" name="UserRole" value="<?= $row["UserRole"]; ?>">
-                                            <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeleteUser" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </form>
+    <input type="hidden" name="ID" value="<?= $row["ID"]; ?>"> <!-- Pass the correct user ID here -->
+    <input type="hidden" name="UserRole" value="<?= $row["UserRole"]; ?>">
+    <button class="btn btn-danger btn-sm rounded-0" type="button" name="btnDeleteUser" data-toggle="tooltip" data-placement="top" title="Delete" onclick="confirmDelete()">
+        <i class="fa fa-trash"></i>
+    </button>
+</form>
+                                        <script>
+function confirmDelete() {
+    if (confirm("Are you sure you want to delete this?")) {
+        // If the user confirms, submit the form for deletion
+        document.querySelector('form[action="deleteuser.php"]').submit();
+    }
+}
+</script>
                                     </td>
                                 </tr>
                         <?php }
@@ -98,6 +106,7 @@
                         ?>
                     </tbody>
                 </table>
+                
             </div>
         </div>
     </div>

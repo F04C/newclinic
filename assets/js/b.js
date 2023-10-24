@@ -15,3 +15,10 @@
               // Close the modal
               $("#patientModal").modal("hide");
             }
+
+            function confirmDelete() {
+              if (confirm("Are you sure you want to delete this?")) {
+                  // If the user confirms, submit the form
+                  document.querySelector('form[action="deleteuser.php"]').submit();
+              }
+          }
