@@ -1,0 +1,8 @@
+.custom-fieldset {
+            max-width: 500px;
+            /* Set the maximum width */
+            margin: 0 auto;
+            /* Center the fieldset horizontally */
+            font-size: 14px;
+            /* Adjust font size as needed */
+        }

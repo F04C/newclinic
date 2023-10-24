@@ -21,22 +21,22 @@
                     <tbody>
                         <?php
                         $sql = "SELECT 
-            p.patientid AS PatientID,
-            p.fname AS PatientFirstName,
-            p.mname AS PatientMiddleName,
-            p.lname AS PatientLastName,
-            TIMESTAMPDIFF(YEAR, p.dateofbirth, CURDATE()) AS Age,
-            p.sex AS Sex,
-            d.fname AS DoctorAppointed,
-            a.date AS PreviousAppointmentDate
-        FROM 
-            tblappointment a
-        JOIN 
-            tblpatient p ON a.tblpatient_patientid = p.patientid
-        JOIN 
-            tbldoctor d ON a.tbldoctor_doctorid = d.doctorid
-        ORDER BY 
-            a.date DESC;";
+                                p.patientid AS PatientID,
+                                p.fname AS PatientFirstName,
+                                p.mname AS PatientMiddleName,
+                                p.lname AS PatientLastName,
+                                TIMESTAMPDIFF(YEAR, p.dateofbirth, CURDATE()) AS Age,
+                                p.sex AS Sex,
+                                d.fname AS DoctorAppointed,
+                                a.date AS PreviousAppointmentDate
+                            FROM 
+                                tblappointment a
+                            JOIN 
+                                tblpatient p ON a.tblpatient_patientid = p.patientid
+                            JOIN 
+                                tbldoctor d ON a.tbldoctor_doctorid = d.doctorid
+                            ORDER BY 
+                                a.date DESC;";
                         try {
                             $result = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -51,7 +51,6 @@
                                     <td>
                                         <!-- Edit Patient Form -->
                                         <form action="editpatient.php" method="POST" style="display: inline;">
-                                            <input type="hidden" name="patientID" value="<?php echo $row["PatientID"]; ?>">
                                             <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEditPatient">
                                                 <i class="fa fa-edit"></i>
                                             </button>
@@ -60,11 +59,12 @@
                                         <!-- Delete Patient Form -->
                                         <form action="deletepatient.php" method="POST" style="display: inline;">
                                             <input type="hidden" name="patientID" value="<?php echo $row["PatientID"]; ?>">
-                                            <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeletePatient" value="delete" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <button class="btn btn-danger btn-sm rounded-0" type="button" name="btnDeletePatient" value="delete" data-toggle="tooltip" data-placement="top" title="Delete" onclick="confirmDelete()">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </form>
                                     </td>
+
                                 </tr>
                         <?php }
                         } catch (Exception $e) {
@@ -73,6 +73,16 @@
                         ?>
                     </tbody>
                 </table>
+                    <script> 
+                                function confirmDelete() {
+                                if (confirm("Are you sure you want to remove it?")) {
+                                    // The user clicked "OK," proceed with the deletion
+                                    document.forms[0].submit(); // Submit the form for deletion
+                                } else {
+                                    // The user clicked "Cancel," do nothing
+                                }
+                            }
+                </script>
             </div>
         </div>
     </div>

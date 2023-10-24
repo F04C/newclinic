@@ -41,17 +41,7 @@ if (!isset($_SESSION["isSec"])) {
   <link rel="stylesheet" href="assets/css/demo_1/style.css" />
   <!-- End layout styles -->
   <link rel="shortcut icon" href="assets/images/favicon.png" />
-  <style>
-        /* Custom styles for the centered and smaller fieldset */
-        .custom-fieldset {
-            max-width: 500px;
-            /* Set the maximum width */
-            margin: 0 auto;
-            /* Center the fieldset horizontally */
-            font-size: 14px;
-            /* Adjust font size as needed */
-        }
-    </style>
+  <link rel="stylesheet" href="assets\css\sexindex.css" />
 </head>
 
 <body>

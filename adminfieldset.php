@@ -4,7 +4,6 @@
         <legend>
             <h1><b>Add User</b></h1>
         </legend>
-
         <div>
             <br>
             <label for="firstName">First Name:</label>
@@ -22,7 +21,6 @@
             <label for="lastName">Last Name:</label>
             <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
         </div>
-
         <div>
             <br>
             <label for="phoneNum">Address:</label>

@@ -30,6 +30,16 @@ if (isset($_POST["patientid"])) {
 
 <head>
     <!-- Your head content here -->
+       <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/demo_1/style.css" />
+    <link rel="stylesheet" href="assets\css\editpatient.css" />
+
 </head>
 
 <body>
@@ -81,11 +91,17 @@ if (isset($_POST["patientid"])) {
             </div>
         </fieldset>
         <div class="modal-footer-edit">
-            <div class="update-button">
-                <button type="submit" class="btn btn-primary" name="btnUpdatePatient">Update</button>
-            </div>
-        </div>
-    </form>
+    <div class="update-button">
+        <form action="updatepatient.php" method="POST">
+            <button type="submit" class="btn btn-primary" name="btnUpdatePatient">Update</button>
+        </form>
+    </div>
+
+<form action="secindex.php" method="POST">
+    <button type="submit" class="btn btn-secondary">Cancel</button>
+</form>
+</div>
+    
 </body>
 
 </html>
