@@ -51,10 +51,11 @@
                                     <td>
                                         <!-- Edit Patient Form -->
                                         <form action="editpatient.php" method="POST" style="display: inline;">
-                                            <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEditPatient">
+                                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="modal" data-target="#patientModal">
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                         </form>
+
 
                                         <!-- Delete Patient Form -->
                                         <form action="deletepatient.php" method="POST" style="display: inline;">
