@@ -21,7 +21,7 @@ adminindex - add confirm password, show modal same as adding user but blank in e
 
 
 
-deletepatient - show alert confirmation to remove the patient from the appointment (pagclick delete btn, maalert if iremove man gid sa appointment)
+deletepatient - show alert confirmation to remove the patient from the appointment (pagclick delete btn, maalert if iremove man gid sa appointment) = ok
 
 editpatient - check ni, iedit ni ang design ya nga daw modal tsura na pag display. =ok 
 no need nga magpopulate gamit ang js. sa php ko na ipopulate.
@@ -33,10 +33,10 @@ savepatient - check the code (wala ko kabalo kng saveuser/savepatient purpose si
 
 edituser - need modal for editing user accounts
 
-adminfieldset - line 54 butangi man toggle ang confirmpassword
+adminfieldset - line 54 butangi man toggle ang confirmpassword = ok
 
 
-check adminfieldset line 6, 27
+check adminfieldset line 6, 27 = ok
 
 edituser - need sng design same sa adminfieldset kng diin ko pwede mabutangan data (nd pag gamiti js)
 

@@ -58,7 +58,7 @@
 
                                         <!-- Delete Patient Form -->
                                         <form action="deletepatient.php" method="POST" style="display: inline;">
-                                            <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeletePatient" value="delete" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <button class="btn btn-danger btn-sm rounded-0" type="button" name="btnDeletePatient" value="delete" data-toggle="tooltip" data-placement="top" title="Delete" onclick="confirmDelete()">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </form>
@@ -72,6 +72,16 @@
                         ?>
                     </tbody>
                 </table>
+                    <script> 
+                                function confirmDelete() {
+                                if (confirm("Are you sure you want to remove it?")) {
+                                    // The user clicked "OK," proceed with the deletion
+                                    document.forms[0].submit(); // Submit the form for deletion
+                                } else {
+                                    // The user clicked "Cancel," do nothing
+                                }
+                            }
+                </script>
             </div>
         </div>
     </div>
