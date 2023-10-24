@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets\css\docfinding,css" />
 
 </head>
-<br><br><br><br><br>
+<br><br><br><br>
 <body>
     <form action="updatepatient.php" method="POST">
         <fieldset class="custom-fieldset">
@@ -36,13 +36,13 @@
                 <div>
             <br>
             <label for="findings">Findings:</label>
-            <textarea class="form-control" id="findings" name="findings" placeholder="Enter findings here" rows="4"></textarea>
+            <textarea class="form-control" id="findings" name="findings" placeholder="Enter findings here" rows="7"></textarea>
         </div>
 
         <div>
             <br>
             <label for="recommendation">Recommendation:</label>
-            <textarea class="form-control" id="recommendation" name="recommendation" placeholder="Enter recommendation here" rows="4"></textarea>
+            <textarea class="form-control" id="recommendation" name="recommendation" placeholder="Enter recommendation here" rows="7"></textarea>
         </div>
 
         </fieldset>
