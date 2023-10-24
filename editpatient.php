@@ -41,12 +41,13 @@ if (isset($_POST["patientid"])) {
     <link rel="stylesheet" href="assets\css\editpatient.css" />
 
 </head>
-
+<br><br>
 <body>
     <form action="updatepatient.php" method="POST">
         <fieldset class="custom-fieldset">
+            <br>
             <legend>
-                <h1><b>Patient Information</b></h1>
+                <h1 style="text-align: center;"><b>Patient Information</b></h1>
             </legend>
             <input type="hidden" name="patientID" value="<?= $patientID ?>">
 

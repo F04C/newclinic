@@ -46,11 +46,12 @@
     <link rel="stylesheet" href="assets/css/demo_1/style.css" />
     <link rel="stylesheet" href="assets\css\edituser.css" />
 </head>
-
+<br><br>
 <form action="saveuser.php" method="POST">
     <fieldset class="custom-fieldset">
+    <br>
         <legend>
-            <h1><b>Edit User</b></h1>
+            <h1 style="text-align: center;"><b>Edit User</b></h1>
         </legend>
         <div>
             <br>
