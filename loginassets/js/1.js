@@ -30,8 +30,13 @@ function showUserNotFoundAlert() {
 
 // Function to display the h5 element
 function showContactAdminMessage() {
-    $("#contactAdminMsg").css("display", "block");
+    $("#contactAdminMsg").removeClass("d-none"); // Remove the 'd-none' class to make it visible
 }
 
-// Variable (you may need to define this based on your application)
-var userExists = true; // Set to true if the user exists, false if not
+// Variable to check if the user exists
+var userExists = false; // Set to false if the user is not found
+
+// Check if the user exists
+if (!userExists) {
+    showContactAdminMessage(); // Display the message when the user is not found
+}

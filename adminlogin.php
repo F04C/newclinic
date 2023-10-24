@@ -20,7 +20,7 @@ if (isset($_POST["btnSignin"])) {
 
                 if ($executeSQL) {
                     // Check the number of rows returned
-                    $numRows = mysqli_num_rows($executeSQL);
+                    $numRows = mysqli_num_rows($executeSQL); 
 
                     if ($numRows == 1) {
                         echo "hello";
@@ -48,6 +48,8 @@ if (isset($_POST["btnSignin"])) {
                         }
                     } else {
                         echo "No user found!";
+                        header("Location: login.php?userNotFound=1");
+
                     }
                 } else {
                     echo "Query execution error!";
