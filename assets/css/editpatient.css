@@ -1,0 +1,37 @@
+.custom-fieldset {
+    max-width: 500px;
+    /* Set the maximum width */
+    margin: 0 auto;
+    /* Center the fieldset horizontally */
+    font-size: 14px;
+    /* Adjust font size as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-footer-edit {
+    display: flex;
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 0.3rem 10px 0.3rem 0; /* Adjust padding for top, right, and bottom */
+    border-top: 1px solid #e4e9f0;
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    border-bottom-left-radius: calc(0.3rem - 1px);
+    position: relative;
+    max-width: 500px;
+    /* Set the maximum width */
+    margin: 0 auto;
+    /* Center the fieldset horizontally */
+    font-size: 14px;
+    /* Adjust font size as needed */
+}
+
+.update-button {
+    margin-left: 320px; /* Adjust the space between the "Update" button and "Close" button */
+}
+
+/* Add background image to the body */
+body {
+    background-image: url('path-to-your-image.jpg'); /* Replace with the path to your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+}

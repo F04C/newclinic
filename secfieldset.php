@@ -1,5 +1,3 @@
-
-
 <fieldset class="custom-fieldset">
         <legend>
             <h1><b>Patient Information</b></h1>
@@ -20,9 +18,9 @@
                 <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
             </div>
             <div class="nameage"><br>
-                <label for="age">Age:</label>
-                <input class="form-control" type="text" id="age" name="age" placeholder="Ex. 15">
-            </div>
+    <label for="age">Age:</label>
+    <input class="form-control" type="text" id="age" name="age" placeholder="Ex. 15" pattern="[0-9]*" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+</div>
             <div class="nameage">
                 <label for="sex">Sex:</label><br>
                 <input type="radio" name="sex" id="male" value="male" checked>
