@@ -41,7 +41,7 @@ if (!isset($_SESSION["isSec"])) {
   <link rel="stylesheet" href="assets/css/demo_1/style.css" />
   <!-- End layout styles -->
   <link rel="shortcut icon" href="assets/images/favicon.png" />
-  <link rel="stylesheet" href="assets\css\sexindex.css" />
+  <link rel="stylesheet" href="assets\css\secindex.css" />
 </head>
 
 <body>
