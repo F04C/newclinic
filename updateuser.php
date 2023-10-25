@@ -3,16 +3,16 @@ require_once 'dbconn.php';
 
 if (isset($_POST['btnUpdateUser'])) {
     // Retrieve form data
+    $userID = $_POST['id']; // Get the user ID
     $firstName = $_POST['fname'];
     $middleName = $_POST['mname'];
     $lastName = $_POST['lname'];
     $address = $_POST['address'];
     $phoneNum = $_POST['phonenum'];
-    $userRole = $_POST['userRole']; // Add this line to get the user role
-    $userID = $_POST['userID']; // Add this line to get the user ID
+    $userRole = $_POST['UserPos']; // Get the user role (Doctor or Secretary)
 
     // Check the user role and retrieve additional fields if needed
-    if ($userRole === 'Doc') {
+    if ($userRole === 'doc') {
         $specialization = $_POST['specialization'];
         $licno = $_POST['licno'];
 

@@ -3,6 +3,7 @@
 require "dbconn.php";
 
 if (isset($_POST["btnDeleteUser"])) {
+
     // Retrieve the user ID and UserRole to be soft-deleted
     if (isset($_POST["ID"]) && isset($_POST["UserRole"])) {
         $userID = $_POST["ID"]; // Ensure to validate and sanitize user input
