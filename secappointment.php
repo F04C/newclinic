@@ -1,4 +1,3 @@
-
 <div class="main-panel">
     <div class="content-wrapper pb-0">
         <div class="page-header flex-wrap">
@@ -11,6 +10,15 @@
                 </div>
             </div>
         </div>
+        <div>
+            <?php
+            if (isset($_GET['msg']) && !empty($_GET['msg'])) {
+                // Display the success message
+                echo '<div class="msg">' . $_GET['msg'] . '</div>';
+            } ?>
+        </div>
+
+        <br>
         <!-- Modal for adding patient information -->
         <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

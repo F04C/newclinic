@@ -66,14 +66,12 @@ if (isset($_POST["btnEditUser"])) {
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/demo_1/style.css" />
     <link rel="shortcut icon" href="assets/images/favicon.png" />
-
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="assets/css/demo_1/style.css" />
-        <link rel="stylesheet" href="assets\css\edituser.css" />
-    </head>
-    <br><br>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/demo_1/style.css" />
+    <link rel="stylesheet" href="assets\css\edituser.css" />
+</head>
+<br><br>
 
 <body>
     <div class="container">

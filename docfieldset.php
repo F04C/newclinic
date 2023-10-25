@@ -8,7 +8,9 @@
                                 TIMESTAMPDIFF(YEAR, p.dateofbirth, CURDATE()) AS Age,
                                 p.sex AS Sex,
                                 d.fname AS DoctorAppointed,
-                                a.date AS PreviousAppointmentDate
+                                a.date AS PreviousAppointmentDate,
+                                p.findings AS Findings,
+                                p.recommendation as Recommendations
                             FROM 
                                 tblappointment a
                             JOIN 

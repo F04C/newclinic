@@ -59,12 +59,13 @@ if (!isset($_SESSION["isDoc"])) {
             <div class="main-panel">
                 <div class="content-wrapper pb-0">
                     <div class="page-header flex-wrap">
-                        <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
-                            <div class="d-flex align-items-center">
+                        <div class="header-right d-flex flex-wrap mt-2 mt-sm-0 justify-content-end">
+                            <div class="d-flex align-items-right">
                                 <input type="text" class="form-control border-0" placeholder="Search" />
                             </div>
                         </div>
                     </div>
+
                     <div class="col-xl-12 stretch-card grid-margin">
                         <div class="card">
                             <div class="card-body pb-0">
