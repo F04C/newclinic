@@ -1,5 +1,4 @@
 <?php
-
 require "dbconn.php";
 
 if (isset($_POST["btnSignin"])) {
@@ -7,58 +6,42 @@ if (isset($_POST["btnSignin"])) {
         $usernameInput = $_POST["inputUsername"];
         $userpassInput = $_POST["inputPassword"];
 
+        // Check if the user exists based on the username
         $sql = "SELECT u.username, u.password, r.isAdmin, r.isSec, r.isDoc
         FROM tbluserauth AS u
         JOIN tbluserroles AS r ON u.tbluserroles_roleid = r.roleid
-        WHERE u.username = '" . $usernameInput . "' AND u.password = '" . $userpassInput . "';";
+        WHERE u.username = '" . $usernameInput . "' LIMIT 1";
+        $result = mysqli_query($conn, $sql);
 
-        // Connect to the database server
-        if ($conn) {
-            // Execute the SQL query
-            try {
-                $executeSQL = mysqli_query($conn, $sql);
+        if ($result && mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
+            $hashedPassword = $row["password"];
 
-                if ($executeSQL) {
-                    // Check the number of rows returned
-                    $numRows = mysqli_num_rows($executeSQL); 
+            // Verify the hashed password
+            if (password_verify($userpassInput, $hashedPassword)) {
+                // Password is correct
+                session_start();
+                $_SESSION["username"] = $row["username"];
+                $_SESSION["isAdmin"] = $row["isAdmin"];
+                $_SESSION["isSec"] = $row["isSec"];
+                $_SESSION["isDoc"] = $row["isDoc"];
 
-                    if ($numRows == 1) {
-                        echo "hello";
-                        // Fetch user information, including roles
-                        $record = mysqli_fetch_assoc($executeSQL);
-
-                        // Create sessions
-                        session_start();
-                        $_SESSION["username"] = $record["username"];
-                        // Store user roles in the session
-                        $_SESSION["isAdmin"] = $record["isAdmin"];
-                        $_SESSION["isSec"] = $record["isSec"];
-                        $_SESSION["isDoc"] = $record["isDoc"];
-
-                        // Redirect to the appropriate page based on user role
-                        if ($record["isAdmin"] == 1) {
-                            header("Location:adminindex.php");
-                        } elseif ($record["isDoc"] == 1) {
-                            header("Location:docappointment.php");
-                        } elseif ($record["isSec"] == 1) {
-                            header("Location:secindex.php");
-                        } else {
-                            // Handle other roles or scenarios as needed
-                            echo "Unknown user role!";
-                        }
-                    } else {
-                        echo "No user found!";
-                        header("Location: login.php?userNotFound=1");
-
-                    }
+                if ($row["isAdmin"] == 1) {
+                    header("Location: adminindex.php");
+                } elseif ($row["isDoc"] == 1) {
+                    header("Location: docappointment.php");
+                } elseif ($row["isSec"] == 1) {
+                    header("Location: secindex.php");
                 } else {
-                    echo "Query execution error!";
+                    // Handle other roles or scenarios as needed
+                    echo "Unknown user role!";
                 }
-            } catch (Exception $e) {
-                echo "Error" . $e;
+            } else {
+                echo "Incorrect password!";
             }
         } else {
-            echo "Database connection error!";
+            echo "No user found!";
+            header("Location: login.php?userNotFound=1");
         }
     } else {
         echo "Username and password are required.";

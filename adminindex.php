@@ -63,7 +63,7 @@ if (!isset($_SESSION["isAdmin"])) {
                 <div class="content-wrapper pb-0">
                     <div class="page-header flex-wrap">
                         <div class="header-left">
-                            <!--create modal for adding users on the db -->
+                            <!--create button for moda popup -->
                             <button class="btn btn-primary mb-2 mb-md-0 me-2" data-toggle="modal" data-target="#patientModal">Create New User</button>
                         </div>
                         <div class="header-right d-flex flex-wrap mt-2 mt-sm-0">
@@ -79,7 +79,7 @@ if (!isset($_SESSION["isAdmin"])) {
                     } ?>
                     <br>
 
-                    <!-- Modal for adding patient information -->
+                    <!-- Modal for adding user information -->
                     <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -96,16 +96,11 @@ if (!isset($_SESSION["isAdmin"])) {
                         </div>
                     </div>
 
-                    <!-- JavaScript for handling form submission -->
-
                     <?php
                     include 'admintables.php';
                     ?>
 
-                    <!-- plugins:js -->
                     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-                    <!-- endinject -->
-                    <!-- Plugin js for this page -->
                     <script src="assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
                     <script src="assets/vendors/chart.js/Chart.min.js"></script>
                     <script src="assets/vendors/flot/jquery.flot.js"></script>
@@ -114,19 +109,14 @@ if (!isset($_SESSION["isAdmin"])) {
                     <script src="assets/vendors/flot/jquery.flot.fillbetween.js"></script>
                     <script src="assets/vendors/flot/jquery.flot.stack.js"></script>
                     <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
-                    <!-- End plugin js for this page -->
-                    <!-- inject:js -->
                     <script src="assets/js/off-canvas.js"></script>
                     <script src="assets/js/hoverable-collapse.js"></script>
                     <script src="assets/js/misc.js"></script>
                     <script src="assets/js/settings.js"></script>
                     <script src="assets/js/todolist.js"></script>
-                    <!-- endinject -->
-                    <!-- Custom js for this page -->
                     <script src="assets/js/dashboard.js"></script>
                     <script src="assets\js\a.js"></script>
 
-                    <!-- End custom js for this page -->
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 _navbar- ok
 _settings-panel - ok
 _sidebar - ok
-adminlogin - apply password hashing and mysqli_prepare
+adminlogin - ok
 dbconn - ok
 login - ok
 logout - ok
@@ -14,10 +14,10 @@ logout - ok
 adminfieldset - ok
 adminindex - ok
 admintables - ok
-deleteuser - ned na lang confirmation kung idelete mn gd
+deleteuser - ok
 edituser - ok
 saveuser - ok
-updateuser-ok
+updateuser- ok
 
 
 ====for doc and sec ====

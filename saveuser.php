@@ -2,10 +2,7 @@
 require_once "dbconn.php";
 session_start();
 
-//used to check whether there is a POST
-//var_dump($_POST);
-
-//check if the session is an admin
+// Check if the session is an admin
 if (!isset($_SESSION['isAdmin'])) {
     header('Location: login.php');
 }
@@ -24,6 +21,9 @@ if (isset($_POST["btnSaveUser"])) {
         $username = $_POST['username'];
         $password = $_POST['userPass'];
 
+        // Hash the password
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
         if ($userpos == 'isSec') {
             // Insert data into tblsec
             $sql = "INSERT INTO tblsec (fname, mname, lname, phonenum, address) 
@@ -38,13 +38,11 @@ if (isset($_POST["btnSaveUser"])) {
                 $sql2 = "INSERT INTO tbluserroles (isSec, secIDFK) VALUES (1, $secIDFK)";
                 $result2 = mysqli_query($conn, $sql2);
 
-
-                // ok na dri ang sql statement need na lang 
                 if ($result2) {
                     $tbluserroleroleid = mysqli_insert_id($conn);
-                    // Insert user authentication data into tbluserauth
+                    // Insert user authentication data into tbluserauth with hashed password
                     $sql1 = "INSERT INTO tbluserauth (username, password, tbluserroles_roleid) 
-                            VALUES ('$username', '$password', $tbluserroleroleid)";
+                            VALUES ('$username', '$hashedPassword', $tbluserroleroleid)";
                     $result1 = mysqli_query($conn, $sql1);
 
                     if ($result1) {

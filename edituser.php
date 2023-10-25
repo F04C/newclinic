@@ -1,6 +1,46 @@
 <?php
-// Include your database connection code here
-require "dbconn.php";
+require_once "dbconn.php";
+
+if (isset($_POST["btnEditUser"])) {
+    $userID = $_POST["ID"];
+    $userRole = $_POST["UserRole"];
+
+    // Query the database to get user data
+    $sql = "";
+    if ($userRole === 'Doc') {
+        $sql = "SELECT d.fname as FirstName, d.mname as MiddleName, d.lname as LastName, 
+                d.phonenum as PhoneNum, d.address as DAddress, d.specialization as Specialization,
+                d.licensenum as LicenseNo, ua.username as Username
+                FROM tbldoctor d
+                JOIN tbluserroles ur ON d.doctorid = ur.doctorIDFK
+                JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+                WHERE d.isDeleted = 0 AND d.doctorid = $userID";
+    } elseif ($userRole === 'Sec') {
+        $sql = "SELECT s.fname as FirstName, s.mname as MiddleName, s.lname as LastName,
+                s.phonenum as PhoneNum, s.address as DAddress, ua.username as Username
+                FROM tblsec s
+                LEFT JOIN tbluserroles ur ON s.userid = ur.secIDFK
+                LEFT JOIN tbluserauth ua ON ur.roleid = ua.tbluserroles_roleid
+                WHERE s.isDeleted = 0 AND s.userid = $userID";
+    }
+
+    $result = mysqli_query($conn, $sql);
+
+    if ($result && mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        $firstName = $row["FirstName"];
+        $middleName = $row["MiddleName"];
+        $lastName = $row["LastName"];
+        $DAddress = $row["DAddress"];
+        $PhoneNo = $row["PhoneNum"];
+        $userName = $row["Username"];
+
+        if ($userRole === 'Doc') {
+            $Specialization = $row["Specialization"];
+            $LicenseNo = $row["LicenseNo"];
+        }
+    }
+}
 ?>
 
 <head>
@@ -34,121 +74,106 @@ require "dbconn.php";
         <link rel="stylesheet" href="assets\css\edituser.css" />
     </head>
     <br><br>
-    <fieldset class="custom-fieldset">
-        <?php
-        require_once "editquery.php";
-        ?>
-        <br>
-        <legend>
-            <h1 style="text-align: center;"><b>Edit User</b></h1>
-        </legend>
-        <div>
-            <br>
-            <label for="firstName">First Name:</label>
-            <input class="form-control" type="text" id="firstName" name="fname" value="<?php echo $firstName; ?>">
-        </div>
 
-        <div>
+<body>
+    <div class="container">
+        <br><br>
+        <fieldset class="custom-fieldset">
             <br>
-            <label for="middleName">Middle Name:</label>
-            <input class="form-control" type="text" id="middleName" name="mname" value="<?php echo $middleName; ?>">
-        </div>
-
-        <div>
-            <br>
-            <label for="lastName">Last Name:</label>
-            <input class="form-control" type="text" id="lastName" name="lname" value="<?php echo $lastName; ?>">
-        </div>
-        <div>
-            <br>
-            <label for="phoneNum">Address:</label>
-            <input class="form-control" type="text" id="Address" name="address" value="<?php echo $DAddress; ?>">
-        </div>
-
-        <div>
-            <br>
-            <label for="phoneNum">Phone Number:</label>
-            <input class="form-control" type="text" id="phoneNum" name="phonenum" value="<?php echo $PhoneNo; ?>">
-        </div>
-
-        <div>
-            <br>
-            <label for="userPos">User Position:</label>
-            <br>
-            <input type="radio" name="UserPos" id="sec" value="isSec" <?php echo ($userRole === 'isSec') ? 'checked' : ''; ?>>
-            <label for="sec">Secretary</label>
-            <input type="radio" name="UserPos" id="doctor" value="isDoc" <?php echo ($userRole === 'isDoc') ? 'checked' : ''; ?>>
-            <label for="doctor">Doctor</label>
-        </div>
-
-
-        <div id="specializationDiv">
-            <br>
-            <label for="specialization">Specialization:</label>
-            <input class="form-control" type="text" id="specialization" name="specialization" placeholder="Ex. General Medicine" value="<?php echo $Specialization; ?>">
-        </div>
-
-        <div id="licenseDiv">
-            <br>
-            <label for="licno">License Number:</label>
-            <input class="form-control" type="text" id="licno" name="licno" placeholder="Ex. 123456789" value="<?php echo $LicenseNo; ?>">
-        </div>
-
-
-        <div>
-            <br>
-            <label for="username">User Name:</label>
-            <input class="form-control" type="text" id="username" name="username" placeholder="User Name" value="<?php echo $userName; ?>">
-        </div>
-
-        <div>
-            <br>
-            <div>
-                <label for="userPass">Password:</label>
-                <div class="password-input-container">
-                    <input class="form-control" type="password" id="userPass" name="userPass" placeholder="Password" value="<?php echo $password; ?>">
-                    <button id="togglePassword" type="button" onclick="togglePasswordVisibility('userPass', 'eyeIcon')">
-                        <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
-                    </button>
+            <legend>
+                <h1 style="text-align: center;"><b>Edit User</b></h1>
+            </legend>
+            <form action="updateuser.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $_POST["ID"]; ?>">
+                <input type="hidden" name="userRole" value="<?php echo  $_POST["UserRole"]; ?>">
+                <div>
+                    <br>
+                    <label for="firstName">First Name:</label>
+                    <input class="form-control" type="text" id="firstName" name="fname" value="<?php echo $firstName; ?>">
                 </div>
-            </div>
 
-            <div>
+                <div>
+                    <br>
+                    <label for="middleName">Middle Name:</label>
+                    <input class="form-control" type="text" id="middleName" name="mname" value="<?php echo $middleName; ?>">
+                </div>
+
+                <div>
+                    <br>
+                    <label for="lastName">Last Name:</label>
+                    <input class="form-control" type="text" id="lastName" name="lname" value="<?php echo $lastName; ?>">
+                </div>
+                <div>
+                    <br>
+                    <label for="Address">Address:</label>
+                    <input class="form-control" type="text" id="Address" name="address" value="<?php echo $DAddress; ?>">
+                </div>
+
+                <div>
+                    <br>
+                    <label for="phoneNum">Phone Number:</label>
+                    <input class="form-control" type="text" id="phoneNum" name="phonenum" value="<?php echo $PhoneNo; ?>">
+                </div>
+
+                <div>
+                    <br>
+                    <label for="userPos">User Position:</label>
+                    <br>
+                    <input type="radio" name="userRole" id="sec" value="isSec" <?php echo ($userRole === 'isSec') ? 'checked' : ''; ?>>
+                    <label for="sec">Secretary</label>
+                    <input type="radio" name="userRole" id="doctor" value="isDoc" <?php echo ($userRole === 'isDoc') ? 'checked' : ''; ?>>
+                    <label for="doctor">Doctor</label>
+                </div>
+
+
+                <?php if ($userRole === 'isDoc') : ?>
+                    <div id="specializationDiv">
+                        <br>
+                        <label for="specialization">Specialization:</label>
+                        <input class="form-control" type="text" id="specialization" name="specialization" placeholder="Ex. General Medicine" value="<?php echo $Specialization; ?>">
+                    </div>
+
+                    <div id="licenseDiv">
+                        <br>
+                        <label for="licno">License Number:</label>
+                        <input class="form-control" type="text" id="licno" name="licno" placeholder="Ex. 123456789" value="<?php echo $LicenseNo; ?>">
+                    </div>
+                <?php endif; ?>
+
+                <div>
+                    <br>
+                    <label for="username">User Name:</label>
+                    <input class="form-control" type="text" id="username" name="username" placeholder="User Name" value="<?php echo $userName; ?>">
+                </div>
+
+                <div>
+                    <br>
+                    <div>
+                        <label for="userPass">Password:</label>
+                        <div class="password-input-container">
+                            <input class="form-control" type="password" id="userPass" name="userPass" placeholder="Password">
+                            <button id="togglePassword" type="button" onclick="togglePasswordVisibility('userPass', 'eyeIcon')">
+                                <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <br>
+                        <label for="confirmUserPass">Confirm Password:</label>
+                        <div class="password-input-container">
+                            <input class="form-control" type="password" id="confirmUserPass" name="confirmUserPass" placeholder="Confirm Password">
+                            <button id="togglePassword" type="button" onclick="toggleConfPasswordVisibility('confirmUserPass', 'eyeIconConfirm')">
+                                <i id="eyeIconConfirm" class="fa fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <br>
-                <label for="confirmUserPass">Confirm Password:</label>
-                <div class="password-input-container">
-                    <input class="form-control" type="password" id="confirmUserPass" name="confirmUserPass" placeholder="Confirm Password">
-                    <button id="togglePassword" type="button" onclick="toggleConfPasswordVisibility('confirmUserPass', 'eyeIconConfirm')">
-                        <i id="eyeIconConfirm" class="fa fa-eye" aria-hidden="true"></i>
-                    </button>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary" name="btnUserSaveChanges">Save Changes</button>
                 </div>
-            </div>
-        </div>
-    </fieldset>
-
-    <div class="update-button row">
-        <form class="col-md-6" action="updateuser.php" method="POST">
-            <button type="submit" class="btn btn-primary" name="btnUpdateUser">Update</button>
-            <input type="hidden" name="id" value="<?php echo $ID; ?>">
-            <input type="hidden" name="fname" value="<?php echo $firstName; ?>">
-            <input type="hidden" name="mname" value="<?php echo $middleName; ?>">
-            <input type="hidden" name="lname" value="<?php echo $lastName; ?>">
-            <input type="hidden" name="address" value="<?php echo $DAddress; ?>">
-            <input type="hidden" name="phonenum" value="<?php echo $PhoneNo; ?>">
-            <input type="hidden" name="UserPos" value="<?php echo $userRole; ?>">
-            <input type="hidden" name="specialization" value="<?php echo $Specialization; ?>">
-            <input type="hidden" name="licno" value="<?php echo $LicenseNo; ?>">
-            <input type="hidden" name="username" value="<?php echo $userName; ?>">
-            <input type="hidden" name="userPass" value="<?php echo $password; ?>">
-        </form>
-        <div class="col-md-6">
-            <form action="adminindex.php" method="POST">
-                <button type="submit" class="btn btn-secondary">Cancel</button>
             </form>
-        </div>
-    </div>
-    </div>
-
-
-
-    <script src="assets/js/a.js"></script>
+        </fieldset>
+</body>
+<script src="assets/js/a.js"></script>

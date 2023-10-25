@@ -1,64 +1,71 @@
+<?php
+require_once 'dbconn.php';
+
+$patientFMname = "";
+$patientLname = "";
+if (isset($_POST['btnFinalize'])) {
+    $patientID = $_POST['patientID'];
+
+    $sql = "SELECT * FROM tblpatient
+            WHERE patientid = '$patientID'";
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $patientFMname = $row["fname"] . $row["mname"];
+        $patientLname = $row["lname"];
+        echo "" . $patientID;
+    }
+}
+
+?>
+<!--
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Your head content here -->
-       <!-- endinject -->
-    <!-- Plugin css for this page -->
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/demo_1/style.css" />
-    <link rel="stylesheet" href="assets\css\docfinding,css" />
-
+    <link rel="stylesheet" href="assets/css/docfinding.css" />
 </head>
-<br><br><br><br>
+
 <body>
-    <form action="updatepatient.php" method="POST">
-        <fieldset class="custom-fieldset">
-            <legend>
-                <h1><b>Patient Information</b></h1>
-            </legend>
-            <input type="hidden" name="patientID" value="<?= $patientID ?>">
+    <fieldset class="custom-fieldset">
+        <legend>
+            <h1><b>Patient Information</b></h1>
+        </legend>
+        <div class="modal-body">
+            <div>
+                <label for="firstName">First Name:</label>
+                <input class="form-control" type="text" id="firstName" name="fname" value="<?= $patientFMname ?>">
+            </div>
 
-            <div class="modal-body">
-                <div class>
-                    <label for="firstName">First Name:</label>
-                    <input class="form-control" type="text" id="firstName" name="fname" value="<?= $patientFirstName ?>">
-                </div>
-                
-                <div class><br>
-                    <label for="lastName">Last Name:</label>
-                    <input class="form-control" type="text" id="lastName" name="lname" value="<?= $patientLastName ?>">
-                </div>
-                <div>
-            <br>
-            <label for="findings">Findings:</label>
-            <textarea class="form-control" id="findings" name="findings" placeholder="Enter findings here" rows="7"></textarea>
+            <div>
+                <br>
+                <label for="lastName">Last Name:</label>
+                <input class="form-control" type="text" id="lastName" name="lname" value="<?= $patientLname ?>">
+            </div>
+            <div>
+                <br>
+                <label for="findings">Findings:</label>
+                <textarea class="form-control" id="findings" name="findings" placeholder="Enter findings here" rows="7"></textarea>
+            </div>
+
+            <div>
+                <br>
+                <label for="recommendation">Recommendation:</label>
+                <textarea class="form-control" id="recommendation" name="recommendation" placeholder="Enter recommendation here" rows="7"></textarea>
+            </div>
         </div>
+    </fieldset>
 
-        <div>
-            <br>
-            <label for="recommendation">Recommendation:</label>
-            <textarea class="form-control" id="recommendation" name="recommendation" placeholder="Enter recommendation here" rows="7"></textarea>
+    <div class="modal-footer-edit">
+        <div class="update-button" onclick="updatepatient.php">
+            <button type="submit" class="btn btn-primary" name="btnDone">Done</button>
         </div>
-
-        </fieldset>
-        
-        <div class="modal-footer-edit">
-    <div class="update-button">
-        <form action="" method="POST">
-            <button type="submit" class="btn btn-primary" name="btnUpdatePatient">Done</button>
-        </form>
+        <button type="submit" class="btn btn-secondary" onclick="docappointment.php">Cancel</button>
     </div>
-
-<form action="docappointment.php" method="POST">
-    <button type="submit" class="btn btn-secondary">Cancel</button>
-</form>
-</div>
-    
 </body>
 
-</html>
+</html>-->

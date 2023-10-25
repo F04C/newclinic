@@ -64,30 +64,30 @@
         <div>
             <br>
             <div>
-    <label for="userPass">Password:</label>
-    <div class="password-input-container">
-        <input class="form-control" type="password" id="userPass" name="userPass" placeholder="Password">
-        <button id="togglePassword" type="button" onclick="togglePasswordVisibility('userPass', 'eyeIcon')">
-            <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
-        </button>
-    </div>
-</div>
+                <label for="userPass">Password:</label>
+                <div class="password-input-container">
+                    <input class="form-control" type="password" id="userPass" name="userPass" placeholder="Password">
+                    <button id="togglePassword" type="button" onclick="togglePasswordVisibility('userPass', 'eyeIcon')">
+                        <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
 
-<div>
-    <br>
-    <label for="confirmUserPass">Confirm Password:</label>
-    <div class="password-input-container">
-        <input class="form-control" type="password" id="confirmUserPass" name="confirmUserPass" placeholder="Confirm Password">
-        <button id="togglePassword" type="button" onclick="toggleConfPasswordVisibility('confirmUserPass', 'eyeIconConfirm')">
-            <i id="eyeIconConfirm" class="fa fa-eye" aria-hidden="true"></i>
-        </button>
-    </div>
-</div>
+            <div>
+                <br>
+                <label for="confirmUserPass">Confirm Password:</label>
+                <div class="password-input-container">
+                    <input class="form-control" type="password" id="confirmUserPass" name="confirmUserPass" placeholder="Confirm Password">
+                    <button id="togglePassword" type="button" onclick="toggleConfPasswordVisibility('confirmUserPass', 'eyeIconConfirm')">
+                        <i id="eyeIconConfirm" class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
 
 
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" name="btnSaveUser">Save</button>
-        </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" name="btnSaveUser">Save</button>
+            </div>
     </fieldset>
 </form>
 

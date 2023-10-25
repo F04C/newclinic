@@ -32,25 +32,16 @@ if (!isset($_SESSION["isDoc"])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Add your custom CSS and JavaScript below -->
     <style>
-        /* Add your custom CSS styles here */
         .custom-fieldset {
             border: 1px solid #ccc;
             padding: 20px;
             border-radius: 5px;
         }
     </style>
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
     <link rel="stylesheet" href="assets/vendors/jquery-bar-rating/css-stars.css" />
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/demo_1/style.css" />
-    <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
 </head>
 
@@ -124,19 +115,20 @@ if (!isset($_SESSION["isDoc"])) {
                                                         <td><?= $row["Sex"] ?></td>
                                                         <td><?= $row["PreviousAppointmentDate"] ?></td>
                                                         <td>
-                                                        <form action="docfinding.php" method="POST" style="display: inline;">
-                                                                <input type="hidden" name="patientid" value=""> <!-- Pass the user ID here -->
-                                                                <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnCheck" data-toggle="tooltip" data-placement="top" title="Done">
+                                                            <form action="docfinding.php" method="POST" style="display: inline;">
+                                                                <input type="hidden" name="patientID" value="<?= $patientID ?>">
+
+                                                                <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnFinalize" data-toggle="tooltip" data-placement="top" title="Done">
                                                                     <i class="fa fa-check"></i>
-                                                                </button>                                            
+                                                                </button>
                                                             </form>
 
-                                                            <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnWrong" data-toggle="tooltip" data-placement="top" title="Wrong">
+                                                            <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeleteDocPatient" data-toggle="tooltip" data-placement="top" title="Remove">
                                                                 <i class="fa fa-times"></i>
                                                             </button>
 
                                                     </tr>
-            
+
                                             <?php }
                                             } catch (Exception $e) {
                                                 echo "Error: " . $e->getMessage();
