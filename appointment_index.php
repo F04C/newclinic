@@ -119,60 +119,8 @@
 
 
             <!-- User Position -->
-            <div>
-                <br>
-                <label for="userPos">User Position:</label>
-                <br>
-                <input type="radio" name="UserPos" id="sec" value="isSec" checked>
-                <label for="sec">Secretary</label>
-                <input type="radio" name="UserPos" id="doctor" value="isDoc">
-                <label for="doctor">Doctor</label>
-            </div>
 
-            <!-- Specialization -->
-            <div id="specializationDiv">
-                <br>
-                <label for="specialization">Specialization:</label>
-                <input class="form-control" type="text" id="specialization" name="specialization" placeholder="Ex. General Medicine">
-            </div>
 
-            <!-- License Number -->
-            <div id="licenseDiv">
-                <br>
-                <label for="licno">License Number:</label>
-                <input class="form-control" type="text" id="licno" name="licno" placeholder="Ex. 123456789">
-            </div>
-
-            <!-- User Name -->
-            <div>
-                <br>
-                <label for="username">User Name:</label>
-                <input class="form-control" type="text" id="username" name="username" placeholder="User Name">
-            </div>
-
-            <!-- Password -->
-            <div>
-                <br>
-                <label for="userPass">Password:</label>
-                <div class="password-input-container">
-                    <input class="form-control" type="password" id="userPass" name="userPass" placeholder="Password">
-                    <button id="togglePassword" type="button" onclick="togglePasswordVisibility('userPass', 'eyeIcon')">
-                        <i id="eyeIcon" class="fa fa-eye" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Confirm Password -->
-            <div>
-                <br>
-                <label for="confirmUserPass">Confirm Password:</label>
-                <div class="password-input-container">
-                    <input class="form-control" type="password" id="confirmUserPass" name="confirmUserPass" placeholder="Confirm Password">
-                    <button id="togglePassword" type="button" onclick="toggleConfPasswordVisibility('confirmUserPass', 'eyeIconConfirm')">
-                        <i id="eyeIconConfirm" class="fa fa-eye" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
 
 
 
