@@ -19,3 +19,42 @@ edituser - ok
 saveuser - ok
 updateuser- ok
 
+
+====for doc and sec ====
+deletepatient - ok 
+editpatient - need na lang data para sa radio button tas ok na
+patientrecord - need icon for add appointment (daw + sign) 
+updatepatient - ok
+
+
+====for doctor====
+docappointment - remove search bar?, bring back the delete button, 3 buttons in action. 1 for edit, 2 for done, 3 for delete
+done - js for is it done, also php to remove the patient from the queue, use this to update the data of the patient like the data of the appointment to be used for "previous appointment"
+
+
+====for sec====
+savepatient - ok
+secappointment - search bar js for row searching
+secfieldset - ok
+sectables - ok
+
+====for appointment====
+addappointment - coding to populate the tblappointment
+saveappointment - to save the data from appointment_tables
+
+
+
+for future
+-------------------------------------------------------------------------------------
+add clinictime for tbldoctor 
+medical history for tblpatients
+secretary can search for the availability of the doctor, different doctor, same time
+
+display the unavailability of the doctor and when will he/she be available (date)
+display medical history of the patient in patient record
+
+
+IREMOVE LANG OR EDIT KUNG ANO NA NATAPOS. INDI PAG DELETE NING FILE
+
+
+
