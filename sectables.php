@@ -54,7 +54,7 @@ require_once 'dbconn.php'
                                     <td><?= $row["DoctorAppointed"] ?></td>
                                     <td><?= $row["PreviousAppointmentDate"] ?></td>
                                     <td>
-                                        <!-- Edit Patient Form -->
+                                        <!-- Edit Patient Submit Form -->
                                         <form action="editpatient.php" method="POST" style="display: inline;">
                                             <input type="hidden" name="patientID" value="<?php echo $row['PatientID']; ?>">
 
