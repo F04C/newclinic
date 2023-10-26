@@ -7,6 +7,29 @@ if (!isset($_SESSION["isDoc"]) || !isset($_SESSION["isSec"])) {
     exit; // Make sure to exit after a header redirect
 }
 
+// Check if the patient ID is provided via GET request
+if (isset($_GET['patientID'])) {
+    $patientID = $_GET['patientID'];
+
+    // Query the database to get patient data based on the patient ID
+    $sql = "SELECT * FROM tblpatient WHERE patientid = $patientID";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result && mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        $patientFirstName = $row["fname"];
+        $patientMiddleName = $row["mname"];
+        $patientLastName = $row["lname"];
+        $patientAge = $row["patientage"];
+        $patientSex = $row["sex"];
+        $patientCivilStatus = $row["civilstatus"];
+        $patientAddress = $row["address"];
+        $patientDateOfBirth = $row["dateofbirth"];
+    }
+} else {
+    // Handle the case where no patient ID is provided or it's invalid
+    // You can redirect or show an error message here
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,8 +110,8 @@ if (!isset($_SESSION["isDoc"]) || !isset($_SESSION["isSec"])) {
                                 </div>
 
                                 <?php
-                    include 'secfieldset.php'
-                    ?>
+                                include 'secfieldset.php'
+                                ?>
                                 <!-- Your patient information form here -->
                             </div>
                         </div>
@@ -117,47 +140,9 @@ if (!isset($_SESSION["isDoc"]) || !isset($_SESSION["isSec"])) {
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-                                        <tbody>
-                                            <?php
-                                            $sql = "SELECT * FROM `tblpatient`"; // Update the table name to tblpatient
-                                            try {
-                                                $result = mysqli_query($conn, $sql);
-                                                while ($row = mysqli_fetch_assoc($result)) { ?>
-                                                    <tr>
-                                                        <td><?= $row["fname"] ?></td>
-                                                        <td><?= $row["mname"] ?></td>
-                                                        <td><?= $row["lname"] ?></td>
-                                                        <td><?= $row["patientage"] ?></td>
-                                                        <td><?= $row["sex"] ?></td>
-                                                        <td><?= $row["civilstatus"] ?></td>
-                                                        <td><?= $row["address"] ?></td>
-                                                        <td><?= $row["dateofbirth"] ?></td>
-                                                        <td>
-                                                            <form action="editpatient.php" method="POST" style="display: inline;">
-                                                                <input type="hidden" name="patientid" value="<?= $row["patientid"]; ?>"> <!-- Pass the user ID here -->
-                                                                <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEditPatient" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                    <i class="fa fa-edit"></i>
-                                                                </button>
-                                                            </form>
-
-
-                                                            <form action="deletepatient.php" method="POST" style="display: inline;">
-                                                                <input type="hidden" name="ID" value="<?= $row["patientid"]; ?>"> <!-- Pass the correct user ID here -->
-                                                                <button class="btn btn-danger btn-sm rounded-0" type="submit" name="btnDeleteUser" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                            <?php }
-                                            } catch (Exception $e) {
-                                                echo "Error: " . $e->getMessage();
-                                            }
-                                            ?>
-
-                                        <tbody>
-                                        </tbody>
+                                        <?php
+                                        require_once 'patient_record_fieldset.php'
+                                        ?>
                                         <tfooter>
                                     </table>
                                 </div>
