@@ -1,7 +1,7 @@
 ====global====
 _navbar- ok
 _settings-panel - ok
-_sidebar - ok
+_sidebar - stop the sidebar from scrolling with the page
 adminlogin - ok
 dbconn - ok
 login - ok

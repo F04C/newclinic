@@ -14,6 +14,12 @@
                 <td><?= $row["address"] ?></td>
                 <td><?= $row["dateofbirth"] ?></td>
                 <td>
+                    <form action="addappointment.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="patientid" value="<?= $row["patientid"]; ?>"> <!-- Pass the patient ID here -->
+                        <button class="btn btn-primary btn-sm rounded-0" type="submit" name="btnAddAppointment" data-toggle="tooltip" data-placement="top" title="Add Appointment">
+                            Add Appointment
+                        </button>
+                    </form>
                     <form action="editpatient.php" method="POST" style="display: inline;">
                         <input type="hidden" name="patientid" value="<?= $row["patientid"]; ?>"> <!-- Pass the user ID here -->
                         <button class="btn btn-success btn-sm rounded-0" type="submit" name="btnEditPatient" data-toggle="tooltip" data-placement="top" title="Edit">

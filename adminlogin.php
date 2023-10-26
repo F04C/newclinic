@@ -7,10 +7,11 @@ if (isset($_POST["btnSignin"])) {
         $userpassInput = $_POST["inputPassword"];
 
         // Check if the user exists based on the username
-        $sql = "SELECT u.username, u.password, r.isAdmin, r.isSec, r.isDoc
-        FROM tbluserauth AS u
-        JOIN tbluserroles AS r ON u.tbluserroles_roleid = r.roleid
-        WHERE u.username = '" . $usernameInput . "' LIMIT 1";
+        $sql = "SELECT u.username, u.password, r.isAdmin, r.isSec, r.isDoc, r.secIDFK
+                FROM tbluserauth AS u
+                JOIN tbluserroles AS r ON u.tbluserroles_roleid = r.roleid
+                WHERE u.username = '" . $usernameInput . "' LIMIT 1";
+
         $result = mysqli_query($conn, $sql);
 
         if ($result && mysqli_num_rows($result) === 1) {
@@ -25,6 +26,7 @@ if (isset($_POST["btnSignin"])) {
                 $_SESSION["isAdmin"] = $row["isAdmin"];
                 $_SESSION["isSec"] = $row["isSec"];
                 $_SESSION["isDoc"] = $row["isDoc"];
+                $_SESSION["secIDFK"] = $row["secIDFK"];
 
                 if ($row["isAdmin"] == 1) {
                     header("Location: adminindex.php");

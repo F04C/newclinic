@@ -2,7 +2,7 @@
 require "dbconn.php";
 
 session_start();
-if (!isset($_SESSION["isSec"])) {
+if (!isset($_SESSION["isSec"]) && (!isset($_SESSION["secIDFK"]))) {
   header("Location: login.php");
 }
 ?>
@@ -53,7 +53,7 @@ if (!isset($_SESSION["isSec"])) {
       <?php include "_settings-panel.php"; ?>
       <!-- partial:partials/_navbar.php -->
       <?php include "_navbar.php"; ?>
-      
+
 
 
       <?php
