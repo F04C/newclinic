@@ -112,10 +112,7 @@
                 <!--for doctor populate-->
                 <label for="FreeDoctor">Doctor:</label>
                 <select class="form-control" id="civilStatus" name="civilStatus">
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Separated">Separated</option>
+
                 </select>
             </div>
 
