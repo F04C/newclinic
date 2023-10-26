@@ -40,7 +40,7 @@ if (isset($_POST["btnSignin"])) {
                 }
             } else {
                 echo "Incorrect password!";
-                header("Location: login.php");
+                header("Location: login.php?userNotFound=1");
             }
         } else {
             echo "No user found!";
@@ -48,6 +48,6 @@ if (isset($_POST["btnSignin"])) {
         }
     } else {
         echo "Username and password are required.";
-        header("Location: login.php");
+        header("Location: login.php?userNotFound=1");
     }
 }
