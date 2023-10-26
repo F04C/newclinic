@@ -17,7 +17,7 @@
                     <form action="addappointment.php" method="POST" style="display: inline;">
                         <input type="hidden" name="patientid" value="<?= $row["patientid"]; ?>"> <!-- Pass the patient ID here -->
                         <button class="btn btn-primary btn-sm rounded-0" type="submit" name="btnAddAppointment" data-toggle="tooltip" data-placement="top" title="Add Appointment">
-                            Add Appointment
+                        <i class = "fa fa-plus"></i>
                         </button>
                     </form>
                     <form action="editpatient.php" method="POST" style="display: inline;">
