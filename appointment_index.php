@@ -109,7 +109,8 @@
             <!-- Type -->
             <div>
                 <br>
-                <label for="civilStatus">Civil Status:</label>
+                <!--for doctor populate-->
+                <label for="FreeDoctor">Doctor:</label>
                 <select class="form-control" id="civilStatus" name="civilStatus">
                     <option value="Single">Single</option>
                     <option value="Married">Married</option>
