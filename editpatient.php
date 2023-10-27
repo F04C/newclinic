@@ -51,9 +51,11 @@ if (isset($_POST["patientID"])) {
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/demo_1/style.css" />
     <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <link rel="stylesheet" href="assets\css\editpatient.css" />
 </head>
 
 <body>
+    <br>
     <form action="updatepatient.php" method="POST">
         <fieldset class="custom-fieldset">
             <legend>
