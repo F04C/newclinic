@@ -1,19 +1,15 @@
 <?php
-require "dbconn.php";
+require_once "dbconn.php";
 
-if (isset($_POST["patientID"])) {
+if (isset($_POST["btnPatientEdit"])) {
     $patientID = $_POST["patientID"];
 
-    // Construct the SQL query to fetch patient data based on patientID
+    // Query the database to get patient data
     $sql = "SELECT * FROM tblpatient WHERE patientid = $patientID";
-
-    // Execute the query
     $result = mysqli_query($conn, $sql);
 
-    if ($result && mysqli_num_rows($result) > 0) {
+    if ($result && mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-
-        // Populate form fields with retrieved data
         $patientFirstName = $row["fname"];
         $patientMiddleName = $row["mname"];
         $patientLastName = $row["lname"];
@@ -23,8 +19,21 @@ if (isset($_POST["patientID"])) {
         $patientAddress = $row["address"];
         $patientDateOfBirth = $row["dateofbirth"];
     }
+    // Debug statements
+    /*
+    echo "Patient ID: " . $patientID . "<br>";
+    echo "First Name: " . $patientFirstName . "<br>";
+    echo "Middle Name: " . $patientMiddleName . "<br>";
+    echo "Last Name: " . $patientLastName . "<br>";
+    echo "Age: " . $patientAge . "<br>";
+    echo "Sex: " . $patientSex . "<br>";
+    echo "Civil Status: " . $patientCivilStatus . "<br>";
+    echo "Address: " . $patientAddress . "<br>";
+    echo "Date of Birth: " . $patientDateOfBirth . "<br>";
+    */
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,6 +62,7 @@ if (isset($_POST["patientID"])) {
     <link rel="shortcut icon" href="assets/images/favicon.png" />
     <link rel="stylesheet" href="assets\css\editpatient.css" />
 </head>
+<br><br>
 
 <body>
     <br>
@@ -63,52 +73,52 @@ if (isset($_POST["patientID"])) {
             </legend>
             <input type="hidden" name="patientID" value="<?= $patientID ?>">
 
-            <div class="modal-body">
-                <div class="nameage">
-                    <label for="firstName">First Name:</label>
-                    <input class="form-control" type="text" id="firstName" name="fname" value="<?= $patientFirstName ?>">
-                </div>
+                <div class="modal-body">
+                    <div class>
+                        <label for="firstName">First Name:</label>
+                        <input class="form-control" type="text" id="firstName" name="fname" value="<?= $patientFirstName ?>">
+                    </div>
 
-                <div class="nameage"><br>
-                    <label for="middleName">Middle Name:</label>
-                    <input class="form-control" type="text" id="middleName" name="mname" value="<?= $patientMiddleName ?>">
-                </div>
+                    <div class><br>
+                        <label for="middleName">Middle Name:</label>
+                        <input class="form-control" type="text" id="middleName" name="mname" value="<?= $patientMiddleName ?>">
+                    </div>
 
-                <div class="nameage"><br>
-                    <label for="lastName">Last Name:</label>
-                    <input class="form-control" type="text" id="lastName" name="lname" value="<?= $patientLastName ?>">
+                    <div class><br>
+                        <label for="lastName">Last Name:</label>
+                        <input class="form-control" type="text" id="lastName" name="lname" value="<?= $patientLastName ?>">
+                    </div>
+                    <div class><br>
+                        <label for="age">Age:</label>
+                        <input class="form-control" type="text" id="age" name="age" value="<?= $patientAge ?>">
+                    </div>
+                    <div class>
+                        <label for="sex">Sex:</label><br>
+                        <input type="radio" name="sex" id="male" value="male" <?= ($patientSex === 'male') ? 'checked' : '' ?>>
+                        <label for="male">Male</label>
+                        <input type="radio" name="sex" id="female" value="female" <?= ($patientSex === 'female') ? 'checked' : '' ?>>
+                        <label for="female">Female</label>
+                    </div>
+                    <div class>
+                        <label for="civilStatus">Civil Status:</label>
+                        <input class="form-control" type="text" id="civilStatus" name="civilStatus" value="<?= $patientCivilStatus ?>">
+                    </div>
+                    <div class><br>
+                        <label for="address">Address:</label>
+                        <input class="form-control" type="text" id="address" name="address" value="<?= $patientAddress ?>">
+                    </div>
+                    <div class><br>
+                        <label for="dateOfBirth">Date Of Birth:</label><br>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" value="<?= $patientDateOfBirth ?>">
+                    </div>
+                    <br>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary" name="btnPatientUpdate">Save Changes</button>
+                    </div>
                 </div>
-                <div class="nameage"><br>
-                    <label for="age">Age:</label>
-                    <input class="form-control" type="text" id="age" name="age" value="<?= $patientAge ?>">
-                </div>
-                <div class="nameage">
-                    <label for="sex">Sex:</label><br>
-                    <input type="radio" name="sex" id="male" value="male" <?= ($patientSex === 'male') ? 'checked' : '' ?>>
-                    <label for="male">Male</label>
-                    <input type="radio" name="sex" id="female" value="female" <?= ($patientSex === 'female') ? 'checked' : '' ?>>
-                    <label for="female">Female</label>
-                </div>
-                <div class="nameage">
-                    <label for="civilStatus">Civil Status:</label>
-                    <input class="form-control" type="text" id="civilStatus" name="civilStatus" value="<?= $patientCivilStatus ?>">
-                </div>
-                <div class="nameage"><br>
-                    <label for="address">Address:</label>
-                    <input class="form-control" type="text" id="address" name="address" value="<?= $patientAddress ?>">
-                </div>
-                <div class="nameage"><br>
-                    <label for="dateOfBirth">Date Of Birth:</label><br>
-                    <input type="date" id="dateOfBirth" name="dateOfBirth" value="<?= $patientDateOfBirth ?>">
-                </div>
-            </div>
-        </fieldset>
-        <div class="modal-footer-edit">
-            <div class="update-button">
-                <button type="submit" class="btn btn-primary" name="btnUpdatePatient">Update</button>
-            </div>
-        </div>
-    </form>
+            </fieldset>
+    </div>
+
 </body>
 
 </html>
