@@ -147,6 +147,7 @@ if (isset($_GET['patientID'])) {
                                     <table class="table custom-table text-dark">
                                         <thead>
                                             <tr>
+                                            <th>ID</th>
                                                 <th>First Name</th>
                                                 <th>Middle Name</th>
                                                 <th>Last Name</th>
