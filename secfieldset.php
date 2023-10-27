@@ -6,8 +6,8 @@
         <div class="modal-body">
             <div class="nameage">
                 <label for="firstName">First Name:</label>
-                <input class="form-control" type="text" id="firstName" name="fname" placeholder="First Name">
-            </div>
+                <input class="form-control" type="text" id="firstName" name="fname" placeholder="First Name" >
+            </div> 
 
             <div class="nameage"><br>
                 <label for="middleName">Middle Name:</label>
