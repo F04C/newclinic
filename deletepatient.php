@@ -21,3 +21,7 @@ if (isset($_POST["btnDeletePatient"])) {
 }
 
 mysqli_close($conn);
+
+
+
+//check patientid

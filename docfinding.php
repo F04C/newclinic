@@ -20,7 +20,7 @@ if (isset($_POST['btnFinalize'])) {
 }
 
 ?>
-<!--
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,4 +68,4 @@ if (isset($_POST['btnFinalize'])) {
     </div>
 </body>
 
-</html>-->
+</html>

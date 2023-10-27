@@ -117,6 +117,24 @@ if (isset($_GET['patientID'])) {
                         </div>
                     </div>
 
+                    <div class="modal fade" id="addAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="patientModalLabel">Add Appointment</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <?php
+                                include 'add_appointment_existing.php'
+                                ?>
+                                <!-- Your patient information form here -->
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- JavaScript for handling form submission -->
 
                     <div class="col-xl-12 stretch-card grid-margin">

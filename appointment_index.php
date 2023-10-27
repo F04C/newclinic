@@ -56,7 +56,7 @@
             <!-- Age -->
             <div>
                 <br>
-                <label for="lastName">Age:</label>
+                <label for="age">Age:</label>
                 <input class="form-control" type="text" id="age" name="age" placeholder="Age">
             </div>
 
@@ -109,23 +109,41 @@
             <!-- Type -->
             <div>
                 <br>
-                <!--for doctor populate-->
-                <label for="FreeDoctor">Doctor:</label>
-                <select class="form-control" id="civilStatus" name="civilStatus">
+                <label for="type">Type:</label>
+                <select class="form-control" id="type_appointment" name="type_appointment">
+                    <option value="CheckUp">Check Up</option>
+                    <option value="FollowUp">Follow Up</option>
+                </select>
+            </div>
 
+
+            <div>
+                <br>
+                <!-- for doctor populate -->
+                <label for="FreeDoctor">Doctor:</label>
+                <select class="form-control" id="doctor" name="doctor">
+                    <?php
+                    require "dbconn.php"; // Include your database connection
+
+                    // Query to fetch doctor data from tbldoctor
+                    $sql = "SELECT doctorid, fname, lname FROM tbldoctor";
+                    $result = mysqli_query($conn, $sql);
+
+                    if ($result) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $doctorId = $row['doctorid'];
+                            $doctorFullName = $row['fname'] . ' ' . $row['lname'];
+                            echo "<option value='$doctorId'>$doctorFullName</option>";
+                        }
+                    }
+                    ?>
                 </select>
             </div>
 
 
 
-            <!-- User Position -->
-
-
-
-
-
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" name="btnSaveUser">Save</button>
+                <button type="submit" class="btn btn-primary" name="btnAddAppointment">Add</button>
             </div>
         </fieldset>
     </form>

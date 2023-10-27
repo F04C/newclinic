@@ -1,7 +1,7 @@
 <?php
 require_once "dbconn.php";
 
-if (isset($_POST["btnPatientUpdate"])) {
+if (isset($_POST["btnUpdatePatient"])) {
     $patientID = $_POST["patientID"];
     $firstName = $_POST["fname"];
     $middleName = $_POST["mname"];
