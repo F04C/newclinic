@@ -65,7 +65,7 @@ if (!isset($_SESSION["isAdmin"])) {
                         // Display the success message
                         echo '<div class="msg">' . $_GET['msg'] . '</div>';
                     } ?>
-                    <br>
+
 
                     <!-- Modal for adding user information -->
                     <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
