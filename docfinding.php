@@ -31,6 +31,7 @@ if (isset($_POST['btnFinalize'])) {
 </head>
 
 <body>
+    <br>
     <fieldset class="custom-fieldset">
         <legend>
             <h1><b>Patient Information</b></h1>
