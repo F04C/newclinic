@@ -18,7 +18,6 @@
             } ?>
         </div>
 
-        <br>
         <!-- Modal for adding patient information -->
         <div class="modal fade" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

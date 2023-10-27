@@ -25,10 +25,10 @@
                         <input type="hidden" name="civilstatus" value="<?= $row["civilstatus"] ?>">
                         <input type="hidden" name="address" value="<?= $row["address"] ?>">
                         <input type="hidden" name="dateofbirth" value="<?= $row["dateofbirth"] ?>">
-
+<!--
                         <button class="btn btn-primary btn-sm rounded-0" type="submit" name="btnAddExistingAppointment" data-toggle="modal" data-target="#addAppointmentModal" data-placement="top" title="Add Appointment">
                             <i class="fa fa-plus"></i>
-                        </button>
+                        </button> -->
                     </form>
                     <form action="editpatient.php" method="POST" style="display: inline;">
                         <input type="hidden" name="patientID" value="<?= $row["patientid"]; ?>">
