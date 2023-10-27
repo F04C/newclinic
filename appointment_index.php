@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/demo_1/style.css" />
     <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <link rel="stylesheet" href="assets\css\number.css">
 </head>
 
 <body>
@@ -57,7 +58,7 @@
             <div>
                 <br>
                 <label for="age">Age:</label>
-                <input class="form-control" type="text" id="age" name="age" placeholder="Age">
+                <input class="form-control" type="number" id="age" name="age" placeholder="Age" in="0" max="9999999999" inputmode="numeric" pattern="[0-9]*">
             </div>
 
             <!-- Sex -->
@@ -89,7 +90,7 @@
             <div>
                 <br>
                 <label for="phoneNum">Phone Number:</label>
-                <input class="form-control" type="text" id="phoneNum" name="phonenum" placeholder="Ex. 09123456789">
+                <input class="form-control" type="number" id="phoneNum" name="phonenum" placeholder="Ex. 09123456789" in="0" max="9999999999" inputmode="numeric" pattern="[0-9]*">
             </div>
 
             <!-- Address -->

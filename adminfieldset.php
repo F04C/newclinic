@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets\css\number.css">
 <form action="saveuser.php" method="POST">
     <fieldset class="custom-fieldset">
         <legend>
@@ -30,7 +31,8 @@
         <div>
             <br>
             <label for="phoneNum">Phone Number:</label>
-            <input class="form-control" type="text" id="phoneNum" name="phonenum" placeholder="Ex. 09123456789">
+            <input class="form-control" type="number" id="phoneNum" name="phonenum" placeholder="Ex. 09123456789" min="0" max="9999999999" inputmode="numeric">
+
         </div>
 
         <div>
@@ -52,7 +54,7 @@
         <div id="licenseDiv">
             <br>
             <label for="licno">License Number:</label>
-            <input class="form-control" type="text" id="licno" name="licno" placeholder="Ex. 123456789">
+            <input class="form-control" type="number" id="licno" name="licno" placeholder="Ex. 123456789 " inputmode="numeric">
         </div>
 
         <div>

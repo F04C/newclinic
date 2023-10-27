@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="assets\css\number.css">
 <form action="savepatient.php" method="POST">
     <fieldset class="custom-fieldset">
         <legend>
@@ -19,8 +20,9 @@
                 <input class="form-control" type="text" id="lastName" name="lname" placeholder="Last Name">
             </div>
             <div class="nameage"><br>
-                <label for="age">Age:</label>
-                <input class="form-control" type="text" id="age" name="age" placeholder="Ex. 15" pattern="[0-9]*" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+            <label for="age">Age:</label>
+            <input class="form-control" type="number" id="age" name="age" placeholder="Ex. 15" min="0" max="9999999999" inputmode="numeric" pattern="[0-9]*">
+
             </div>
             <div class="nameage"><br>
                 <label for="sex">Sex:</label>
@@ -43,7 +45,7 @@
             </div>
             <div class="nameage"><br>
                 <label for="civilStatus">Phone Number:</label>
-                <input class="form-control" type="text" id="phonenum" name="phonenum" placeholder="Ex. Single">
+                <input class="form-control" type="number" id="phonenum" name="phonenum" placeholder="Ex. 0912345678"  min="0" max="9999999999" inputmode = "numeric" pattern="[0-9]*">
             </div>
             <div class="nameage"><br>
                 <label for="address">Address:</label>
