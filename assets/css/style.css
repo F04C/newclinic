@@ -2295,6 +2295,7 @@ progress {
 .container-lg,
 .container-xl,
 .container-xxl {
+  position: relative; 
   width: 100%;
   padding-right: var(--bs-gutter-x, 0.75rem);
   padding-left: var(--bs-gutter-x, 0.75rem);
@@ -5354,7 +5355,7 @@ textarea.is-invalid.tt-hint {
   .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    display: flexs;
     -ms-flex-wrap: inherit;
     flex-wrap: inherit;
     -webkit-box-align: center;
@@ -15411,7 +15412,7 @@ dl {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 60px);
-  background: #ffffff;
+  background: #ffffff; /* Set your desired background color */
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   padding: 0;
@@ -15421,7 +15422,8 @@ dl {
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
-  -ms-transition: width 0.25s ease, background 0.25s ease; }
+  -ms-transition: width 0.25s ease, background 0.25s ease;
+  position: fixed; /* Add this line to keep the sidebar fixed */ }
   .sidebar .nav {
     overflow: hidden;
     -ms-flex-wrap: nowrap;
@@ -15893,8 +15895,13 @@ dl {
   .sidebar-absolute .page-body-wrapper {
     position: relative; }
     .sidebar-absolute .page-body-wrapper .sidebar {
-      -webkit-transition: none;
-      transition: none; }
+      position: fixed; /* Change the position to fixed */
+      width: 260px; /* Make sure it matches the sidebar width */
+      z-index: 1; /* Adjust the z-index as needed */
+      height: 100%; /* Occupy the full height of the viewport */
+      overflow-y: auto; /* Add a vertical scrollbar if needed */
+      background-color: #ffffff; /* Set your desired background color */
+      border-right: 1px solid #e4e9f0; }
   .sidebar-absolute:not(.sidebar-hidden) .sidebar {
     position: absolute;
     -webkit-box-shadow: 0 0 3px 1px #a7a3a3;
@@ -15902,7 +15909,7 @@ dl {
     /* Firefox 3.5 - 3.6 */
     box-shadow: 0 0 3px 1px #a7a3a3;
     /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */ }
-  .sidebar-absolute .main-panel {
+  .q-absolute .main-panel {
     width: 100%;
     -webkit-transition: none;
     transition: none; } }

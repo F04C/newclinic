@@ -26,7 +26,7 @@ if (!isset($_SESSION['username'])) {
       <form class="d-flex align-items-center" action="#">
         <div class="input-group">
           <div class="input-group-prepend">
-          </div>
+          </div>a
       </form>
     </li>
     <li class="pt-2 pb-1">
